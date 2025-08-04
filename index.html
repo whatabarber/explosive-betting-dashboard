@@ -496,21 +496,27 @@
         // Load dashboard data
         async function loadDashboardData() {
             try {
-                // In production, this would fetch from your GitHub-hosted JSON
-                // For now, we'll simulate with demo data
-                const response = await fetch('./dashboard_data.json').catch(() => null);
+                // Try to fetch real data from your GitHub repo
+                const response = await fetch('./data/dashboard_data.json').catch(() => 
+                    // Fallback: try direct GitHub raw URL
+                    fetch('https://raw.githubusercontent.com/YOUR-USERNAME/explosive-betting-dashboard/main/data/dashboard_data.json')
+                );
                 
                 if (response && response.ok) {
                     dashboardData = await response.json();
+                    console.log('✅ Loaded real betting data!', dashboardData);
                 } else {
-                    // Demo data for testing
+                    // Demo data as fallback
+                    console.log('⚠️ Using demo data - check GitHub setup');
                     dashboardData = createDemoData();
                 }
                 
                 updateDashboard();
             } catch (error) {
                 console.error('Error loading data:', error);
-                showError('Failed to load betting data');
+                console.log('📊 Using demo data as fallback');
+                dashboardData = createDemoData();
+                updateDashboard();
             }
         }
 
