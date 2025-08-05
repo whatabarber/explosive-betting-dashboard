@@ -742,55 +742,176 @@
             `;
         }
 
-        function updateGames() {
-            const container = document.getElementById('gamesContainer');
-            
-            if (!dashboardData.games || dashboardData.games.length === 0) {
-                container.innerHTML = '<div class="error">No games found<button class="refresh-btn" onclick="loadDashboardData()">Refresh</button></div>';
-                return;
-            }
+function updateGames() {
+    const container = document.getElementById('gamesContainer');
+    
+    if (!dashboardData.games || dashboardData.games.length === 0) {
+        container.innerHTML = '<div class="error">No games found<button class="refresh-btn" onclick="loadDashboardData()">Refresh</button></div>';
+        return;
+    }
 
-            container.innerHTML = dashboardData.games.map(game => {
-                const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
-                                      game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
+    container.innerHTML = dashboardData.games.map(game => {
+        const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
+                              game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
+        
+        const hasWeatherAlert = game.weather && game.weather.impact !== 'neutral';
+        
+        return `
+            <div class="game-card ${confidenceClass}">
+                <div class="game-header">
+                    <div class="matchup">${game.matchup}</div>
+                    <div class="confidence-badge">${game.ai_confidence}% AI</div>
+                </div>
                 
-                const hasWeatherAlert = game.weather && game.weather.impact !== 'neutral';
-                
-                return `
-                    <div class="game-card ${confidenceClass}">
-                        <div class="game-header">
-                            <div class="matchup">${game.matchup}</div>
-                            <div class="confidence-badge">${game.ai_confidence}% AI</div>
-                        </div>
-                        
-                        <div style="color: #a0a0a0; margin-bottom: 15px;">
-                            📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
-                        </div>
+                <div style="color: #a0a0a0; margin-bottom: 15px;">
+                    📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
+                </div>
 
-                        ${hasWeatherAlert ? `
-                            <div class="weather-alert">
-                                🌤️ ${game.weather.betting_advice ? game.weather.betting_advice[0] : 'Weather Impact'}
+                ${hasWeatherAlert ? `
+                    <div class="weather-alert">
+                        🌤️ ${game.weather.betting_advice ? game.weather.betting_advice[0] : 'Weather Impact'}
+                    </div>
+                ` : ''}
+
+                <!-- ENHANCED TEAM INTEL SECTION -->
+                <div class="team-intel-section" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin: 20px 0;">
+                    <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                        🔥 TEAM INTEL & MATCHUP ANALYSIS
+                    </h4>
+                    
+                    <!-- Team Rankings Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                        <div class="team-stats">
+                            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
+                                ${game.away_team || game.matchup.split(' @ ')[0]}
                             </div>
-                        ` : ''}
-
-                        <div class="bets-container">
-                            ${game.betting_recommendations.map(bet => `
-                                <div class="bet-item">
-                                    <div class="bet-header">
-                                        <div class="bet-text">${bet.bet}</div>
-                                        <div class="bet-units">${bet.unit_size}</div>
-                                    </div>
-                                    <div class="bet-reasoning">${bet.reasoning}</div>
-                                    <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
-                                        📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
-                                    </div>
-                                </div>
-                            `).join('')}
+                            <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                🏈 Offense: #${game.team_rankings?.away_offense_rank || 'N/A'} (${game.team_rankings?.away_ppg || 'N/A'} PPG)<br>
+                                🛡️ Defense: #${game.team_rankings?.away_defense_rank || 'N/A'} (${game.team_rankings?.away_ppg_allowed || 'N/A'} allowed)<br>
+                                🏠 Record: ${game.team_records?.away_record || 'N/A'}<br>
+                                📊 ATS: ${game.team_records?.away_ats || 'N/A'}
+                            </div>
+                        </div>
+                        <div class="team-stats">
+                            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
+                                ${game.home_team || game.matchup.split(' @ ')[1]}
+                            </div>
+                            <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                🏈 Offense: #${game.team_rankings?.home_offense_rank || 'N/A'} (${game.team_rankings?.home_ppg || 'N/A'} PPG)<br>
+                                🛡️ Defense: #${game.team_rankings?.home_defense_rank || 'N/A'} (${game.team_rankings?.home_ppg_allowed || 'N/A'} allowed)<br>
+                                🏠 Record: ${game.team_records?.home_record || 'N/A'}<br>
+                                📊 ATS: ${game.team_records?.home_ats || 'N/A'}
+                            </div>
                         </div>
                     </div>
-                `;
-            }).join('');
-        }
+
+                    <!-- Mismatch Analysis -->
+                    ${game.matchup_analysis ? `
+                        <div style="background: rgba(255,107,53,0.1); border-left: 3px solid #ff6b35; padding: 12px; margin: 15px 0; border-radius: 8px;">
+                            <div style="font-weight: 600; color: #ff6b35; margin-bottom: 8px;">⚔️ KEY MISMATCHES</div>
+                            ${game.matchup_analysis.map(analysis => `
+                                <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+
+                    <!-- Trends & History -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
+                        <div style="background: rgba(75,222,128,0.1); padding: 12px; border-radius: 8px;">
+                            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">📈 HOT TRENDS</div>
+                            <div style="font-size: 0.85rem; color: #a0a0a0;">
+                                ${game.trends?.positive || 'Loading trends...'}
+                            </div>
+                        </div>
+                        <div style="background: rgba(239,68,68,0.1); padding: 12px; border-radius: 8px;">
+                            <div style="font-weight: 600; color: #ef4444; margin-bottom: 8px;">📉 COLD TRENDS</div>
+                            <div style="font-size: 0.85rem; color: #a0a0a0;">
+                                ${game.trends?.negative || 'Loading trends...'}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Head to Head -->
+                    ${game.head_to_head ? `
+                        <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin: 15px 0;">
+                            <div style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">⚔️ HEAD TO HEAD</div>
+                            <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                Last 5 meetings: ${game.head_to_head.last_5 || 'N/A'}<br>
+                                Total trend: ${game.head_to_head.total_trend || 'N/A'}<br>
+                                Home team advantage: ${game.head_to_head.home_advantage || 'N/A'}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+
+                <!-- CURRENT LINES & MOVEMENT -->
+                <div class="lines-section" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin: 20px 0;">
+                    <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                        📊 CURRENT LINES & MOVEMENT
+                    </h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                        <div class="line-item">
+                            <div style="font-weight: 600; color: #4ade80;">SPREAD</div>
+                            <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.spread || 'Loading...'}</div>
+                            <div style="font-size: 0.8rem; color: ${game.line_movement?.spread_direction === 'up' ? '#4ade80' : '#ef4444'};">
+                                ${game.line_movement?.spread_movement || 'No movement'}
+                            </div>
+                        </div>
+                        <div class="line-item">
+                            <div style="font-weight: 600; color: #4ade80;">TOTAL</div>
+                            <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.total || 'Loading...'}</div>
+                            <div style="font-size: 0.8rem; color: ${game.line_movement?.total_direction === 'up' ? '#4ade80' : '#ef4444'};">
+                                ${game.line_movement?.total_movement || 'No movement'}
+                            </div>
+                        </div>
+                        <div class="line-item">
+                            <div style="font-weight: 600; color: #4ade80;">MONEYLINE</div>
+                            <div style="font-size: 1.1rem; margin: 5px 0;">${game.current_lines?.moneyline || 'Loading...'}</div>
+                            <div style="font-size: 0.8rem; color: #a0a0a0;">
+                                ${game.line_movement?.ml_movement || 'Stable'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI BETTING ANALYSIS -->
+                <div class="bets-container">
+                    <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                        🤖 AI BETTING RECOMMENDATIONS
+                    </h4>
+                    ${game.betting_recommendations.map(bet => `
+                        <div class="bet-item">
+                            <div class="bet-header">
+                                <div class="bet-text">${bet.bet}</div>
+                                <div class="bet-units">${bet.unit_size}</div>
+                            </div>
+                            <div class="bet-reasoning">${bet.reasoning}</div>
+                            ${bet.intel_edge ? `
+                                <div style="background: rgba(75,222,128,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
+                                    🎯 <strong>Edge:</strong> ${bet.intel_edge}
+                                </div>
+                            ` : ''}
+                            <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
+                                📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <!-- PARLAY OPPORTUNITIES -->
+                ${game.parlay_legs ? `
+                    <div class="parlay-opportunities" style="background: rgba(75,222,128,0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
+                        <div style="font-weight: 600; color: #4ade80; margin-bottom: 10px;">🎲 PARLAY LEGS AVAILABLE</div>
+                        ${game.parlay_legs.map(leg => `
+                            <div style="font-size: 0.9rem; margin-bottom: 5px;">• ${leg}</div>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }).join('');
+}
 
         function updatePerformanceChart() {
             const ctx = document.getElementById('performanceChart').getContext('2d');
