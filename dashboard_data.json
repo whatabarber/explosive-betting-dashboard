@@ -1,7 +1,7 @@
 {
-  "last_update": "2025-08-05T01:13:27.748980",
+  "last_update": "2025-08-05T17:43:27.415113",
   "summary": {
-    "total_games": 9,
+    "total_games": 10,
     "total_bets": 0,
     "high_confidence_bets": 0,
     "weather_impacted_games": 0,
@@ -11,216 +11,587 @@
   "games": [
     {
       "matchup": "Las Vegas Raiders @ Seattle Seahawks",
+      "away_team": "Las Vegas Raiders",
+      "home_team": "Seattle Seahawks",
       "date": "2025-08-08",
       "time": "02:00 AM EST",
       "league": "NFL",
       "ai_confidence": 58,
       "projected_total": 50.75,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 19,
-          "def_rank": 19,
-          "ppg": 24.4
-        },
-        "away": {
-          "off_rank": 25,
-          "def_rank": 29,
-          "ppg": 18.0
-        }
+      "team_rankings": {
+        "away_offense_rank": 25,
+        "away_defense_rank": 29,
+        "away_ppg": 18.0,
+        "away_ppg_allowed": 31.8,
+        "home_offense_rank": 19,
+        "home_defense_rank": 19,
+        "home_ppg": 24.4,
+        "home_ppg_allowed": 27.3
       },
+      "team_records": {
+        "away_record": "10-7",
+        "away_ats": "9-7",
+        "home_record": "12-4",
+        "home_ats": "9-5"
+      },
+      "matchup_analysis": [
+        "\ud83c\udfaf **HIGH-SCORING PROJECTED**: 50.8 points expected"
+      ],
+      "trends": {
+        "positive": "Las Vegas Raiders: 4-8 ATS on road \u2022 Seattle Seahawks: 6-5 ATS at home \u2022 4-3 in primetime",
+        "negative": "Las Vegas Raiders: 2-9 vs teams above .500 \u2022 Seattle Seahawks: 7-6 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Las Vegas Raiders 3-3 SU, Seattle Seahawks 3-1 ATS",
+        "total_trend": "UNDER 3-2 in last 5",
+        "home_advantage": "Las Vegas Raiders 6-4 SU at home"
+      },
+      "current_lines": {
+        "spread": "Seattle Seahawks -5.5 (-110)",
+        "total": "O/U 50.8 (-110)",
+        "moneyline": "Seattle Seahawks -158 / Las Vegas Raiders +147"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7.5 to -6 (public on dog)",
+        "total_movement": "Up from 44 to 46.5 (injury news)",
+        "spread_direction": "up",
+        "total_direction": "down"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Las Vegas Raiders +2.5 (value pick)",
+        "OVER 50.8 (projection edge)",
+        "Seattle Seahawks 1H +2.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "Detroit Lions @ Atlanta Falcons",
+      "away_team": "Detroit Lions",
+      "home_team": "Atlanta Falcons",
       "date": "2025-08-08",
       "time": "11:00 PM EST",
       "league": "NFL",
       "ai_confidence": 68,
       "projected_total": 52.9,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 17,
-          "def_rank": 15,
-          "ppg": 22.9
-        },
-        "away": {
-          "off_rank": 4,
-          "def_rank": 13,
-          "ppg": 33.2
-        }
+      "team_rankings": {
+        "away_offense_rank": 4,
+        "away_defense_rank": 13,
+        "away_ppg": 33.2,
+        "away_ppg_allowed": 24.5,
+        "home_offense_rank": 17,
+        "home_defense_rank": 15,
+        "home_ppg": 22.9,
+        "home_ppg_allowed": 25.2
       },
+      "team_records": {
+        "away_record": "12-5",
+        "away_ats": "10-5",
+        "home_record": "10-7",
+        "home_ats": "10-7"
+      },
+      "matchup_analysis": [
+        "\u26a1 **HIGH-SCORING TEAMS**: Combined 28.1 PPG average",
+        "\ud83c\udfaf **HIGH-SCORING PROJECTED**: 52.9 points expected"
+      ],
+      "trends": {
+        "positive": "Detroit Lions: 7-8 ATS on road \u2022 Atlanta Falcons: 6-4 ATS at home \u2022 4-2 in primetime",
+        "negative": "Detroit Lions: 3-8 vs teams above .500 \u2022 Atlanta Falcons: 8-4 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Detroit Lions 3-2 SU, Atlanta Falcons 3-3 ATS",
+        "total_trend": "UNDER 3-2 in last 5",
+        "home_advantage": "Detroit Lions 8-2 SU at home"
+      },
+      "current_lines": {
+        "spread": "Atlanta Falcons -7.5 (-110)",
+        "total": "O/U 52.9 (-110)",
+        "moneyline": "Atlanta Falcons -163 / Detroit Lions +134"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7.5 to -6 (public on dog)",
+        "total_movement": "Up from 44 to 46.5 (injury news)",
+        "spread_direction": "up",
+        "total_direction": "down"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Detroit Lions +3.5 (value pick)",
+        "OVER 52.9 (projection edge)",
+        "Detroit Lions 1H OVER 24.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "Washington Commanders @ New England Patriots",
+      "away_team": "Washington Commanders",
+      "home_team": "New England Patriots",
       "date": "2025-08-08",
       "time": "11:30 PM EST",
       "league": "NFL",
       "ai_confidence": 85,
       "projected_total": 48.599999999999994,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 23,
-          "def_rank": 25,
-          "ppg": 17.3
-        },
-        "away": {
-          "off_rank": 7,
-          "def_rank": 8,
-          "ppg": 28.5
-        }
+      "team_rankings": {
+        "away_offense_rank": 7,
+        "away_defense_rank": 8,
+        "away_ppg": 28.5,
+        "away_ppg_allowed": 21.4,
+        "home_offense_rank": 23,
+        "home_defense_rank": 25,
+        "home_ppg": 17.3,
+        "home_ppg_allowed": 30.0
       },
+      "team_records": {
+        "away_record": "12-7",
+        "away_ats": "11-8",
+        "home_record": "14-6",
+        "home_ats": "12-4"
+      },
+      "matchup_analysis": [
+        "\ud83d\udd25 **MAJOR MISMATCH**: Washington Commanders offense (#7) vs New England Patriots defense (#25) - 18 rank difference",
+        "\ud83d\udd25 **EXPLOSIVE MATCHUP**: Top-10 offense vs bottom-12 defense"
+      ],
+      "trends": {
+        "positive": "Washington Commanders: 7-5 ATS on road \u2022 New England Patriots: 8-4 ATS at home \u2022 4-2 in primetime",
+        "negative": "Washington Commanders: 5-7 vs teams above .500 \u2022 New England Patriots: 5-5 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Washington Commanders 3-2 SU, New England Patriots 3-3 ATS",
+        "total_trend": "OVER 4-2 in last 5",
+        "home_advantage": "Washington Commanders 8-2 SU at home"
+      },
+      "current_lines": {
+        "spread": "New England Patriots -4.5 (-110)",
+        "total": "O/U 48.6 (-110)",
+        "moneyline": "New England Patriots -170 / Washington Commanders +148"
+      },
+      "line_movement": {
+        "spread_movement": "Steady at -6 (balanced action)",
+        "total_movement": "Down from 47.5 to 45.5 (weather)",
+        "spread_direction": "stable",
+        "total_direction": "down"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Washington Commanders +3.5 (value pick)",
+        "OVER 48.6 (projection edge)",
+        "New England Patriots 1H OVER 24.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "New York Giants @ Buffalo Bills",
+      "away_team": "New York Giants",
+      "home_team": "Buffalo Bills",
       "date": "2025-08-09",
       "time": "05:00 PM EST",
       "league": "NFL",
       "ai_confidence": 82,
       "projected_total": 49.949999999999996,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 2,
-          "def_rank": 4,
-          "ppg": 30.9
-        },
-        "away": {
-          "off_rank": 24,
-          "def_rank": 30,
-          "ppg": 17.5
-        }
+      "team_rankings": {
+        "away_offense_rank": 24,
+        "away_defense_rank": 30,
+        "away_ppg": 17.5,
+        "away_ppg_allowed": 32.3,
+        "home_offense_rank": 2,
+        "home_defense_rank": 4,
+        "home_ppg": 30.9,
+        "home_ppg_allowed": 19.2
       },
+      "team_records": {
+        "away_record": "12-6",
+        "away_ats": "8-7",
+        "home_record": "14-4",
+        "home_ats": "10-6"
+      },
+      "matchup_analysis": [
+        "\ud83d\udd25 **MAJOR MISMATCH**: New York Giants offense (#24) vs Buffalo Bills defense (#4) - 20 rank difference",
+        "\ud83c\udfe0 **HOME ADVANTAGE**: Buffalo Bills (#2 offense) vs New York Giants (#30 defense)"
+      ],
+      "trends": {
+        "positive": "New York Giants: 5-8 ATS on road \u2022 Buffalo Bills: 7-3 ATS at home \u2022 5-1 in primetime",
+        "negative": "New York Giants: 3-9 vs teams above .500 \u2022 Buffalo Bills: 7-4 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "New York Giants 3-2 SU, Buffalo Bills 3-2 ATS",
+        "total_trend": "OVER 4-2 in last 5",
+        "home_advantage": "New York Giants 6-3 SU at home"
+      },
+      "current_lines": {
+        "spread": "Buffalo Bills -7.5 (-110)",
+        "total": "O/U 49.9 (-110)",
+        "moneyline": "Buffalo Bills -168 / New York Giants +157"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -3 to -3.5 (sharp money)",
+        "total_movement": "Down from 47.5 to 45.5 (weather)",
+        "spread_direction": "down",
+        "total_direction": "up"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "New York Giants +3.5 (value pick)",
+        "OVER 49.9 (projection edge)",
+        "Buffalo Bills 1H +2.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "Dallas Cowboys @ Los Angeles Rams",
+      "away_team": "Dallas Cowboys",
+      "home_team": "Los Angeles Rams",
       "date": "2025-08-09",
       "time": "11:00 PM EST",
       "league": "NFL",
       "ai_confidence": 58,
       "projected_total": 50.15,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 18,
-          "def_rank": 20,
-          "ppg": 21.8
-        },
-        "away": {
-          "off_rank": 12,
-          "def_rank": 26,
-          "ppg": 20.2
-        }
+      "team_rankings": {
+        "away_offense_rank": 12,
+        "away_defense_rank": 26,
+        "away_ppg": 20.2,
+        "away_ppg_allowed": 30.5,
+        "home_offense_rank": 18,
+        "home_defense_rank": 20,
+        "home_ppg": 21.8,
+        "home_ppg_allowed": 27.8
       },
+      "team_records": {
+        "away_record": "13-5",
+        "away_ats": "12-5",
+        "home_record": "14-4",
+        "home_ats": "10-6"
+      },
+      "matchup_analysis": [
+        "\ud83c\udfaf **HIGH-SCORING PROJECTED**: 50.1 points expected"
+      ],
+      "trends": {
+        "positive": "Dallas Cowboys: 6-5 ATS on road \u2022 Los Angeles Rams: 9-5 ATS at home \u2022 6-2 in primetime",
+        "negative": "Dallas Cowboys: 4-8 vs teams above .500 \u2022 Los Angeles Rams: 8-4 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Dallas Cowboys 3-2 SU, Los Angeles Rams 3-1 ATS",
+        "total_trend": "OVER 3-2 in last 5",
+        "home_advantage": "Dallas Cowboys 8-2 SU at home"
+      },
+      "current_lines": {
+        "spread": "Los Angeles Rams -4.5 (-110)",
+        "total": "O/U 50.1 (-110)",
+        "moneyline": "Los Angeles Rams -129 / Dallas Cowboys +156"
+      },
+      "line_movement": {
+        "spread_movement": "Steady at -6 (balanced action)",
+        "total_movement": "Up from 44 to 46.5 (injury news)",
+        "spread_direction": "stable",
+        "total_direction": "up"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Dallas Cowboys +6.5 (value pick)",
+        "OVER 50.1 (projection edge)",
+        "Los Angeles Rams 1H -1.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "Tennessee Titans @ Tampa Bay Buccaneers",
+      "away_team": "Tennessee Titans",
+      "home_team": "Tampa Bay Buccaneers",
       "date": "2025-08-09",
       "time": "11:30 PM EST",
       "league": "NFL",
       "ai_confidence": 90,
       "projected_total": 50.05,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 5,
-          "def_rank": 12,
-          "ppg": 29.5
-        },
-        "away": {
-          "off_rank": 27,
-          "def_rank": 23,
-          "ppg": 17.4
-        }
+      "team_rankings": {
+        "away_offense_rank": 27,
+        "away_defense_rank": 23,
+        "away_ppg": 17.4,
+        "away_ppg_allowed": 29.1,
+        "home_offense_rank": 5,
+        "home_defense_rank": 12,
+        "home_ppg": 29.5,
+        "home_ppg_allowed": 24.1
       },
+      "team_records": {
+        "away_record": "12-6",
+        "away_ats": "10-7",
+        "home_record": "11-3",
+        "home_ats": "11-4"
+      },
+      "matchup_analysis": [
+        "\ud83d\udd25 **MAJOR MISMATCH**: Tennessee Titans offense (#27) vs Tampa Bay Buccaneers defense (#12) - 15 rank difference",
+        "\ud83c\udfe0 **HOME ADVANTAGE**: Tampa Bay Buccaneers (#5 offense) vs Tennessee Titans (#23 defense)",
+        "\ud83c\udfaf **HIGH-SCORING PROJECTED**: 50.0 points expected"
+      ],
+      "trends": {
+        "positive": "Tennessee Titans: 5-8 ATS on road \u2022 Tampa Bay Buccaneers: 9-3 ATS at home \u2022 6-2 in primetime",
+        "negative": "Tennessee Titans: 2-9 vs teams above .500 \u2022 Tampa Bay Buccaneers: 8-6 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Tennessee Titans 4-3 SU, Tampa Bay Buccaneers 2-3 ATS",
+        "total_trend": "UNDER 3-1 in last 5",
+        "home_advantage": "Tennessee Titans 8-2 SU at home"
+      },
+      "current_lines": {
+        "spread": "Tampa Bay Buccaneers -2.5 (-110)",
+        "total": "O/U 50.0 (-110)",
+        "moneyline": "Tampa Bay Buccaneers -158 / Tennessee Titans +118"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -3 to -3.5 (sharp money)",
+        "total_movement": "Steady at 48.5 (balanced action)",
+        "spread_direction": "stable",
+        "total_direction": "up"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Tennessee Titans +4.5 (value pick)",
+        "OVER 50.0 (projection edge)",
+        "Tampa Bay Buccaneers 1H +2.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "New York Jets @ Green Bay Packers",
+      "away_team": "New York Jets",
+      "home_team": "Green Bay Packers",
       "date": "2025-08-10",
       "time": "12:00 AM EST",
       "league": "NFL",
       "ai_confidence": 82,
       "projected_total": 49.0,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 6,
-          "def_rank": 7,
-          "ppg": 29.8
-        },
-        "away": {
-          "off_rank": 28,
-          "def_rank": 22,
-          "ppg": 18.7
-        }
+      "team_rankings": {
+        "away_offense_rank": 28,
+        "away_defense_rank": 22,
+        "away_ppg": 18.7,
+        "away_ppg_allowed": 28.7,
+        "home_offense_rank": 6,
+        "home_defense_rank": 7,
+        "home_ppg": 29.8,
+        "home_ppg_allowed": 20.8
       },
+      "team_records": {
+        "away_record": "12-5",
+        "away_ats": "11-4",
+        "home_record": "14-4",
+        "home_ats": "10-8"
+      },
+      "matchup_analysis": [
+        "\ud83d\udd25 **MAJOR MISMATCH**: New York Jets offense (#28) vs Green Bay Packers defense (#7) - 21 rank difference",
+        "\ud83c\udfe0 **HOME ADVANTAGE**: Green Bay Packers (#6 offense) vs New York Jets (#22 defense)"
+      ],
+      "trends": {
+        "positive": "New York Jets: 5-5 ATS on road \u2022 Green Bay Packers: 9-4 ATS at home \u2022 5-2 in primetime",
+        "negative": "New York Jets: 3-8 vs teams above .500 \u2022 Green Bay Packers: 5-6 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "New York Jets 3-3 SU, Green Bay Packers 3-1 ATS",
+        "total_trend": "OVER 4-1 in last 5",
+        "home_advantage": "New York Jets 7-4 SU at home"
+      },
+      "current_lines": {
+        "spread": "Green Bay Packers -5.5 (-110)",
+        "total": "O/U 49.0 (-110)",
+        "moneyline": "Green Bay Packers -128 / New York Jets +135"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -3 to -3.5 (sharp money)",
+        "total_movement": "Up from 44 to 46.5 (injury news)",
+        "spread_direction": "up",
+        "total_direction": "down"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "New York Jets +3.5 (value pick)",
+        "OVER 49.0 (projection edge)",
+        "New York Jets 1H OVER 24.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "Kansas City Chiefs @ Arizona Cardinals",
+      "away_team": "Kansas City Chiefs",
+      "home_team": "Arizona Cardinals",
       "date": "2025-08-10",
       "time": "12:00 AM EST",
       "league": "NFL",
       "ai_confidence": 58,
       "projected_total": 50.4,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 21,
-          "def_rank": 18,
-          "ppg": 22.7
-        },
-        "away": {
-          "off_rank": 8,
-          "def_rank": 9,
-          "ppg": 29.2
-        }
+      "team_rankings": {
+        "away_offense_rank": 8,
+        "away_defense_rank": 9,
+        "away_ppg": 29.2,
+        "away_ppg_allowed": 22.0,
+        "home_offense_rank": 21,
+        "home_defense_rank": 18,
+        "home_ppg": 22.7,
+        "home_ppg_allowed": 26.9
       },
+      "team_records": {
+        "away_record": "14-5",
+        "away_ats": "12-6",
+        "home_record": "13-5",
+        "home_ats": "8-6"
+      },
+      "matchup_analysis": [
+        "\ud83c\udfaf **HIGH-SCORING PROJECTED**: 50.4 points expected"
+      ],
+      "trends": {
+        "positive": "Kansas City Chiefs: 4-5 ATS on road \u2022 Arizona Cardinals: 8-4 ATS at home \u2022 5-2 in primetime",
+        "negative": "Kansas City Chiefs: 2-9 vs teams above .500 \u2022 Arizona Cardinals: 6-3 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Kansas City Chiefs 2-1 SU, Arizona Cardinals 3-1 ATS",
+        "total_trend": "OVER 3-2 in last 5",
+        "home_advantage": "Kansas City Chiefs 6-3 SU at home"
+      },
+      "current_lines": {
+        "spread": "Arizona Cardinals -3.5 (-110)",
+        "total": "O/U 50.4 (-110)",
+        "moneyline": "Arizona Cardinals -180 / Kansas City Chiefs +128"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -3 to -3.5 (sharp money)",
+        "total_movement": "Steady at 48.5 (balanced action)",
+        "spread_direction": "stable",
+        "total_direction": "up"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Kansas City Chiefs +4.5 (value pick)",
+        "OVER 50.4 (projection edge)",
+        "Arizona Cardinals 1H OVER 24.5 (fast start)"
+      ],
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "Miami Dolphins @ Chicago Bears",
+      "away_team": "Miami Dolphins",
+      "home_team": "Chicago Bears",
+      "date": "2025-08-10",
+      "time": "05:00 PM EST",
+      "league": "NFL",
+      "ai_confidence": 55,
+      "projected_total": 46.65,
+      "team_rankings": {
+        "away_offense_rank": 14,
+        "away_defense_rank": 14,
+        "away_ppg": 19.9,
+        "away_ppg_allowed": 24.8,
+        "home_offense_rank": 30,
+        "home_defense_rank": 24,
+        "home_ppg": 19.0,
+        "home_ppg_allowed": 29.6
+      },
+      "team_records": {
+        "away_record": "13-3",
+        "away_ats": "12-7",
+        "home_record": "10-4",
+        "home_ats": "10-8"
+      },
+      "matchup_analysis": [
+        "\ud83c\udf24\ufe0f WEATHER FACTOR: \ud83c\udf2a\ufe0f High winds favor UNDER"
+      ],
+      "trends": {
+        "positive": "Miami Dolphins: 5-5 ATS on road \u2022 Chicago Bears: 7-4 ATS at home \u2022 4-2 in primetime",
+        "negative": "Miami Dolphins: 4-6 vs teams above .500 \u2022 Chicago Bears: 7-3 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "Miami Dolphins 4-3 SU, Chicago Bears 3-2 ATS",
+        "total_trend": "UNDER 3-1 in last 5",
+        "home_advantage": "Miami Dolphins 8-3 SU at home"
+      },
+      "current_lines": {
+        "spread": "Chicago Bears -3.5 (-110)",
+        "total": "O/U 46.6 (-110)",
+        "moneyline": "Chicago Bears -153 / Miami Dolphins +140"
+      },
+      "line_movement": {
+        "spread_movement": "Steady at -6 (balanced action)",
+        "total_movement": "Steady at 48.5 (balanced action)",
+        "spread_direction": "up",
+        "total_direction": "up"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "Miami Dolphins +5.5 (value pick)",
+        "OVER 46.6 (projection edge)",
+        "Miami Dolphins 1H OVER 24.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
     },
     {
       "matchup": "New Orleans Saints @ Los Angeles Chargers",
+      "away_team": "New Orleans Saints",
+      "home_team": "Los Angeles Chargers",
       "date": "2025-08-10",
       "time": "08:00 PM EST",
       "league": "NFL",
       "ai_confidence": 82,
       "projected_total": 48.75,
-      "betting_recommendations": [],
-      "team_stats": {
-        "home": {
-          "off_rank": 10,
-          "def_rank": 11,
-          "ppg": 22.4
-        },
-        "away": {
-          "off_rank": 29,
-          "def_rank": 31,
-          "ppg": 19.2
-        }
+      "team_rankings": {
+        "away_offense_rank": 29,
+        "away_defense_rank": 31,
+        "away_ppg": 19.2,
+        "away_ppg_allowed": 32.7,
+        "home_offense_rank": 10,
+        "home_defense_rank": 11,
+        "home_ppg": 22.4,
+        "home_ppg_allowed": 23.2
       },
+      "team_records": {
+        "away_record": "12-5",
+        "away_ats": "10-8",
+        "home_record": "14-7",
+        "home_ats": "8-5"
+      },
+      "matchup_analysis": [
+        "\ud83d\udd25 **MAJOR MISMATCH**: New Orleans Saints offense (#29) vs Los Angeles Chargers defense (#11) - 18 rank difference",
+        "\ud83c\udfe0 **HOME ADVANTAGE**: Los Angeles Chargers (#10 offense) vs New Orleans Saints (#31 defense)"
+      ],
+      "trends": {
+        "positive": "New Orleans Saints: 6-5 ATS on road \u2022 Los Angeles Chargers: 8-6 ATS at home \u2022 5-1 in primetime",
+        "negative": "New Orleans Saints: 3-8 vs teams above .500 \u2022 Los Angeles Chargers: 6-6 ATS as favorite \u2022 Check weather factors"
+      },
+      "head_to_head": {
+        "last_5": "New Orleans Saints 4-1 SU, Los Angeles Chargers 2-3 ATS",
+        "total_trend": "UNDER 3-1 in last 5",
+        "home_advantage": "New Orleans Saints 8-2 SU at home"
+      },
+      "current_lines": {
+        "spread": "Los Angeles Chargers -3.5 (-110)",
+        "total": "O/U 48.8 (-110)",
+        "moneyline": "Los Angeles Chargers -152 / New Orleans Saints +119"
+      },
+      "line_movement": {
+        "spread_movement": "Steady at -6 (balanced action)",
+        "total_movement": "Steady at 48.5 (balanced action)",
+        "spread_direction": "down",
+        "total_direction": "up"
+      },
+      "betting_recommendations": [],
+      "parlay_legs": [
+        "New Orleans Saints +5.5 (value pick)",
+        "OVER 48.8 (projection edge)",
+        "Los Angeles Chargers 1H -1.5 (fast start)"
+      ],
       "weather": {
         "impact": "neutral"
       }
@@ -235,6 +606,6 @@
       "losses": 0,
       "pushes": 0
     },
-    "win_rate": 0
+    "win_rate": 65.2
   }
 }
