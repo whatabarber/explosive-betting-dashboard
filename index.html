@@ -72,6 +72,56 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
+        /* SPORT TABS STYLING */
+        .sport-tabs {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            display: flex;
+            gap: 8px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sport-tab {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .sport-tab.active {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .sport-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .sport-content {
+            display: none;
+        }
+
+        .sport-content.active {
+            display: block;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -218,6 +268,26 @@
             color: #fff;
         }
 
+        /* CFB-specific styles */
+        .cfb-ranking {
+            background: linear-gradient(45deg, #0066cc, #0052a3);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .cfb-conference {
+            background: rgba(0, 102, 204, 0.2);
+            color: #66b3ff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+        }
+
         .weather-alert {
             background: linear-gradient(90deg, #ff6b35, #f7931e);
             color: #000;
@@ -276,6 +346,20 @@
             line-height: 1.4;
         }
 
+        .team-intel-section {
+            background: rgba(255,255,255,0.03); 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin: 20px 0;
+        }
+
+        .lines-section {
+            background: rgba(255,255,255,0.03); 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin: 20px 0;
+        }
+
         .parlay-section {
             background: linear-gradient(135deg, rgba(75, 222, 128, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
             border: 1px solid rgba(75, 222, 128, 0.2);
@@ -317,23 +401,6 @@
             padding: 12px 15px;
             font-size: 0.9rem;
         }
-
-        .line-movement {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .movement-arrow {
-            display: inline-block;
-            font-weight: 900;
-            font-size: 1.2rem;
-        }
-
-        .movement-up { color: #4ade80; }
-        .movement-down { color: #ef4444; }
 
         .mobile-nav {
             display: none;
@@ -378,6 +445,7 @@
             .mobile-nav { display: flex; }
             .logo { font-size: 1.8rem; }
             .header-content { flex-direction: column; gap: 15px; }
+            .sport-tabs { margin: 15px 10px; }
         }
 
         .loading {
@@ -427,57 +495,143 @@
     </header>
 
     <div class="container">
-        <!-- Performance Stats -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number" id="totalGames">-</div>
-                <div class="stat-label">Games Analyzed</div>
+        <!-- SPORT SELECTION TABS -->
+        <div class="sport-tabs">
+            <button class="sport-tab active" onclick="switchSport('nfl')" id="nfl-tab">
+                🏈 NFL
+            </button>
+            <button class="sport-tab" onclick="switchSport('cfb')" id="cfb-tab">
+                🏈 CFB
+            </button>
+            <button class="sport-tab" onclick="switchSport('all')" id="all-tab">
+                🔥 ALL LOCKS
+            </button>
+        </div>
+
+        <!-- NFL CONTENT -->
+        <div id="nfl-content" class="sport-content active">
+            <!-- Performance Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="nfl-totalGames">-</div>
+                    <div class="stat-label">NFL Games Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nfl-highConfidenceBets">-</div>
+                    <div class="stat-label">NFL Lock Bets (75%+)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nfl-weatherGames">-</div>
+                    <div class="stat-label">Weather Impacts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nfl-avgConfidence">-</div>
+                    <div class="stat-label">Avg Confidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nfl-lineMovements">-</div>
+                    <div class="stat-label">Line Movements</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nfl-winRate">-</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="highConfidenceBets">-</div>
-                <div class="stat-label">Lock Bets (75%+)</div>
+
+            <!-- Performance Chart -->
+            <div class="performance-chart">
+                <h3 style="margin-bottom: 20px; color: #fff;">📈 NFL Betting Performance</h3>
+                <canvas id="nfl-performanceChart" height="100"></canvas>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="weatherGames">-</div>
-                <div class="stat-label">Weather Impacts</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="lineMovements">-</div>
-                <div class="stat-label">Line Movements</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="avgConfidence">-</div>
-                <div class="stat-label">Avg Confidence</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="winRate">-</div>
-                <div class="stat-label">Win Rate</div>
+
+            <!-- Weather Alerts -->
+            <div id="nfl-weatherAlerts" class="section"></div>
+
+            <!-- Line Movements -->
+            <div id="nfl-lineMovements" class="section"></div>
+
+            <!-- Parlay Opportunities -->
+            <div id="nfl-parlaySection" class="section"></div>
+
+            <!-- Games Analysis -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🏈</div>
+                    <div class="section-title">NFL AI Game Analysis</div>
+                </div>
+                <div id="nfl-gamesContainer" class="games-grid">
+                    <div class="loading">🚀 Loading NFL explosive analysis...</div>
+                </div>
             </div>
         </div>
 
-        <!-- Performance Chart -->
-        <div class="performance-chart">
-            <h3 style="margin-bottom: 20px; color: #fff;">📈 Betting Performance</h3>
-            <canvas id="performanceChart" height="100"></canvas>
+        <!-- CFB CONTENT -->
+        <div id="cfb-content" class="sport-content">
+            <!-- Performance Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="cfb-totalGames">-</div>
+                    <div class="stat-label">CFB Games Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cfb-highConfidenceBets">-</div>
+                    <div class="stat-label">CFB Lock Bets (75%+)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cfb-rankedGames">-</div>
+                    <div class="stat-label">Ranked Team Games</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cfb-avgConfidence">-</div>
+                    <div class="stat-label">Avg Confidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cfb-conferenceGames">-</div>
+                    <div class="stat-label">Conference Games</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cfb-winRate">-</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+            </div>
+
+            <!-- Performance Chart -->
+            <div class="performance-chart">
+                <h3 style="margin-bottom: 20px; color: #fff;">📈 CFB Betting Performance</h3>
+                <canvas id="cfb-performanceChart" height="100"></canvas>
+            </div>
+
+            <!-- Weather Alerts -->
+            <div id="cfb-weatherAlerts" class="section"></div>
+
+            <!-- Line Movements -->
+            <div id="cfb-lineMovements" class="section"></div>
+
+            <!-- Parlay Opportunities -->
+            <div id="cfb-parlaySection" class="section"></div>
+
+            <!-- Games Analysis -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🏈</div>
+                    <div class="section-title">CFB AI Game Analysis</div>
+                </div>
+                <div id="cfb-gamesContainer" class="games-grid">
+                    <div class="loading">🏈 Loading CFB explosive analysis...</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Weather Alerts -->
-        <div id="weatherAlerts" class="section"></div>
-
-        <!-- Line Movements -->
-        <div id="lineMovements" class="section"></div>
-
-        <!-- Parlay Opportunities -->
-        <div id="parlaySection" class="section"></div>
-
-        <!-- Games Analysis -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🏈</div>
-                <div class="section-title">AI Game Analysis</div>
-            </div>
-            <div id="gamesContainer" class="games-grid">
-                <div class="loading">🚀 Loading explosive analysis...</div>
+        <!-- ALL LOCKS CONTENT -->
+        <div id="all-content" class="sport-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🔥</div>
+                    <div class="section-title">All High-Confidence Bets (75%+)</div>
+                </div>
+                <div id="all-gamesContainer" class="games-grid">
+                    <div class="loading">🔥 Loading all lock bets...</div>
+                </div>
             </div>
         </div>
     </div>
@@ -491,436 +645,562 @@
     </div>
 
     <script>
-        let dashboardData = null;
+        let nflData = null;
+        let cfbData = null;
+        let currentSport = 'nfl';
 
-        // Load dashboard data
-        async function loadDashboardData() {
-            try {
-                // Try to fetch real data from your GitHub repo
-                const response = await fetch('./dashboard_data.json').catch(() =>
-                    // Fallback: try direct GitHub raw URL
-                    fetch('https://raw.githubusercontent.com/YOUR-USERNAME/explosive-betting-dashboard/main/data/dashboard_data.json')
-                );
-                
-                if (response && response.ok) {
-                    dashboardData = await response.json();
-                    console.log('✅ Loaded real betting data!', dashboardData);
-                } else {
-                    // Demo data as fallback
-                    console.log('⚠️ Using demo data - check GitHub setup');
-                    dashboardData = createDemoData();
-                }
-                
-                updateDashboard();
-            } catch (error) {
-                console.error('Error loading data:', error);
-                console.log('📊 Using demo data as fallback');
-                dashboardData = createDemoData();
-                updateDashboard();
+        // Switch between sports
+        function switchSport(sport) {
+            // Update active tab
+            document.querySelectorAll('.sport-tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(sport + '-tab').classList.add('active');
+            
+            // Show/hide content
+            document.querySelectorAll('.sport-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(sport + '-content').classList.add('active');
+            
+            currentSport = sport;
+            
+            // Load data if needed
+            if (sport === 'nfl' && !nflData) {
+                loadNFLData();
+            } else if (sport === 'cfb' && !cfbData) {
+                loadCFBData();
+            } else if (sport === 'all') {
+                loadAllLocksData();
             }
         }
 
-        function createDemoData() {
+        // Load NFL dashboard data
+        async function loadNFLData() {
+            try {
+                const response = await fetch('./dashboard_data.json').catch(() =>
+                    fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/dashboard_data.json')
+                );
+                
+                if (response && response.ok) {
+                    nflData = await response.json();
+                    console.log('✅ Loaded NFL data!', nflData);
+                } else {
+                    console.log('⚠️ Using NFL demo data');
+                    nflData = createNFLDemoData();
+                }
+                
+                updateNFLDashboard();
+            } catch (error) {
+                console.error('Error loading NFL data:', error);
+                nflData = createNFLDemoData();
+                updateNFLDashboard();
+            }
+        }
+
+        // Load CFB dashboard data
+        async function loadCFBData() {
+            try {
+                const response = await fetch('./cfb_dashboard_data.json').catch(() =>
+                    fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/cfb_dashboard_data.json')
+                );
+                
+                if (response && response.ok) {
+                    cfbData = await response.json();
+                    console.log('✅ Loaded CFB data!', cfbData);
+                } else {
+                    console.log('⚠️ Using CFB demo data');
+                    cfbData = createCFBDemoData();
+                }
+                
+                updateCFBDashboard();
+            } catch (error) {
+                console.error('Error loading CFB data:', error);
+                cfbData = createCFBDemoData();
+                updateCFBDashboard();
+            }
+        }
+
+        function createNFLDemoData() {
             return {
                 last_update: new Date().toISOString(),
                 summary: {
-                    total_games: 8,
-                    total_bets: 15,
-                    high_confidence_bets: 4,
-                    weather_impacted_games: 2,
-                    significant_line_moves: 3,
+                    total_games: 16,
+                    total_bets: 28,
+                    high_confidence_bets: 6,
+                    weather_impacted_games: 3,
+                    significant_line_moves: 4,
                     average_confidence: 72.5
                 },
                 games: [
                     {
                         matchup: "Chiefs @ Bills",
+                        away_team: "Kansas City Chiefs",
+                        home_team: "Buffalo Bills",
                         date: "2025-08-10",
                         time: "8:20 PM EST",
                         league: "NFL",
                         ai_confidence: 85,
                         projected_total: 52.5,
-                        weather: {
-                            weather: "Light Rain",
-                            temperature: 45,
-                            wind: 18,
-                            impact: "high",
-                            betting_advice: ["🌧️ RAIN GAME - SMASH THE UNDER!", "🏃 Favor ground games"]
+                        team_rankings: {
+                            away_offense_rank: 3,
+                            away_defense_rank: 8,
+                            away_ppg: 28.4,
+                            away_ppg_allowed: 19.2,
+                            home_offense_rank: 5,
+                            home_defense_rank: 4,
+                            home_ppg: 26.8,
+                            home_ppg_allowed: 17.9
+                        },
+                        team_records: {
+                            away_record: "14-3",
+                            away_ats: "11-6",
+                            home_record: "13-4", 
+                            home_ats: "10-7"
+                        },
+                        matchup_analysis: [
+                            "🔥 MAJOR MISMATCH: Chiefs #3 offense vs Bills #4 defense - Elite vs Elite showdown",
+                            "🏠 HOME FIELD: Bills defense at home allows 2.1 fewer PPG"
+                        ],
+                        trends: {
+                            positive: "Chiefs are 8-2 ATS as road dogs • Bills UNDER is 12-5 at home",
+                            negative: "Chiefs 1-4 ATS in last 5 road games • Bills struggle vs mobile QBs"
+                        },
+                        head_to_head: {
+                            last_5: "Chiefs 3-2 SU, Bills 3-2 ATS",
+                            total_trend: "UNDER 4-1 in last 5 meetings",
+                            home_advantage: "Bills 7-3 SU at home vs Chiefs"
+                        },
+                        current_lines: {
+                            spread: "Bills -2.5 (-110)",
+                            total: "O/U 48.5 (-110)",
+                            moneyline: "Bills -140 / Chiefs +120"
+                        },
+                        line_movement: {
+                            spread_movement: "Moved from -1.5 to -2.5",
+                            total_movement: "Down from 50.5 to 48.5"
                         },
                         betting_recommendations: [
                             {
                                 bet: "UNDER 48.5",
-                                reasoning: "Rain and 18mph winds will limit passing games. Both teams strong on defense.",
+                                reasoning: "Weather and strong defenses limit scoring potential",
                                 confidence: 85,
                                 unit_size: "2u",
-                                book: "FanDuel"
-                            },
-                            {
-                                bet: "Chiefs +3.5",
-                                reasoning: "Road dogs in division games with weather equalizer. Value at +3.5.",
-                                confidence: 78,
-                                unit_size: "1.5u",
-                                book: "DraftKings"
+                                book: "FanDuel",
+                                intel_edge: "Weather gives 4.2 point edge to UNDER"
                             }
-                        ]
-                    },
-                    {
-                        matchup: "Cowboys @ Eagles",
-                        date: "2025-08-11",
-                        time: "4:25 PM EST",
-                        league: "NFL",
-                        ai_confidence: 76,
-                        projected_total: 45.8,
-                        weather: {
-                            weather: "Clear",
-                            temperature: 72,
-                            wind: 8,
-                            impact: "neutral"
-                        },
-                        betting_recommendations: [
-                            {
-                                bet: "Eagles -7",
-                                reasoning: "Eagles #2 defense vs Cowboys #12 offense. Home field advantage in division game.",
-                                confidence: 76,
-                                unit_size: "1.5u",
-                                book: "Caesars"
-                            }
-                        ]
-                    }
-                ],
-                parlays: [
-                    {
-                        type: "Weather Parlay",
-                        combined_odds: "+450",
-                        payout: "$450 on $100",
-                        risk: "Medium",
-                        legs: [
-                            { bet: "Bills vs Chiefs UNDER 48.5" },
-                            { bet: "Packers vs Bears UNDER 42.5" },
-                            { bet: "Steelers -3.5" }
                         ],
-                        reasoning: "All games have weather impacts favoring unders and strong defenses"
+                        parlay_legs: ["Chiefs +2.5", "UNDER 48.5"]
                     }
                 ],
-                weather_alerts: [
-                    {
-                        game: "Chiefs @ Bills",
-                        alert: "🌧️ RAIN GAME - SMASH THE UNDER!",
-                        impact: "high"
-                    }
-                ],
-                line_movements: [
-                    {
-                        game: "Cowboys @ Eagles",
-                        alert_message: "🚨 Eagles spread moved from -6.5 to -7.5 (+1.0)",
-                        movement: 1.0,
-                        timestamp: new Date().toISOString()
-                    }
-                ],
-                performance: {
-                    season_record: { wins: 15, losses: 8, pushes: 2 },
-                    win_rate: 65.2
-                }
+                parlays: [],
+                weather_alerts: [],
+                line_movements: [],
+                performance: { season_record: {wins: 15, losses: 8}, win_rate: 65.2 }
             };
         }
 
-        function updateDashboard() {
-            if (!dashboardData) return;
+        function createCFBDemoData() {
+            return {
+                last_update: new Date().toISOString(),
+                league: "CFB",
+                summary: {
+                    total_games: 0,
+                    total_bets: 0,
+                    high_confidence_bets: 0,
+                    weather_impacted_games: 0,
+                    significant_line_moves: 0,
+                    average_confidence: 0,
+                    ranked_games: 0
+                },
+                games: [],
+                parlays: [],
+                weather_alerts: [],
+                line_movements: [],
+                performance: { season_record: {wins: 0, losses: 0}, win_rate: 0 }
+            };
+        }
 
-            // Update stats
-            document.getElementById('totalGames').textContent = dashboardData.summary.total_games;
-            document.getElementById('highConfidenceBets').textContent = dashboardData.summary.high_confidence_bets;
-            document.getElementById('weatherGames').textContent = dashboardData.summary.weather_impacted_games;
-            document.getElementById('lineMovements').textContent = dashboardData.summary.significant_line_moves;
-            document.getElementById('avgConfidence').textContent = dashboardData.summary.average_confidence.toFixed(1) + '%';
-            document.getElementById('winRate').textContent = dashboardData.performance.win_rate.toFixed(1) + '%';
+        function updateNFLDashboard() {
+            if (!nflData) return;
+
+            // Update NFL stats
+            document.getElementById('nfl-totalGames').textContent = nflData.summary.total_games;
+            document.getElementById('nfl-highConfidenceBets').textContent = nflData.summary.high_confidence_bets;
+            document.getElementById('nfl-weatherGames').textContent = nflData.summary.weather_impacted_games;
+            document.getElementById('nfl-lineMovements').textContent = nflData.summary.significant_line_moves;
+            document.getElementById('nfl-avgConfidence').textContent = nflData.summary.average_confidence.toFixed(1) + '%';
+            document.getElementById('nfl-winRate').textContent = nflData.performance.win_rate.toFixed(1) + '%';
             
             // Update last update time
-            const lastUpdate = new Date(dashboardData.last_update);
+            const lastUpdate = new Date(nflData.last_update);
             document.getElementById('lastUpdate').textContent = lastUpdate.toLocaleTimeString();
 
-            // Update weather alerts
-            updateWeatherAlerts();
+            // Update NFL games
+            updateNFLGames();
             
-            // Update line movements
-            updateLineMovements();
-            
-            // Update parlays
-            updateParlays();
-            
-            // Update games
-            updateGames();
-            
-            // Update performance chart
-            updatePerformanceChart();
+            // Update NFL performance chart
+            updateNFLPerformanceChart();
         }
 
-        function updateWeatherAlerts() {
-            const container = document.getElementById('weatherAlerts');
-            if (!dashboardData.weather_alerts || dashboardData.weather_alerts.length === 0) {
-                container.innerHTML = '';
+        function updateCFBDashboard() {
+            if (!cfbData) return;
+
+            // Update CFB stats
+            document.getElementById('cfb-totalGames').textContent = cfbData.summary.total_games;
+            document.getElementById('cfb-highConfidenceBets').textContent = cfbData.summary.high_confidence_bets;
+            document.getElementById('cfb-rankedGames').textContent = cfbData.summary.ranked_games || 0;
+            document.getElementById('cfb-avgConfidence').textContent = cfbData.summary.average_confidence.toFixed(1) + '%';
+            document.getElementById('cfb-conferenceGames').textContent = cfbData.summary.conference_games || 0;
+            document.getElementById('cfb-winRate').textContent = cfbData.performance.win_rate.toFixed(1) + '%';
+
+            // Update CFB games
+            updateCFBGames();
+            
+            // Update CFB performance chart
+            updateCFBPerformanceChart();
+        }
+
+        function updateNFLGames() {
+            const container = document.getElementById('nfl-gamesContainer');
+            
+            if (!nflData.games || nflData.games.length === 0) {
+                container.innerHTML = '<div class="error">No NFL games found<button class="refresh-btn" onclick="loadNFLData()">Refresh</button></div>';
                 return;
             }
 
-            container.innerHTML = `
-                <div class="section-header">
-                    <div class="section-icon">🌤️</div>
-                    <div class="section-title">Weather Alerts</div>
-                </div>
-                ${dashboardData.weather_alerts.map(alert => `
-                    <div class="weather-alert">
-                        <span>⚠️</span>
-                        <div>
-                            <strong>${alert.game}</strong><br>
-                            ${alert.alert}
-                        </div>
-                    </div>
-                `).join('')}
-            `;
-        }
-
-        function updateLineMovements() {
-            const container = document.getElementById('lineMovements');
-            if (!dashboardData.line_movements || dashboardData.line_movements.length === 0) {
-                container.innerHTML = '';
-                return;
-            }
-
-            container.innerHTML = `
-                <div class="section-header">
-                    <div class="section-icon">📊</div>
-                    <div class="section-title">Line Movements</div>
-                </div>
-                ${dashboardData.line_movements.map(movement => `
-                    <div class="line-movement">
-                        <span class="movement-arrow ${movement.movement > 0 ? 'movement-up' : 'movement-down'}">
-                            ${movement.movement > 0 ? '↗️' : '↘️'}
-                        </span>
-                        ${movement.alert_message}
-                        <div style="font-size: 0.8rem; color: #a0a0a0; margin-top: 5px;">
-                            ${new Date(movement.timestamp).toLocaleString()}
-                        </div>
-                    </div>
-                `).join('')}
-            `;
-        }
-
-        function updateParlays() {
-            const container = document.getElementById('parlaySection');
-            if (!dashboardData.parlays || dashboardData.parlays.length === 0) {
-                container.innerHTML = '';
-                return;
-            }
-
-            container.innerHTML = `
-                <div class="section-header">
-                    <div class="section-icon">🎲</div>
-                    <div class="section-title">Explosive Parlays</div>
-                </div>
-                <div class="parlay-section">
-                    ${dashboardData.parlays.map(parlay => `
-                        <div class="parlay-card">
-                            <div class="parlay-header">
-                                <div>
-                                    <h4>${parlay.type}</h4>
-                                    <div style="color: #a0a0a0; font-size: 0.9rem;">${parlay.reasoning}</div>
-                                </div>
-                                <div class="parlay-odds">${parlay.combined_odds}</div>
-                            </div>
-                            <div style="margin-bottom: 15px; color: #4ade80;">
-                                💰 ${parlay.payout} | Risk: ${parlay.risk}
-                            </div>
-                            <div class="parlay-legs">
-                                ${parlay.legs.map((leg, i) => `
-                                    <div class="parlay-leg">
-                                        ${i + 1}. ${leg.bet}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-function updateGames() {
-    const container = document.getElementById('gamesContainer');
-    
-    if (!dashboardData.games || dashboardData.games.length === 0) {
-        container.innerHTML = '<div class="error">No games found<button class="refresh-btn" onclick="loadDashboardData()">Refresh</button></div>';
-        return;
-    }
-
-    container.innerHTML = dashboardData.games.map(game => {
-        const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
-                              game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
-        
-        const hasWeatherAlert = game.weather && game.weather.impact !== 'neutral';
-        
-        return `
-            <div class="game-card ${confidenceClass}">
-                <div class="game-header">
-                    <div class="matchup">${game.matchup}</div>
-                    <div class="confidence-badge">${game.ai_confidence}% AI</div>
-                </div>
+            container.innerHTML = nflData.games.map(game => {
+                const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
+                                      game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
                 
-                <div style="color: #a0a0a0; margin-bottom: 15px;">
-                    📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
-                </div>
+                const hasWeatherAlert = game.weather && game.weather.impact !== 'neutral';
+                
+                return `
+                    <div class="game-card ${confidenceClass}">
+                        <div class="game-header">
+                            <div class="matchup">${game.matchup}</div>
+                            <div class="confidence-badge">${game.ai_confidence}% AI</div>
+                        </div>
+                        
+                        <div style="color: #a0a0a0; margin-bottom: 15px;">
+                            📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
+                        </div>
 
-                ${hasWeatherAlert ? `
-                    <div class="weather-alert">
-                        🌤️ ${game.weather.betting_advice ? game.weather.betting_advice[0] : 'Weather Impact'}
-                    </div>
-                ` : ''}
+                        ${hasWeatherAlert ? `
+                            <div class="weather-alert">
+                                🌤️ ${game.weather.betting_advice ? game.weather.betting_advice[0] : 'Weather Impact'}
+                            </div>
+                        ` : ''}
 
-                <!-- ENHANCED TEAM INTEL SECTION -->
-                <div class="team-intel-section" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin: 20px 0;">
-                    <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                        🔥 TEAM INTEL & MATCHUP ANALYSIS
-                    </h4>
-                    
-                    <!-- Team Rankings Grid -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                        <div class="team-stats">
-                            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
-                                ${game.away_team || game.matchup.split(' @ ')[0]}
+                        <!-- ENHANCED TEAM INTEL SECTION -->
+                        <div class="team-intel-section">
+                            <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                                🔥 TEAM INTEL & MATCHUP ANALYSIS
+                            </h4>
+                            
+                            <!-- Team Rankings Grid -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div class="team-stats">
+                                    <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
+                                        ${game.away_team || game.matchup.split(' @ ')[0]}
+                                    </div>
+                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                        🏈 Offense: #${game.team_rankings?.away_offense_rank || 'N/A'} (${game.team_rankings?.away_ppg || 'N/A'} PPG)<br>
+                                        🛡️ Defense: #${game.team_rankings?.away_defense_rank || 'N/A'} (${game.team_rankings?.away_ppg_allowed || 'N/A'} allowed)<br>
+                                        🏠 Record: ${game.team_records?.away_record || 'N/A'}<br>
+                                        📊 ATS: ${game.team_records?.away_ats || 'N/A'}
+                                    </div>
+                                </div>
+                                <div class="team-stats">
+                                    <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
+                                        ${game.home_team || game.matchup.split(' @ ')[1]}
+                                    </div>
+                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                        🏈 Offense: #${game.team_rankings?.home_offense_rank || 'N/A'} (${game.team_rankings?.home_ppg || 'N/A'} PPG)<br>
+                                        🛡️ Defense: #${game.team_rankings?.home_defense_rank || 'N/A'} (${game.team_rankings?.home_ppg_allowed || 'N/A'} allowed)<br>
+                                        🏠 Record: ${game.team_records?.home_record || 'N/A'}<br>
+                                        📊 ATS: ${game.team_records?.home_ats || 'N/A'}
+                                    </div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                🏈 Offense: #${game.team_rankings?.away_offense_rank || 'N/A'} (${game.team_rankings?.away_ppg || 'N/A'} PPG)<br>
-                                🛡️ Defense: #${game.team_rankings?.away_defense_rank || 'N/A'} (${game.team_rankings?.away_ppg_allowed || 'N/A'} allowed)<br>
-                                🏠 Record: ${game.team_records?.away_record || 'N/A'}<br>
-                                📊 ATS: ${game.team_records?.away_ats || 'N/A'}
-                            </div>
-                        </div>
-                        <div class="team-stats">
-                            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
-                                ${game.home_team || game.matchup.split(' @ ')[1]}
-                            </div>
-                            <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                🏈 Offense: #${game.team_rankings?.home_offense_rank || 'N/A'} (${game.team_rankings?.home_ppg || 'N/A'} PPG)<br>
-                                🛡️ Defense: #${game.team_rankings?.home_defense_rank || 'N/A'} (${game.team_rankings?.home_ppg_allowed || 'N/A'} allowed)<br>
-                                🏠 Record: ${game.team_records?.home_record || 'N/A'}<br>
-                                📊 ATS: ${game.team_records?.home_ats || 'N/A'}
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Mismatch Analysis -->
-                    ${game.matchup_analysis ? `
-                        <div style="background: rgba(255,107,53,0.1); border-left: 3px solid #ff6b35; padding: 12px; margin: 15px 0; border-radius: 8px;">
-                            <div style="font-weight: 600; color: #ff6b35; margin-bottom: 8px;">⚔️ KEY MISMATCHES</div>
-                            ${game.matchup_analysis.map(analysis => `
-                                <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
-                            `).join('')}
-                        </div>
-                    ` : ''}
-
-                    <!-- Trends & History -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
-                        <div style="background: rgba(75,222,128,0.1); padding: 12px; border-radius: 8px;">
-                            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">📈 HOT TRENDS</div>
-                            <div style="font-size: 0.85rem; color: #a0a0a0;">
-                                ${game.trends?.positive || 'Loading trends...'}
-                            </div>
-                        </div>
-                        <div style="background: rgba(239,68,68,0.1); padding: 12px; border-radius: 8px;">
-                            <div style="font-weight: 600; color: #ef4444; margin-bottom: 8px;">📉 COLD TRENDS</div>
-                            <div style="font-size: 0.85rem; color: #a0a0a0;">
-                                ${game.trends?.negative || 'Loading trends...'}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Head to Head -->
-                    ${game.head_to_head ? `
-                        <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin: 15px 0;">
-                            <div style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">⚔️ HEAD TO HEAD</div>
-                            <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                Last 5 meetings: ${game.head_to_head.last_5 || 'N/A'}<br>
-                                Total trend: ${game.head_to_head.total_trend || 'N/A'}<br>
-                                Home team advantage: ${game.head_to_head.home_advantage || 'N/A'}
-                            </div>
-                        </div>
-                    ` : ''}
-                </div>
-
-                <!-- CURRENT LINES & MOVEMENT -->
-                <div class="lines-section" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin: 20px 0;">
-                    <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                        📊 CURRENT LINES & MOVEMENT
-                    </h4>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                        <div class="line-item">
-                            <div style="font-weight: 600; color: #4ade80;">SPREAD</div>
-                            <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.spread || 'Loading...'}</div>
-                            <div style="font-size: 0.8rem; color: ${game.line_movement?.spread_direction === 'up' ? '#4ade80' : '#ef4444'};">
-                                ${game.line_movement?.spread_movement || 'No movement'}
-                            </div>
-                        </div>
-                        <div class="line-item">
-                            <div style="font-weight: 600; color: #4ade80;">TOTAL</div>
-                            <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.total || 'Loading...'}</div>
-                            <div style="font-size: 0.8rem; color: ${game.line_movement?.total_direction === 'up' ? '#4ade80' : '#ef4444'};">
-                                ${game.line_movement?.total_movement || 'No movement'}
-                            </div>
-                        </div>
-                        <div class="line-item">
-                            <div style="font-weight: 600; color: #4ade80;">MONEYLINE</div>
-                            <div style="font-size: 1.1rem; margin: 5px 0;">${game.current_lines?.moneyline || 'Loading...'}</div>
-                            <div style="font-size: 0.8rem; color: #a0a0a0;">
-                                ${game.line_movement?.ml_movement || 'Stable'}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI BETTING ANALYSIS -->
-                <div class="bets-container">
-                    <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                        🤖 AI BETTING RECOMMENDATIONS
-                    </h4>
-                    ${game.betting_recommendations.map(bet => `
-                        <div class="bet-item">
-                            <div class="bet-header">
-                                <div class="bet-text">${bet.bet}</div>
-                                <div class="bet-units">${bet.unit_size}</div>
-                            </div>
-                            <div class="bet-reasoning">${bet.reasoning}</div>
-                            ${bet.intel_edge ? `
-                                <div style="background: rgba(75,222,128,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
-                                    🎯 <strong>Edge:</strong> ${bet.intel_edge}
+                            <!-- Mismatch Analysis -->
+                            ${game.matchup_analysis ? `
+                                <div style="background: rgba(255,107,53,0.1); border-left: 3px solid #ff6b35; padding: 12px; margin: 15px 0; border-radius: 8px;">
+                                    <div style="font-weight: 600; color: #ff6b35; margin-bottom: 8px;">⚔️ KEY MISMATCHES</div>
+                                    ${game.matchup_analysis.map(analysis => `
+                                        <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
+                                    `).join('')}
                                 </div>
                             ` : ''}
-                            <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
-                                📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
+
+                            <!-- Trends & History -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
+                                <div style="background: rgba(75,222,128,0.1); padding: 12px; border-radius: 8px;">
+                                    <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">📈 HOT TRENDS</div>
+                                    <div style="font-size: 0.85rem; color: #a0a0a0;">
+                                        ${game.trends?.positive || 'Loading trends...'}
+                                    </div>
+                                </div>
+                                <div style="background: rgba(239,68,68,0.1); padding: 12px; border-radius: 8px;">
+                                    <div style="font-weight: 600; color: #ef4444; margin-bottom: 8px;">📉 COLD TRENDS</div>
+                                    <div style="font-size: 0.85rem; color: #a0a0a0;">
+                                        ${game.trends?.negative || 'Loading trends...'}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Head to Head -->
+                            ${game.head_to_head ? `
+                                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin: 15px 0;">
+                                    <div style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">⚔️ HEAD TO HEAD</div>
+                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                        Last 5 meetings: ${game.head_to_head.last_5 || 'N/A'}<br>
+                                        Total trend: ${game.head_to_head.total_trend || 'N/A'}<br>
+                                        Home team advantage: ${game.head_to_head.home_advantage || 'N/A'}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- CURRENT LINES & MOVEMENT -->
+                        <div class="lines-section">
+                            <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                                📊 CURRENT LINES & MOVEMENT
+                            </h4>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                                <div class="line-item">
+                                    <div style="font-weight: 600; color: #4ade80;">SPREAD</div>
+                                    <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.spread || 'Loading...'}</div>
+                                    <div style="font-size: 0.8rem; color: ${game.line_movement?.spread_direction === 'up' ? '#4ade80' : '#ef4444'};">
+                                        ${game.line_movement?.spread_movement || 'No movement'}
+                                    </div>
+                                </div>
+                                <div class="line-item">
+                                    <div style="font-weight: 600; color: #4ade80;">TOTAL</div>
+                                    <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.total || 'Loading...'}</div>
+                                    <div style="font-size: 0.8rem; color: ${game.line_movement?.total_direction === 'up' ? '#4ade80' : '#ef4444'};">
+                                        ${game.line_movement?.total_movement || 'No movement'}
+                                    </div>
+                                </div>
+                                <div class="line-item">
+                                    <div style="font-weight: 600; color: #4ade80;">MONEYLINE</div>
+                                    <div style="font-size: 1.1rem; margin: 5px 0;">${game.current_lines?.moneyline || 'Loading...'}</div>
+                                    <div style="font-size: 0.8rem; color: #a0a0a0;">
+                                        ${game.line_movement?.ml_movement || 'Stable'}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    `).join('')}
-                </div>
 
-                <!-- PARLAY OPPORTUNITIES -->
-                ${game.parlay_legs ? `
-                    <div class="parlay-opportunities" style="background: rgba(75,222,128,0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
-                        <div style="font-weight: 600; color: #4ade80; margin-bottom: 10px;">🎲 PARLAY LEGS AVAILABLE</div>
-                        ${game.parlay_legs.map(leg => `
-                            <div style="font-size: 0.9rem; margin-bottom: 5px;">• ${leg}</div>
+                        <!-- AI BETTING ANALYSIS -->
+                        <div class="bets-container">
+                            <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                                🤖 AI BETTING RECOMMENDATIONS
+                            </h4>
+                            ${game.betting_recommendations.map(bet => `
+                                <div class="bet-item">
+                                    <div class="bet-header">
+                                        <div class="bet-text">${bet.bet}</div>
+                                        <div class="bet-units">${bet.unit_size}</div>
+                                    </div>
+                                    <div class="bet-reasoning">${bet.reasoning}</div>
+                                    ${bet.intel_edge ? `
+                                        <div style="background: rgba(75,222,128,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
+                                            🎯 <strong>Edge:</strong> ${bet.intel_edge}
+                                        </div>
+                                    ` : ''}
+                                    <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
+                                        📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <!-- PARLAY OPPORTUNITIES -->
+                        ${game.parlay_legs ? `
+                            <div class="parlay-opportunities" style="background: rgba(75,222,128,0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
+                                <div style="font-weight: 600; color: #4ade80; margin-bottom: 10px;">🎲 PARLAY LEGS AVAILABLE</div>
+                                ${game.parlay_legs.map(leg => `
+                                    <div style="font-size: 0.9rem; margin-bottom: 5px;">• ${leg}</div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateCFBGames() {
+            const container = document.getElementById('cfb-gamesContainer');
+            
+            if (!cfbData.games || cfbData.games.length === 0) {
+                container.innerHTML = `
+                    <div class="error">
+                        <h3>🏈 CFB Season Not Started</h3>
+                        <p>College Football season starts in late August. Check back soon!</p>
+                        <button class="refresh-btn" onclick="loadCFBData()">Refresh</button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cfbData.games.map(game => {
+                const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
+                                      game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
+                
+                return `
+                    <div class="game-card ${confidenceClass}">
+                        <div class="game-header">
+                            <div class="matchup">
+                                ${game.matchup}
+                                ${game.away_rank !== 'NR' ? `<span class="cfb-ranking">${game.away_rank}</span>` : ''}
+                                ${game.home_rank !== 'NR' ? `<span class="cfb-ranking">${game.home_rank}</span>` : ''}
+                            </div>
+                            <div class="confidence-badge">${game.ai_confidence}% AI</div>
+                        </div>
+                        
+                        <div style="color: #a0a0a0; margin-bottom: 15px;">
+                            📅 ${game.date} ${game.time} | Week ${game.week} | 🎯 Projected: ${game.projected_total}
+                            <br>
+                            <span class="cfb-conference">${game.away_conference}</span> vs <span class="cfb-conference">${game.home_conference}</span>
+                        </div>
+
+                        <!-- CFB TEAM INTEL -->
+                        <div class="team-intel-section">
+                            <h4 style="color: #0066cc; margin-bottom: 15px;">🏈 CFB TEAM INTEL & RANKINGS</h4>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div class="team-stats">
+                                    <div style="font-weight: 600; color: #66b3ff; margin-bottom: 8px;">
+                                        ${game.away_team} ${game.away_rank !== 'NR' ? game.away_rank : ''}
+                                    </div>
+                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                        🏫 Conference: ${game.away_conference}<br>
+                                        🏈 Ranking: ${game.team_rankings?.away_ranking || 'NR'}<br>
+                                        📊 PPG: ${game.team_rankings?.away_ppg || 'N/A'}<br>
+                                        🛡️ Allowed: ${game.team_rankings?.away_ppg_allowed || 'N/A'}
+                                    </div>
+                                </div>
+                                <div class="team-stats">
+                                    <div style="font-weight: 600; color: #66b3ff; margin-bottom: 8px;">
+                                        ${game.home_team} ${game.home_rank !== 'NR' ? game.home_rank : ''}
+                                    </div>
+                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                        🏫 Conference: ${game.home_conference}<br>
+                                        🏈 Ranking: ${game.team_rankings?.home_ranking || 'NR'}<br>
+                                        📊 PPG: ${game.team_rankings?.home_ppg || 'N/A'}<br>
+                                        🛡️ Allowed: ${game.team_rankings?.home_ppg_allowed || 'N/A'}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CFB Specific Analysis -->
+                            ${game.matchup_analysis ? `
+                                <div style="background: rgba(0,102,204,0.1); border-left: 3px solid #0066cc; padding: 12px; margin: 15px 0; border-radius: 8px;">
+                                    <div style="font-weight: 600; color: #0066cc; margin-bottom: 8px;">🏆 CFB ANALYSIS</div>
+                                    ${game.matchup_analysis.map(analysis => `
+                                        <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- CFB BETTING RECOMMENDATIONS -->
+                        <div class="bets-container">
+                            <h4 style="color: #0066cc; margin-bottom: 15px;">🤖 CFB AI BETTING RECOMMENDATIONS</h4>
+                            ${game.betting_recommendations.map(bet => `
+                                <div class="bet-item">
+                                    <div class="bet-header">
+                                        <div class="bet-text">${bet.bet}</div>
+                                        <div class="bet-units">${bet.unit_size}</div>
+                                    </div>
+                                    <div class="bet-reasoning">${bet.reasoning}</div>
+                                    ${bet.intel_edge ? `
+                                        <div style="background: rgba(0,102,204,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
+                                            🎯 <strong>CFB Edge:</strong> ${bet.intel_edge}
+                                        </div>
+                                    ` : ''}
+                                    <div style="margin-top: 8px; font-size: 0.8rem; color: #66b3ff;">
+                                        📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function loadAllLocksData() {
+            const container = document.getElementById('all-gamesContainer');
+            
+            // Combine high confidence bets from both sports
+            let allLocks = [];
+            
+            if (nflData && nflData.games) {
+                const nflLocks = nflData.games.filter(game => game.ai_confidence >= 75);
+                allLocks = allLocks.concat(nflLocks.map(game => ({...game, sport: 'NFL'})));
+            }
+            
+            if (cfbData && cfbData.games) {
+                const cfbLocks = cfbData.games.filter(game => game.ai_confidence >= 75);
+                allLocks = allLocks.concat(cfbLocks.map(game => ({...game, sport: 'CFB'})));
+            }
+            
+            // Sort by confidence
+            allLocks.sort((a, b) => b.ai_confidence - a.ai_confidence);
+            
+            if (allLocks.length === 0) {
+                container.innerHTML = `
+                    <div class="error">
+                        <h3>🔥 No Lock Bets Available</h3>
+                        <p>No games currently meet the 75%+ confidence threshold.</p>
+                        <button class="refresh-btn" onclick="loadNFLData(); loadCFBData();">Refresh All Data</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = allLocks.map(game => `
+                <div class="game-card confidence-high">
+                    <div class="game-header">
+                        <div class="matchup">
+                            <span style="background: ${game.sport === 'NFL' ? '#ff6b35' : '#0066cc'}; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; margin-right: 10px;">
+                                ${game.sport}
+                            </span>
+                            ${game.matchup}
+                        </div>
+                        <div class="confidence-badge">${game.ai_confidence}% AI</div>
+                    </div>
+                    
+                    <div style="color: #a0a0a0; margin-bottom: 15px;">
+                        📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
+                    </div>
+
+                    <div class="bets-container">
+                        <h4 style="color: #4ade80; margin-bottom: 15px;">🔒 LOCK BETS</h4>
+                        ${game.betting_recommendations.filter(bet => bet.confidence >= 75).map(bet => `
+                            <div class="bet-item">
+                                <div class="bet-header">
+                                    <div class="bet-text">${bet.bet}</div>
+                                    <div class="bet-units">${bet.unit_size}</div>
+                                </div>
+                                <div class="bet-reasoning">${bet.reasoning}</div>
+                                <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
+                                    📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
+                                </div>
+                            </div>
                         `).join('')}
                     </div>
-                ` : ''}
-            </div>
-        `;
-    }).join('');
-}
+                </div>
+            `).join('');
+        }
 
-        function updatePerformanceChart() {
-            const ctx = document.getElementById('performanceChart').getContext('2d');
+        function updateNFLPerformanceChart() {
+            const ctx = document.getElementById('nfl-performanceChart').getContext('2d');
             
-            // Demo data - in production this would come from your bet history
             const chartData = {
                 labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
                 datasets: [{
-                    label: 'Profit/Loss',
+                    label: 'NFL Profit/Loss',
                     data: [150, -50, 300, 200, -100, 450],
                     borderColor: '#ff6b35',
                     backgroundColor: 'rgba(255, 107, 53, 0.1)',
@@ -934,9 +1214,43 @@ function updateGames() {
                 data: chartData,
                 options: {
                     responsive: true,
-                    plugins: {
-                        legend: { display: false }
-                    },
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#a0a0a0' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#a0a0a0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateCFBPerformanceChart() {
+            const ctx = document.getElementById('cfb-performanceChart').getContext('2d');
+            
+            const chartData = {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'CFB Profit/Loss',
+                    data: [200, 100, 350, 150, 250, 400],
+                    borderColor: '#0066cc',
+                    backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            };
+
+            new Chart(ctx, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
                     scales: {
                         y: {
                             beginAtZero: true,
@@ -959,20 +1273,14 @@ function updateGames() {
             }
         }
 
-        function showError(message) {
-            document.getElementById('gamesContainer').innerHTML = `
-                <div class="error">
-                    ❌ ${message}
-                    <button class="refresh-btn" onclick="loadDashboardData()">Try Again</button>
-                </div>
-            `;
-        }
-
         // Auto-refresh every 5 minutes
-        setInterval(loadDashboardData, 300000);
+        setInterval(() => {
+            if (currentSport === 'nfl') loadNFLData();
+            if (currentSport === 'cfb') loadCFBData();
+        }, 300000);
 
         // Initial load
-        loadDashboardData();
+        loadNFLData();
     </script>
 </body>
 </html>
