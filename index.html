@@ -497,7 +497,7 @@
         async function loadDashboardData() {
             try {
                 // Try to fetch real data from your GitHub repo
-                const response = await fetch('./data/dashboard_data.json').catch(() => 
+                const response = await fetch('./dashboard_data.json').catch(() =>
                     // Fallback: try direct GitHub raw URL
                     fetch('https://raw.githubusercontent.com/YOUR-USERNAME/explosive-betting-dashboard/main/data/dashboard_data.json')
                 );
