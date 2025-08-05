@@ -1129,69 +1129,87 @@
         }
 
         function loadAllLocksData() {
-            const container = document.getElementById('all-gamesContainer');
-            
-            // Combine high confidence bets from both sports
-            let allLocks = [];
-            
-            if (nflData && nflData.games) {
-                const nflLocks = nflData.games.filter(game => game.ai_confidence >= 75);
-                allLocks = allLocks.concat(nflLocks.map(game => ({...game, sport: 'NFL'})));
+    const container = document.getElementById('all-gamesContainer');
+    
+    // Combine high confidence bets from both sports
+    let allLocks = [];
+    
+    if (nflData && nflData.games) {
+        nflData.games.forEach(game => {
+            if (game.ai_confidence >= 75 && game.betting_recommendations) {
+                const highConfBets = game.betting_recommendations.filter(bet => bet.confidence >= 75);
+                if (highConfBets.length > 0) {
+                    allLocks.push({...game, sport: 'NFL', highConfBets});
+                }
             }
-            
-            if (cfbData && cfbData.games) {
-                const cfbLocks = cfbData.games.filter(game => game.ai_confidence >= 75);
-                allLocks = allLocks.concat(cfbLocks.map(game => ({...game, sport: 'CFB'})));
+        });
+    }
+    
+    if (cfbData && cfbData.games) {
+        cfbData.games.forEach(game => {
+            if (game.ai_confidence >= 75 && game.betting_recommendations) {
+                const highConfBets = game.betting_recommendations.filter(bet => bet.confidence >= 75);
+                if (highConfBets.length > 0) {
+                    allLocks.push({...game, sport: 'CFB', highConfBets});
+                }
             }
-            
-            // Sort by confidence
-            allLocks.sort((a, b) => b.ai_confidence - a.ai_confidence);
-            
-            if (allLocks.length === 0) {
-                container.innerHTML = `
-                    <div class="error">
-                        <h3>🔥 No Lock Bets Available</h3>
-                        <p>No games currently meet the 75%+ confidence threshold.</p>
-                        <button class="refresh-btn" onclick="loadNFLData(); loadCFBData();">Refresh All Data</button>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = allLocks.map(game => `
-                <div class="game-card confidence-high">
-                    <div class="game-header">
-                        <div class="matchup">
-                            <span style="background: ${game.sport === 'NFL' ? '#ff6b35' : '#0066cc'}; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; margin-right: 10px;">
-                                ${game.sport}
-                            </span>
-                            ${game.matchup}
-                        </div>
-                        <div class="confidence-badge">${game.ai_confidence}% AI</div>
-                    </div>
-                    
-                    <div style="color: #a0a0a0; margin-bottom: 15px;">
-                        📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
-                    </div>
-
-                    <div class="bets-container">
-                        <h4 style="color: #4ade80; margin-bottom: 15px;">🔒 LOCK BETS</h4>
-                        ${game.betting_recommendations.filter(bet => bet.confidence >= 75).map(bet => `
-                            <div class="bet-item">
-                                <div class="bet-header">
-                                    <div class="bet-text">${bet.bet}</div>
-                                    <div class="bet-units">${bet.unit_size}</div>
-                                </div>
-                                <div class="bet-reasoning">${bet.reasoning}</div>
-                                <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
-                                    📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
+        });
+    }
+    
+    // Sort by confidence
+    allLocks.sort((a, b) => b.ai_confidence - a.ai_confidence);
+    
+    if (allLocks.length === 0) {
+        container.innerHTML = `
+            <div class="error">
+                <h3>🔥 No Lock Bets Available</h3>
+                <p>No games currently meet the 75%+ confidence threshold.</p>
+                <button class="refresh-btn" onclick="loadNFLData(); loadCFBData();">Refresh All Data</button>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = allLocks.map(game => `
+        <div class="game-card confidence-high">
+            <div class="game-header">
+                <div class="matchup">
+                    <span style="background: ${game.sport === 'NFL' ? '#ff6b35' : '#0066cc'}; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; margin-right: 10px;">
+                        ${game.sport}
+                    </span>
+                    ${game.matchup}
                 </div>
-            `).join('');
-        }
+                <div class="confidence-badge">${game.ai_confidence}% AI</div>
+            </div>
+            
+            <div style="color: #a0a0a0; margin-bottom: 15px;">
+                📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
+            </div>
+
+            <div class="bets-container">
+                <h4 style="color: #4ade80; margin-bottom: 15px;">🔒 LOCK BETS</h4>
+                ${game.highConfBets.map(bet => `
+                    <div class="bet-item">
+                        <div class="bet-header">
+                            <div class="bet-text" style="font-size: 1.2rem; font-weight: 700; color: #4ade80;">
+                                ${bet.bet}
+                            </div>
+                            <div class="bet-units" style="background: #4ade80; color: #000;">
+                                ${bet.unit_size} | ${bet.confidence}%
+                            </div>
+                        </div>
+                        <div class="bet-reasoning" style="margin-top: 8px;">
+                            ${bet.reasoning}
+                        </div>
+                        <div style="margin-top: 8px; font-size: 0.9rem; color: #66ff66;">
+                            🎯 <strong>${bet.intel_edge || 'High Confidence Play'}</strong>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
 
         function updateNFLPerformanceChart() {
             const ctx = document.getElementById('nfl-performanceChart').getContext('2d');
