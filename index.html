@@ -992,27 +992,26 @@
 
                         <!-- AI BETTING ANALYSIS -->
                         <div class="bets-container">
-                            <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                                🤖 AI BETTING RECOMMENDATIONS
-                            </h4>
-                            ${game.betting_recommendations.map(bet => `
-                                <div class="bet-item">
-                                    <div class="bet-header">
-                                        <div class="bet-text">${bet.bet}</div>
-                                        <div class="bet-units">${bet.unit_size}</div>
-                                    </div>
-                                    <div class="bet-reasoning">${bet.reasoning}</div>
-                                    ${bet.intel_edge ? `
-                                        <div style="background: rgba(75,222,128,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
-                                            🎯 <strong>Edge:</strong> ${bet.intel_edge}
-                                        </div>
-                                    ` : ''}
-                                    <div style="margin-top: 8px; font-size: 0.8rem; color: #4ade80;">
-                                        📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
+    <h4 style="color: #4ade80; margin-bottom: 15px;">🔒 LOCK BETS</h4>
+    ${(game.betting_recommendations || []).filter(bet => bet.confidence >= 75).map(bet => `
+        <div class="bet-item">
+            <div class="bet-header">
+                <div class="bet-text" style="font-size: 1.2rem; font-weight: 700; color: #4ade80;">
+                    ${bet.bet}
+                </div>
+                <div class="bet-units" style="background: #4ade80; color: #000;">
+                    ${bet.unit_size} | ${bet.confidence}%
+                </div>
+            </div>
+            <div class="bet-reasoning" style="margin-top: 8px;">
+                ${bet.reasoning}
+            </div>
+            <div style="margin-top: 8px; font-size: 0.9rem; color: #66ff66;">
+                🎯 <strong>${bet.intel_edge || 'High Confidence Play'}</strong>
+            </div>
+        </div>
+    `).join('')}
+</div>
 
                         <!-- PARLAY OPPORTUNITIES -->
                         ${game.parlay_legs ? `
