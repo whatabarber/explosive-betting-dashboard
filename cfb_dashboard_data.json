@@ -1,0 +1,25 @@
+{
+  "last_update": "2025-08-05T18:17:41.441871",
+  "league": "CFB",
+  "summary": {
+    "total_games": 0,
+    "total_bets": 0,
+    "high_confidence_bets": 0,
+    "weather_impacted_games": 0,
+    "significant_line_moves": 8,
+    "average_confidence": 0.0,
+    "ranked_games": 0
+  },
+  "games": [],
+  "parlays": [],
+  "weather_alerts": [],
+  "line_movements": [],
+  "performance": {
+    "season_record": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0
+    },
+    "win_rate": 68.5
+  }
+}
