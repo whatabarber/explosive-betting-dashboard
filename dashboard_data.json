@@ -1,0 +1,240 @@
+{
+  "last_update": "2025-08-04T23:07:07.475227",
+  "summary": {
+    "total_games": 9,
+    "total_bets": 0,
+    "high_confidence_bets": 0,
+    "weather_impacted_games": 0,
+    "significant_line_moves": 0,
+    "average_confidence": 0.0
+  },
+  "games": [
+    {
+      "matchup": "Las Vegas Raiders @ Seattle Seahawks",
+      "date": "2025-08-08",
+      "time": "02:00 AM EST",
+      "league": "NFL",
+      "ai_confidence": 58,
+      "projected_total": 50.75,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 19,
+          "def_rank": 19,
+          "ppg": 24.4
+        },
+        "away": {
+          "off_rank": 25,
+          "def_rank": 29,
+          "ppg": 18.0
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "Detroit Lions @ Atlanta Falcons",
+      "date": "2025-08-08",
+      "time": "11:00 PM EST",
+      "league": "NFL",
+      "ai_confidence": 58,
+      "projected_total": 52.9,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 17,
+          "def_rank": 15,
+          "ppg": 22.9
+        },
+        "away": {
+          "off_rank": 4,
+          "def_rank": 13,
+          "ppg": 33.2
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "Washington Commanders @ New England Patriots",
+      "date": "2025-08-08",
+      "time": "11:30 PM EST",
+      "league": "NFL",
+      "ai_confidence": 65,
+      "projected_total": 48.599999999999994,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 23,
+          "def_rank": 25,
+          "ppg": 17.3
+        },
+        "away": {
+          "off_rank": 7,
+          "def_rank": 8,
+          "ppg": 28.5
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "New York Giants @ Buffalo Bills",
+      "date": "2025-08-09",
+      "time": "05:00 PM EST",
+      "league": "NFL",
+      "ai_confidence": 62,
+      "projected_total": 49.949999999999996,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 2,
+          "def_rank": 4,
+          "ppg": 30.9
+        },
+        "away": {
+          "off_rank": 24,
+          "def_rank": 30,
+          "ppg": 17.5
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "Dallas Cowboys @ Los Angeles Rams",
+      "date": "2025-08-09",
+      "time": "11:00 PM EST",
+      "league": "NFL",
+      "ai_confidence": 58,
+      "projected_total": 50.15,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 18,
+          "def_rank": 20,
+          "ppg": 21.8
+        },
+        "away": {
+          "off_rank": 12,
+          "def_rank": 26,
+          "ppg": 20.2
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "Tennessee Titans @ Tampa Bay Buccaneers",
+      "date": "2025-08-09",
+      "time": "11:30 PM EST",
+      "league": "NFL",
+      "ai_confidence": 70,
+      "projected_total": 50.05,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 5,
+          "def_rank": 12,
+          "ppg": 29.5
+        },
+        "away": {
+          "off_rank": 27,
+          "def_rank": 23,
+          "ppg": 17.4
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "New York Jets @ Green Bay Packers",
+      "date": "2025-08-10",
+      "time": "12:00 AM EST",
+      "league": "NFL",
+      "ai_confidence": 62,
+      "projected_total": 49.0,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 6,
+          "def_rank": 7,
+          "ppg": 29.8
+        },
+        "away": {
+          "off_rank": 28,
+          "def_rank": 22,
+          "ppg": 18.7
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "Kansas City Chiefs @ Arizona Cardinals",
+      "date": "2025-08-10",
+      "time": "12:00 AM EST",
+      "league": "NFL",
+      "ai_confidence": 58,
+      "projected_total": 50.4,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 21,
+          "def_rank": 18,
+          "ppg": 22.7
+        },
+        "away": {
+          "off_rank": 8,
+          "def_rank": 9,
+          "ppg": 29.2
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    },
+    {
+      "matchup": "New Orleans Saints @ Los Angeles Chargers",
+      "date": "2025-08-10",
+      "time": "08:00 PM EST",
+      "league": "NFL",
+      "ai_confidence": 62,
+      "projected_total": 48.75,
+      "betting_recommendations": [],
+      "team_stats": {
+        "home": {
+          "off_rank": 10,
+          "def_rank": 11,
+          "ppg": 22.4
+        },
+        "away": {
+          "off_rank": 29,
+          "def_rank": 31,
+          "ppg": 19.2
+        }
+      },
+      "weather": {
+        "impact": "neutral"
+      }
+    }
+  ],
+  "parlays": [],
+  "weather_alerts": [],
+  "line_movements": [],
+  "performance": {
+    "season_record": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0
+    },
+    "win_rate": 0
+  }
+}
