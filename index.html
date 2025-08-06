@@ -502,7 +502,9 @@
             </button>
             <button class="sport-tab" onclick="switchSport('cfb')" id="cfb-tab">
                 🏈 CFB
-            </button>
+            </button><button class="sport-tab" onclick="switchSport('nba')" id="nba-tab">
+    🏀 NBA
+</button>
             <button class="sport-tab" onclick="switchSport('all')" id="all-tab">
                 🔥 ALL LOCKS
             </button>
@@ -621,6 +623,53 @@
                 </div>
             </div>
         </div>
+        <!-- NBA CONTENT -->
+        <div id="nba-content" class="sport-content">
+            <!-- Performance Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="nba-totalGames">-</div>
+                    <div class="stat-label">NBA Games Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nba-highConfidenceBets">-</div>
+                    <div class="stat-label">NBA Lock Bets (75%+)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nba-backToBackGames">-</div>
+                    <div class="stat-label">Back-to-Back Games</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nba-avgConfidence">-</div>
+                    <div class="stat-label">Avg Confidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nba-playerProps">-</div>
+                    <div class="stat-label">Player Props</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="nba-winRate">-</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+            </div>
+
+            <!-- Performance Chart -->
+            <div class="performance-chart">
+                <h3 style="margin-bottom: 20px; color: #fff;">📈 NBA Betting Performance</h3>
+                <canvas id="nba-performanceChart" height="100"></canvas>
+            </div>
+
+            <!-- Games Analysis -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🏀</div>
+                    <div class="section-title">NBA AI Game Analysis</div>
+                </div>
+                <div id="nba-gamesContainer" class="games-grid">
+                    <div class="loading">🏀 Loading NBA explosive analysis...</div>
+                </div>
+            </div>
+        </div>
 
         <!-- ALL LOCKS CONTENT -->
         <div id="all-content" class="sport-content">
@@ -647,6 +696,7 @@
     <script>
         let nflData = null;
         let cfbData = null;
+        let nbaData = null;
         let currentSport = 'nfl';
 
         // Switch between sports
@@ -666,6 +716,8 @@
                 loadNFLData();
             } else if (sport === 'cfb' && !cfbData) {
                 loadCFBData();
+            } else if (sport === 'nba' && !nbaData) {
+                loadNBAData();  
             } else if (sport === 'all') {
                 loadAllLocksData();
             }
@@ -1154,7 +1206,16 @@
                 }
             }
         });
-    }
+    }if (nbaData && nbaData.games) {
+    nbaData.games.forEach(game => {
+        if (game.ai_confidence >= 75 && game.betting_recommendations) {
+            const highConfBets = game.betting_recommendations.filter(bet => bet.confidence >= 75);
+            if (highConfBets.length > 0) {
+                allLocks.push({...game, sport: 'NBA', highConfBets});
+            }
+        }
+    });
+}
     
     // Sort by confidence
     allLocks.sort((a, b) => b.ai_confidence - a.ai_confidence);
@@ -1298,6 +1359,215 @@
 
         // Initial load
         loadNFLData();
+        // Load NBA dashboard data
+async function loadNBAData() {
+    try {
+        const response = await fetch('./nba_dashboard_data.json').catch(() =>
+            fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/nba_dashboard_data.json')
+        );
+        
+        if (response && response.ok) {
+            nbaData = await response.json();
+            console.log('✅ Loaded NBA data!', nbaData);
+        } else {
+            console.log('⚠️ Using NBA demo data');
+            nbaData = createNBADemoData();
+        }
+        
+        updateNBADashboard();
+    } catch (error) {
+        console.error('Error loading NBA data:', error);
+        nbaData = createNBADemoData();
+        updateNBADashboard();
+    }
+}
+
+function createNBADemoData() {
+    return {
+        last_update: new Date().toISOString(),
+        league: "NBA",
+        summary: {
+            total_games: 0,
+            total_bets: 0,
+            high_confidence_bets: 0,
+            back_to_back_games: 0,
+            significant_line_moves: 0,
+            average_confidence: 0,
+            player_props: 0
+        },
+        games: [],
+        parlays: [],
+        weather_alerts: [],
+        line_movements: [],
+        performance: { season_record: {wins: 0, losses: 0}, win_rate: 0 }
+    };
+}
+
+function updateNBADashboard() {
+    if (!nbaData) return;
+
+    // Update NBA stats
+    document.getElementById('nba-totalGames').textContent = nbaData.summary.total_games;
+    document.getElementById('nba-highConfidenceBets').textContent = nbaData.summary.high_confidence_bets;
+    document.getElementById('nba-backToBackGames').textContent = nbaData.summary.back_to_back_games || 0;
+    document.getElementById('nba-avgConfidence').textContent = nbaData.summary.average_confidence.toFixed(1) + '%';
+    document.getElementById('nba-playerProps').textContent = nbaData.summary.player_props || 0;
+    document.getElementById('nba-winRate').textContent = nbaData.performance.win_rate.toFixed(1) + '%';
+
+    // Update NBA games
+    updateNBAGames();
+    
+    // Update NBA performance chart
+    updateNBAPerformanceChart();
+}
+
+function updateNBAGames() {
+    const container = document.getElementById('nba-gamesContainer');
+    
+    if (!nbaData.games || nbaData.games.length === 0) {
+        container.innerHTML = `
+            <div class="error">
+                <h3>🏀 NBA Season Not Started</h3>
+                <p>NBA season starts in October. Check back soon!</p>
+                <button class="refresh-btn" onclick="loadNBAData()">Refresh</button>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = nbaData.games.map(game => {
+        const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
+                              game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
+        
+        return `
+            <div class="game-card ${confidenceClass}">
+                <div class="game-header">
+                    <div class="matchup">
+                        ${game.matchup}
+                        ${game.is_back_to_back?.away ? '<span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 8px;">B2B</span>' : ''}
+                        ${game.is_back_to_back?.home ? '<span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 8px;">HOME B2B</span>' : ''}
+                    </div>
+                    <div class="confidence-badge">${game.ai_confidence}% AI</div>
+                </div>
+                
+                <div style="color: #a0a0a0; margin-bottom: 15px;">
+                    📅 ${game.date} ${game.time} | 📺 ${game.tv_coverage} | 🎯 Projected: ${game.projected_total}
+                    <br>
+                    <span style="background: rgba(255,165,0,0.2); color: #ffa500; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; margin-right: 8px;">${game.away_conference}</span> vs 
+                    <span style="background: rgba(255,165,0,0.2); color: #ffa500; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; margin-left: 8px;">${game.home_conference}</span>
+                </div>
+
+                <!-- NBA TEAM INTEL -->
+                <div class="team-intel-section">
+                    <h4 style="color: #ffa500; margin-bottom: 15px;">🏀 NBA TEAM INTEL & PACE</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                        <div class="team-stats">
+                            <div style="font-weight: 600; color: #ffa500; margin-bottom: 8px;">
+                                ${game.away_team}
+                            </div>
+                            <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                🏀 Conference: ${game.away_conference}<br>
+                                📊 PPG: ${game.team_rankings?.away_ppg || 'N/A'}<br>
+                                🏃 Pace: ${game.team_rankings?.away_pace || 'N/A'}<br>
+                                🛡️ Allowed: ${game.team_rankings?.away_ppg_allowed || 'N/A'}
+                            </div>
+                        </div>
+                        <div class="team-stats">
+                            <div style="font-weight: 600; color: #ffa500; margin-bottom: 8px;">
+                                ${game.home_team}
+                            </div>
+                            <div style="font-size: 0.9rem; color: #a0a0a0;">
+                                🏀 Conference: ${game.home_conference}<br>
+                                📊 PPG: ${game.team_rankings?.home_ppg || 'N/A'}<br>
+                                🏃 Pace: ${game.team_rankings?.home_pace || 'N/A'}<br>
+                                🛡️ Allowed: ${game.team_rankings?.home_ppg_allowed || 'N/A'}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NBA Specific Analysis -->
+                    ${game.matchup_analysis ? `
+                        <div style="background: rgba(255,165,0,0.1); border-left: 3px solid #ffa500; padding: 12px; margin: 15px 0; border-radius: 8px;">
+                            <div style="font-weight: 600; color: #ffa500; margin-bottom: 8px;">🏀 NBA ANALYSIS</div>
+                            ${game.matchup_analysis.map(analysis => `
+                                <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+
+                <!-- NBA BETTING RECOMMENDATIONS -->
+                <div class="bets-container">
+                    <h4 style="color: #ffa500; margin-bottom: 15px;">🤖 NBA AI BETTING RECOMMENDATIONS</h4>
+                    ${game.betting_recommendations.map(bet => `
+                        <div class="bet-item">
+                            <div class="bet-header">
+                                <div class="bet-text">${bet.bet}</div>
+                                <div class="bet-units">${bet.unit_size}</div>
+                            </div>
+                            <div class="bet-reasoning">${bet.reasoning}</div>
+                            ${bet.intel_edge ? `
+                                <div style="background: rgba(255,165,0,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
+                                    🎯 <strong>NBA Edge:</strong> ${bet.intel_edge}
+                                </div>
+                            ` : ''}
+                            <div style="margin-top: 8px; font-size: 0.8rem; color: #ffa500;">
+                                📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <!-- PLAYER PROPS -->
+                ${game.player_props && game.player_props.length > 0 ? `
+                    <div style="background: rgba(255,165,0,0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
+                        <div style="font-weight: 600; color: #ffa500; margin-bottom: 10px;">⭐ PLAYER PROPS</div>
+                        ${game.player_props.map(prop => `
+                            <div style="font-size: 0.9rem; margin-bottom: 5px;">• ${prop.bet}</div>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }).join('');
+}
+
+function updateNBAPerformanceChart() {
+    const ctx = document.getElementById('nba-performanceChart').getContext('2d');
+    
+    const chartData = {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+        datasets: [{
+            label: 'NBA Profit/Loss',
+            data: [180, 120, 280, 200, 150, 320],
+            borderColor: '#ffa500',
+            backgroundColor: 'rgba(255, 165, 0, 0.1)',
+            tension: 0.4,
+            fill: true
+        }]
+    };
+
+    new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    ticks: { color: '#a0a0a0' }
+                },
+                x: {
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    ticks: { color: '#a0a0a0' }
+                }
+            }
+        }
+    });
+}
     </script>
 </body>
 </html>
