@@ -1,0 +1,25 @@
+{
+  "last_update": "2025-08-05T19:01:34.422090",
+  "league": "NBA",
+  "summary": {
+    "total_games": 0,
+    "total_bets": 0,
+    "high_confidence_bets": 0,
+    "back_to_back_games": 0,
+    "significant_line_moves": 7,
+    "average_confidence": 0.0,
+    "player_props": 0
+  },
+  "games": [],
+  "parlays": [],
+  "weather_alerts": [],
+  "line_movements": [],
+  "performance": {
+    "season_record": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0
+    },
+    "win_rate": 71.8
+  }
+}
