@@ -1,18 +1,2166 @@
 {
-  "last_update": "2025-08-05T18:17:41.441871",
+  "last_update": "2025-08-29T18:14:56.629131",
   "league": "CFB",
   "summary": {
-    "total_games": 0,
-    "total_bets": 0,
-    "high_confidence_bets": 0,
-    "weather_impacted_games": 0,
-    "significant_line_moves": 8,
-    "average_confidence": 0.0,
+    "total_games": 23,
+    "total_bets": 36,
+    "high_confidence_bets": 3,
+    "weather_impacted_games": 6,
+    "significant_line_moves": 7,
+    "average_confidence": 65.16666666666667,
     "ranked_games": 0
   },
-  "games": [],
+  "games": [
+    {
+      "matchup": "Western Illinois Leathernecks @ Illinois Fighting Illini",
+      "away_team": "Western Illinois Leathernecks",
+      "home_team": "Illinois Fighting Illini",
+      "away_rank": "NR",
+      "home_rank": "#12",
+      "away_conference": "Big Ten",
+      "home_conference": "Big Ten",
+      "date": "2025-08-29",
+      "time": "11:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 68,
+      "projected_total": 54.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Big Ten",
+        "away_ppg": 29,
+        "away_ppg_allowed": 24,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 28,
+        "home_ppg_allowed": 28
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "CONFERENCE GAME: Big Ten rivalry - expect close game",
+        "WEATHER FACTOR: Wind affects passing games more in CFB"
+      ],
+      "trends": {
+        "positive": "Western Illinois Leathernecks: 6-4 ATS on road \u2022 Illinois Fighting Illini: 5-4 ATS at home \u2022 1-6 vs ranked teams",
+        "negative": "Western Illinois Leathernecks: 6-5 ATS in conference \u2022 Illinois Fighting Illini: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Western Illinois Leathernecks 8-3 in last 11 meetings",
+        "total_trend": "UNDER 4-1 in recent games",
+        "home_advantage": "Home team 75% win rate in series",
+        "rivalry_note": "Conference rivals - played 11 times in last decade",
+        "avg_total": 53
+      },
+      "current_lines": {
+        "spread": "Illinois Fighting Illini -48.5 (-120)",
+        "total": "O/U 62.5 (-110)",
+        "moneyline": "Loading..."
+      },
+      "line_movement": {
+        "spread_movement": "Sharp money hammering the UNDER",
+        "total_movement": "Steady at 61.5 (balanced action)",
+        "spread_direction": "stable",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 71,
+          "total_pct": 70,
+          "handle_pct": 45
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Illinois Fighting Illini +14.5 (-110)",
+          "reasoning": "CFB Analysis: Illinois Fighting Illini (#NR) vs Western Illinois Leathernecks (#NR). Home advantage in Big Ten vs Big Ten matchup. Projected scoring: Illinois Fighting Illini 28.0 PPG, Western Illinois Leathernecks 29.0 PPG.",
+          "confidence": 73,
+          "unit_size": "1.5u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.5 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.5 vs typical 58. Combined offense power: 28.5 PPG. Weather and pace factors considered.",
+          "confidence": 78,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "3.5 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Western Illinois Leathernecks +11.5 (value pick)",
+        "UNDER 54.5 (projection edge)",
+        "Western Illinois Leathernecks 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 51,
+        "wind_speed": 18,
+        "precipitation": "Heavy Rain",
+        "impact_level": "high",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Iowa State Cyclones @ Kansas State Wildcats",
+      "away_team": "Iowa State Cyclones",
+      "home_team": "Kansas State Wildcats",
+      "away_rank": "#22",
+      "home_rank": "#17",
+      "away_conference": "Big Ten",
+      "home_conference": "Big 12",
+      "date": "2025-08-23",
+      "time": "04:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 56.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Big Ten",
+        "away_ppg": 35,
+        "away_ppg_allowed": 20,
+        "home_ranking": 130,
+        "home_conference": "Big 12",
+        "home_ppg": 29,
+        "home_ppg_allowed": 28
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Iowa State Cyclones: 5-4 ATS on road \u2022 Kansas State Wildcats: 8-4 ATS at home \u2022 2-8 vs ranked teams",
+        "negative": "Iowa State Cyclones: 5-3 ATS in conference \u2022 Kansas State Wildcats: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Iowa State Cyclones 2-2 in last 4 meetings",
+        "total_trend": "UNDER 4-1 in recent games",
+        "home_advantage": "Home team 68% win rate in series",
+        "rivalry_note": "Limited history - 4 meetings since 2010",
+        "avg_total": 57
+      },
+      "current_lines": {
+        "spread": "Iowa State Cyclones -8.5 (-110)",
+        "total": "O/U 56.0 (-110)",
+        "moneyline": "Kansas State Wildcats -278 / Iowa State Cyclones +352"
+      },
+      "line_movement": {
+        "spread_movement": "Up from 58.5 to 62 (weather cleared up)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "up",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 65,
+          "total_pct": 68,
+          "handle_pct": 69
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Kansas State Wildcats +10.5 (-110)",
+          "reasoning": "CFB Analysis: Kansas State Wildcats (#NR) vs Iowa State Cyclones (#NR). Home advantage in Big 12 vs Big Ten matchup. Projected scoring: Kansas State Wildcats 29.0 PPG, Iowa State Cyclones 35.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Iowa State Cyclones +13.5 (value pick)",
+        "UNDER 56.0 (projection edge)",
+        "Kansas State Wildcats 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 30,
+        "wind_speed": 22,
+        "precipitation": "Light Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Boise State Broncos @ South Florida Bulls",
+      "away_team": "Boise State Broncos",
+      "home_team": "South Florida Bulls",
+      "away_rank": "#25",
+      "home_rank": "NR",
+      "away_conference": "Independent",
+      "home_conference": "SEC",
+      "date": "2025-08-28",
+      "time": "09:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 33,
+        "away_ppg_allowed": 25,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 30,
+        "home_ppg_allowed": 20
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Boise State Broncos: 5-6 ATS on road \u2022 South Florida Bulls: 5-4 ATS at home \u2022 1-6 vs ranked teams",
+        "negative": "Boise State Broncos: 7-6 ATS in conference \u2022 South Florida Bulls: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Boise State Broncos 1-1 in last 2 meetings",
+        "total_trend": "UNDER 4-1 in recent games",
+        "home_advantage": "Home team 70% win rate in series",
+        "rivalry_note": "Limited history - 2 meetings since 2010",
+        "avg_total": 67
+      },
+      "current_lines": {
+        "spread": "Boise State Broncos -8.5 (-110)",
+        "total": "O/U 54.0 (-110)",
+        "moneyline": "South Florida Bulls -427 / Boise State Broncos +363"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "up",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 71,
+          "total_pct": 58,
+          "handle_pct": 43
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET South Florida Bulls +3.5 (-110)",
+          "reasoning": "CFB Analysis: South Florida Bulls (#NR) vs Boise State Broncos (#NR). Home advantage in SEC vs Independent matchup. Projected scoring: South Florida Bulls 30.0 PPG, Boise State Broncos 33.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 31.5 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Boise State Broncos +10.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "Boise State Broncos 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 61,
+        "wind_speed": 22,
+        "precipitation": "Light Rain",
+        "impact_level": "high",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Texas Longhorns @ Ohio State Buckeyes",
+      "away_team": "Texas Longhorns",
+      "home_team": "Ohio State Buckeyes",
+      "away_rank": "#1",
+      "home_rank": "#3",
+      "away_conference": "SEC",
+      "home_conference": "Big Ten",
+      "date": "2025-08-30",
+      "time": "04:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 60,
+      "projected_total": 53.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "SEC",
+        "away_ppg": 33,
+        "away_ppg_allowed": 21,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 33,
+        "home_ppg_allowed": 20
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "WEATHER FACTOR: Wind affects passing games more in CFB"
+      ],
+      "trends": {
+        "positive": "Texas Longhorns: 5-6 ATS on road \u2022 Ohio State Buckeyes: 6-4 ATS at home \u2022 3-5 vs ranked teams",
+        "negative": "Texas Longhorns: 5-6 ATS in conference \u2022 Ohio State Buckeyes: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Texas Longhorns 5-1 in last 6 meetings",
+        "total_trend": "UNDER 3-1 in recent games",
+        "home_advantage": "Home team 68% win rate in series",
+        "rivalry_note": "Limited history - 6 meetings since 2010",
+        "avg_total": 66
+      },
+      "current_lines": {
+        "spread": "Ohio State Buckeyes +1.5 (-112)",
+        "total": "O/U 46.5 (-115)",
+        "moneyline": "Home -105 / Away -115"
+      },
+      "line_movement": {
+        "spread_movement": "Up from 58.5 to 62 (weather cleared up)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "down",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 72,
+          "total_pct": 60,
+          "handle_pct": 72
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Texas Longhorns -12.5 (-110)",
+          "reasoning": "CFB Analysis: Ohio State Buckeyes (#NR) vs Texas Longhorns (#NR). Home advantage in Big Ten vs SEC matchup. Projected scoring: Ohio State Buckeyes 33.0 PPG, Texas Longhorns 33.0 PPG.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 53.5 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 53.5 vs typical 58. Combined offense power: 33.0 PPG. Weather and pace factors considered.",
+          "confidence": 70,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.5 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Texas Longhorns +9.5 (value pick)",
+        "UNDER 53.5 (projection edge)",
+        "Ohio State Buckeyes 1H +7.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 54,
+        "wind_speed": 8,
+        "precipitation": "Fog",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Syracuse Orange @ Tennessee Volunteers",
+      "away_team": "Syracuse Orange",
+      "home_team": "Tennessee Volunteers",
+      "away_rank": "NR",
+      "home_rank": "#24",
+      "away_conference": "ACC",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "04:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 57.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "ACC",
+        "away_ppg": 35,
+        "away_ppg_allowed": 28,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 28,
+        "home_ppg_allowed": 23
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Syracuse Orange: 6-7 ATS on road \u2022 Tennessee Volunteers: 6-6 ATS at home \u2022 1-6 vs ranked teams",
+        "negative": "Syracuse Orange: 7-6 ATS in conference \u2022 Tennessee Volunteers: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Syracuse Orange 1-2 in last 3 meetings",
+        "total_trend": "UNDER 3-1 in recent games",
+        "home_advantage": "Home team 70% win rate in series",
+        "rivalry_note": "Limited history - 3 meetings since 2010",
+        "avg_total": 59
+      },
+      "current_lines": {
+        "spread": "Syracuse Orange +13.5 (-110)",
+        "total": "O/U 51.5 (-115)",
+        "moneyline": "Home +375 / Away -500"
+      },
+      "line_movement": {
+        "spread_movement": "Steady at -10.5 (balanced action despite ranking)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "down",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 68,
+          "total_pct": 57,
+          "handle_pct": 60
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Syracuse Orange +14.5 (-110)",
+          "reasoning": "CFB Analysis: Tennessee Volunteers (#NR) vs Syracuse Orange (#NR). Home advantage in SEC vs ACC matchup. Projected scoring: Tennessee Volunteers 28.0 PPG, Syracuse Orange 35.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Syracuse Orange +7.5 (value pick)",
+        "UNDER 57.0 (projection edge)",
+        "Syracuse Orange 1H +7.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 76,
+        "wind_speed": 10,
+        "precipitation": "Fog",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Old Dominion Monarchs @ Indiana Hoosiers",
+      "away_team": "Old Dominion Monarchs",
+      "home_team": "Indiana Hoosiers",
+      "away_rank": "NR",
+      "home_rank": "#20",
+      "away_conference": "Independent",
+      "home_conference": "Big Ten",
+      "date": "2025-08-30",
+      "time": "06:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 56.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 34,
+        "away_ppg_allowed": 27,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 30,
+        "home_ppg_allowed": 22
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Old Dominion Monarchs: 5-6 ATS on road \u2022 Indiana Hoosiers: 8-5 ATS at home \u2022 2-6 vs ranked teams",
+        "negative": "Old Dominion Monarchs: 5-6 ATS in conference \u2022 Indiana Hoosiers: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Old Dominion Monarchs 4-1 in last 5 meetings",
+        "total_trend": "OVER 4-1 in recent games",
+        "home_advantage": "Home team 73% win rate in series",
+        "rivalry_note": "Limited history - 5 meetings since 2010",
+        "avg_total": 68
+      },
+      "current_lines": {
+        "spread": "Indiana Hoosiers -24.5 (-102)",
+        "total": "O/U 53.5 (-108)",
+        "moneyline": "Home -3200 / Away +1400"
+      },
+      "line_movement": {
+        "spread_movement": "Up from 58.5 to 62 (weather cleared up)",
+        "total_movement": "Steady at 61.5 (balanced action)",
+        "spread_direction": "stable",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 84,
+          "total_pct": 53,
+          "handle_pct": 72
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Indiana Hoosiers +5.5 (-110)",
+          "reasoning": "CFB Analysis: Indiana Hoosiers (#NR) vs Old Dominion Monarchs (#NR). Home advantage in Big Ten vs Independent matchup. Projected scoring: Indiana Hoosiers 30.0 PPG, Old Dominion Monarchs 34.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Old Dominion Monarchs +8.5 (value pick)",
+        "UNDER 56.5 (projection edge)",
+        "Old Dominion Monarchs 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 41,
+        "wind_speed": 3,
+        "precipitation": "Fog",
+        "impact_level": "high",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Nevada Wolf Pack @ Penn State Nittany Lions",
+      "away_team": "Nevada Wolf Pack",
+      "home_team": "Penn State Nittany Lions",
+      "away_rank": "NR",
+      "home_rank": "#2",
+      "away_conference": "Independent",
+      "home_conference": "Big Ten",
+      "date": "2025-08-30",
+      "time": "07:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 57.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 29,
+        "away_ppg_allowed": 28,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 33,
+        "home_ppg_allowed": 24
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Nevada Wolf Pack: 6-6 ATS on road \u2022 Penn State Nittany Lions: 6-6 ATS at home \u2022 2-8 vs ranked teams",
+        "negative": "Nevada Wolf Pack: 4-6 ATS in conference \u2022 Penn State Nittany Lions: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Nevada Wolf Pack 3-1 in last 4 meetings",
+        "total_trend": "UNDER 3-2 in recent games",
+        "home_advantage": "Home team 67% win rate in series",
+        "rivalry_note": "Limited history - 4 meetings since 2010",
+        "avg_total": 67
+      },
+      "current_lines": {
+        "spread": "Nevada Wolf Pack +43.5 (-115)",
+        "total": "O/U 54.5 (-110)",
+        "moneyline": "Loading..."
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -14 to -17.5 (sharp money on favorite)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "down",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 57,
+          "total_pct": 55,
+          "handle_pct": 58
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Nevada Wolf Pack +7.5 (-110)",
+          "reasoning": "CFB Analysis: Penn State Nittany Lions (#NR) vs Nevada Wolf Pack (#NR). Home advantage in Big Ten vs Independent matchup. Projected scoring: Penn State Nittany Lions 33.0 PPG, Nevada Wolf Pack 29.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Nevada Wolf Pack +13.5 (value pick)",
+        "UNDER 57.0 (projection edge)",
+        "Penn State Nittany Lions 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 44,
+        "wind_speed": 12,
+        "precipitation": "Snow",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Marshall Thundering Herd @ Georgia Bulldogs",
+      "away_team": "Marshall Thundering Herd",
+      "home_team": "Georgia Bulldogs",
+      "away_rank": "NR",
+      "home_rank": "#5",
+      "away_conference": "Group of 5",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "07:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 60,
+      "projected_total": 56.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Group of 5",
+        "away_ppg": 35,
+        "away_ppg_allowed": 21,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 35,
+        "home_ppg_allowed": 22
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "WEATHER FACTOR: Wind affects passing games more in CFB"
+      ],
+      "trends": {
+        "positive": "Marshall Thundering Herd: 3-5 ATS on road \u2022 Georgia Bulldogs: 8-5 ATS at home \u2022 1-6 vs ranked teams",
+        "negative": "Marshall Thundering Herd: 7-3 ATS in conference \u2022 Georgia Bulldogs: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Marshall Thundering Herd 1-2 in last 3 meetings",
+        "total_trend": "OVER 3-2 in recent games",
+        "home_advantage": "Home team 72% win rate in series",
+        "rivalry_note": "Limited history - 3 meetings since 2010",
+        "avg_total": 53
+      },
+      "current_lines": {
+        "spread": "Georgia Bulldogs -38.5 (-112)",
+        "total": "O/U 52.5 (-110)",
+        "moneyline": "Loading..."
+      },
+      "line_movement": {
+        "spread_movement": "Down from -21.5 to -18 (injury to star player)",
+        "total_movement": "Big money on OVER moving line up 3 points",
+        "spread_direction": "down",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 64,
+          "total_pct": 50,
+          "handle_pct": 45
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Marshall Thundering Herd +7.5 (-110)",
+          "reasoning": "CFB Analysis: Georgia Bulldogs (#NR) vs Marshall Thundering Herd (#NR). Home advantage in SEC vs Group of 5 matchup. Projected scoring: Georgia Bulldogs 35.0 PPG, Marshall Thundering Herd 35.0 PPG.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Marshall Thundering Herd +13.5 (value pick)",
+        "UNDER 56.5 (projection edge)",
+        "Marshall Thundering Herd 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 33,
+        "wind_speed": 12,
+        "precipitation": "Fog",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Alabama Crimson Tide @ Florida State Seminoles",
+      "away_team": "Alabama Crimson Tide",
+      "home_team": "Florida State Seminoles",
+      "away_rank": "#8",
+      "home_rank": "NR",
+      "away_conference": "SEC",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "07:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 63,
+      "projected_total": 56.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "SEC",
+        "away_ppg": 33,
+        "away_ppg_allowed": 26,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 29,
+        "home_ppg_allowed": 24
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "CONFERENCE GAME: SEC rivalry - expect close game"
+      ],
+      "trends": {
+        "positive": "Alabama Crimson Tide: 6-6 ATS on road \u2022 Florida State Seminoles: 6-6 ATS at home \u2022 2-5 vs ranked teams",
+        "negative": "Alabama Crimson Tide: 7-5 ATS in conference \u2022 Florida State Seminoles: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Alabama Crimson Tide 3-7 in last 10 meetings",
+        "total_trend": "OVER 3-2 in recent games",
+        "home_advantage": "Home team 69% win rate in series",
+        "rivalry_note": "Conference rivals - played 10 times in last decade",
+        "avg_total": 62
+      },
+      "current_lines": {
+        "spread": "Alabama Crimson Tide -13.5 (-120)",
+        "total": "O/U 48.5 (-110)",
+        "moneyline": "Home -610 / Away +440"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -14 to -17.5 (sharp money on favorite)",
+        "total_movement": "Steady at 61.5 (balanced action)",
+        "spread_direction": "down",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 69,
+          "total_pct": 46,
+          "handle_pct": 76
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Alabama Crimson Tide +11.5 (-110)",
+          "reasoning": "CFB Analysis: Florida State Seminoles (#NR) vs Alabama Crimson Tide (#NR). Home advantage in SEC vs SEC matchup. Projected scoring: Florida State Seminoles 29.0 PPG, Alabama Crimson Tide 33.0 PPG.",
+          "confidence": 68,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Alabama Crimson Tide +10.5 (value pick)",
+        "UNDER 56.0 (projection edge)",
+        "Alabama Crimson Tide 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 39,
+        "wind_speed": 4,
+        "precipitation": "Heavy Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "South Dakota Coyotes @ Iowa State Cyclones",
+      "away_team": "South Dakota Coyotes",
+      "home_team": "Iowa State Cyclones",
+      "away_rank": "NR",
+      "home_rank": "#22",
+      "away_conference": "Independent",
+      "home_conference": "Big Ten",
+      "date": "2025-08-30",
+      "time": "07:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 57.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 35,
+        "away_ppg_allowed": 28,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 31,
+        "home_ppg_allowed": 20
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "South Dakota Coyotes: 5-5 ATS on road \u2022 Iowa State Cyclones: 5-4 ATS at home \u2022 3-7 vs ranked teams",
+        "negative": "South Dakota Coyotes: 4-5 ATS in conference \u2022 Iowa State Cyclones: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "South Dakota Coyotes 1-2 in last 3 meetings",
+        "total_trend": "UNDER 4-2 in recent games",
+        "home_advantage": "Home team 75% win rate in series",
+        "rivalry_note": "Limited history - 3 meetings since 2010",
+        "avg_total": 65
+      },
+      "current_lines": {
+        "spread": "Iowa State Cyclones -14.5 (-110)",
+        "total": "O/U 47.5 (-110)",
+        "moneyline": "Home -690 / Away +480"
+      },
+      "line_movement": {
+        "spread_movement": "Down from -21.5 to -18 (injury to star player)",
+        "total_movement": "Up from 56 to 59.5 (both teams healthy)",
+        "spread_direction": "up",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 77,
+          "total_pct": 75,
+          "handle_pct": 66
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Iowa State Cyclones -6.5 (-110)",
+          "reasoning": "CFB Analysis: Iowa State Cyclones (#NR) vs South Dakota Coyotes (#NR). Home advantage in Big Ten vs Independent matchup. Projected scoring: Iowa State Cyclones 31.0 PPG, South Dakota Coyotes 35.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "South Dakota Coyotes +8.5 (value pick)",
+        "UNDER 57.0 (projection edge)",
+        "South Dakota Coyotes 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 73,
+        "wind_speed": 12,
+        "precipitation": "Light Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Montana State Bobcats @ Oregon Ducks",
+      "away_team": "Montana State Bobcats",
+      "home_team": "Oregon Ducks",
+      "away_rank": "NR",
+      "home_rank": "#7",
+      "away_conference": "Independent",
+      "home_conference": "Big Ten",
+      "date": "2025-08-30",
+      "time": "08:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 29,
+        "away_ppg_allowed": 23,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 28,
+        "home_ppg_allowed": 28
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Montana State Bobcats: 3-4 ATS on road \u2022 Oregon Ducks: 5-3 ATS at home \u2022 2-6 vs ranked teams",
+        "negative": "Montana State Bobcats: 7-5 ATS in conference \u2022 Oregon Ducks: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Montana State Bobcats 1-2 in last 3 meetings",
+        "total_trend": "UNDER 3-2 in recent games",
+        "home_advantage": "Home team 69% win rate in series",
+        "rivalry_note": "Limited history - 3 meetings since 2010",
+        "avg_total": 61
+      },
+      "current_lines": {
+        "spread": "Montana State Bobcats +27.5 (-110)",
+        "total": "O/U 56.5 (-110)",
+        "moneyline": "Home +1600 / Away -4500"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Up from 56 to 59.5 (both teams healthy)",
+        "spread_direction": "stable",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 74,
+          "total_pct": 46,
+          "handle_pct": 80
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Montana State Bobcats +13.5 (-110)",
+          "reasoning": "CFB Analysis: Oregon Ducks (#NR) vs Montana State Bobcats (#NR). Home advantage in Big Ten vs Independent matchup. Projected scoring: Oregon Ducks 28.0 PPG, Montana State Bobcats 29.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 28.5 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Montana State Bobcats +11.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "Oregon Ducks 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 75,
+        "wind_speed": 13,
+        "precipitation": "Snow",
+        "impact_level": "high",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Illinois State Redbirds @ Oklahoma Sooners",
+      "away_team": "Illinois State Redbirds",
+      "home_team": "Oklahoma Sooners",
+      "away_rank": "NR",
+      "home_rank": "#18",
+      "away_conference": "Big Ten",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "10:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 57.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Big Ten",
+        "away_ppg": 34,
+        "away_ppg_allowed": 24,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 30,
+        "home_ppg_allowed": 27
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Illinois State Redbirds: 5-7 ATS on road \u2022 Oklahoma Sooners: 7-3 ATS at home \u2022 3-5 vs ranked teams",
+        "negative": "Illinois State Redbirds: 7-3 ATS in conference \u2022 Oklahoma Sooners: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Illinois State Redbirds 3-2 in last 5 meetings",
+        "total_trend": "OVER 3-1 in recent games",
+        "home_advantage": "Home team 72% win rate in series",
+        "rivalry_note": "Limited history - 5 meetings since 2010",
+        "avg_total": 62
+      },
+      "current_lines": {
+        "spread": "Illinois State Redbirds +36.5 (-105)",
+        "total": "O/U 60.5 (-110)",
+        "moneyline": "Loading..."
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "stable",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 66,
+          "total_pct": 51,
+          "handle_pct": 43
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Oklahoma Sooners -14.5 (-110)",
+          "reasoning": "CFB Analysis: Oklahoma Sooners (#NR) vs Illinois State Redbirds (#NR). Home advantage in SEC vs Big Ten matchup. Projected scoring: Oklahoma Sooners 30.0 PPG, Illinois State Redbirds 34.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Illinois State Redbirds +13.5 (value pick)",
+        "UNDER 57.5 (projection edge)",
+        "Oklahoma Sooners 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 67,
+        "wind_speed": 19,
+        "precipitation": "Snow",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Long Island University Sharks @ Florida Gators",
+      "away_team": "Long Island University Sharks",
+      "home_team": "Florida Gators",
+      "away_rank": "NR",
+      "home_rank": "#15",
+      "away_conference": "Independent",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "11:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 29,
+        "away_ppg_allowed": 27,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 29,
+        "home_ppg_allowed": 23
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Long Island University Sharks: 4-4 ATS on road \u2022 Florida Gators: 7-3 ATS at home \u2022 2-7 vs ranked teams",
+        "negative": "Long Island University Sharks: 4-5 ATS in conference \u2022 Florida Gators: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Long Island University Sharks 1-2 in last 3 meetings",
+        "total_trend": "UNDER 3-2 in recent games",
+        "home_advantage": "Home team 70% win rate in series",
+        "rivalry_note": "Limited history - 3 meetings since 2010",
+        "avg_total": 53
+      },
+      "current_lines": {
+        "spread": "Long Island University Sharks -12.5 (-110)",
+        "total": "O/U 54.0 (-110)",
+        "moneyline": "Florida Gators -367 / Long Island University Sharks +343"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -14 to -17.5 (sharp money on favorite)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "up",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 81,
+          "total_pct": 48,
+          "handle_pct": 48
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Long Island University Sharks -8.5 (-110)",
+          "reasoning": "CFB Analysis: Florida Gators (#NR) vs Long Island University Sharks (#NR). Home advantage in SEC vs Independent matchup. Projected scoring: Florida Gators 29.0 PPG, Long Island University Sharks 29.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 29.0 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Long Island University Sharks +12.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "Florida Gators 1H +7.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 77,
+        "wind_speed": 13,
+        "precipitation": "Heavy Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "North Dakota Fighting Hawks @ Kansas State Wildcats",
+      "away_team": "North Dakota Fighting Hawks",
+      "home_team": "Kansas State Wildcats",
+      "away_rank": "NR",
+      "home_rank": "#17",
+      "away_conference": "Independent",
+      "home_conference": "Big 12",
+      "date": "2025-08-30",
+      "time": "11:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 60,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 33,
+        "away_ppg_allowed": 24,
+        "home_ranking": 130,
+        "home_conference": "Big 12",
+        "home_ppg": 28,
+        "home_ppg_allowed": 23
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "WEATHER FACTOR: Wind affects passing games more in CFB"
+      ],
+      "trends": {
+        "positive": "North Dakota Fighting Hawks: 6-7 ATS on road \u2022 Kansas State Wildcats: 5-3 ATS at home \u2022 1-6 vs ranked teams",
+        "negative": "North Dakota Fighting Hawks: 7-6 ATS in conference \u2022 Kansas State Wildcats: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "North Dakota Fighting Hawks 3-1 in last 4 meetings",
+        "total_trend": "OVER 3-2 in recent games",
+        "home_advantage": "Home team 61% win rate in series",
+        "rivalry_note": "Limited history - 4 meetings since 2010",
+        "avg_total": 60
+      },
+      "current_lines": {
+        "spread": "Kansas State Wildcats -25.5 (-106)",
+        "total": "O/U 55.5 (-105)",
+        "moneyline": "Home -4000 / Away +1400"
+      },
+      "line_movement": {
+        "spread_movement": "Down from -21.5 to -18 (injury to star player)",
+        "total_movement": "Big money on OVER moving line up 3 points",
+        "spread_direction": "stable",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 60,
+          "total_pct": 70,
+          "handle_pct": 49
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Kansas State Wildcats -6.5 (-110)",
+          "reasoning": "CFB Analysis: Kansas State Wildcats (#NR) vs North Dakota Fighting Hawks (#NR). Home advantage in Big 12 vs Independent matchup. Projected scoring: Kansas State Wildcats 28.0 PPG, North Dakota Fighting Hawks 33.0 PPG.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 30.5 PPG. Weather and pace factors considered.",
+          "confidence": 70,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "North Dakota Fighting Hawks +9.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "North Dakota Fighting Hawks 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 30,
+        "wind_speed": 6,
+        "precipitation": "Heavy Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "UTSA Roadrunners @ Texas A&M Aggies",
+      "away_team": "UTSA Roadrunners",
+      "home_team": "Texas A&M Aggies",
+      "away_rank": "NR",
+      "home_rank": "#19",
+      "away_conference": "Group of 5",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "11:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 50.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Group of 5",
+        "away_ppg": 28,
+        "away_ppg_allowed": 20,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 33,
+        "home_ppg_allowed": 20
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "UTSA Roadrunners: 4-4 ATS on road \u2022 Texas A&M Aggies: 5-5 ATS at home \u2022 2-8 vs ranked teams",
+        "negative": "UTSA Roadrunners: 4-4 ATS in conference \u2022 Texas A&M Aggies: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "UTSA Roadrunners 4-2 in last 6 meetings",
+        "total_trend": "OVER 3-1 in recent games",
+        "home_advantage": "Home team 66% win rate in series",
+        "rivalry_note": "Limited history - 6 meetings since 2010",
+        "avg_total": 60
+      },
+      "current_lines": {
+        "spread": "Texas A&M Aggies -23.5 (-108)",
+        "total": "O/U 56.5 (-112)",
+        "moneyline": "Home -2100 / Away +1100"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Up from 56 to 59.5 (both teams healthy)",
+        "spread_direction": "down",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 68,
+          "total_pct": 47,
+          "handle_pct": 75
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Texas A&M Aggies +11.5 (-110)",
+          "reasoning": "CFB Analysis: Texas A&M Aggies (#NR) vs UTSA Roadrunners (#NR). Home advantage in SEC vs Group of 5 matchup. Projected scoring: Texas A&M Aggies 33.0 PPG, UTSA Roadrunners 28.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 50.5 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 50.5 vs typical 58. Combined offense power: 30.5 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "7.5 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "UTSA Roadrunners +13.5 (value pick)",
+        "UNDER 50.5 (projection edge)",
+        "UTSA Roadrunners 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "impact": "neutral",
+        "note": "Indoor/dome venue"
+      }
+    },
+    {
+      "matchup": "LSU Tigers @ Clemson Tigers",
+      "away_team": "LSU Tigers",
+      "home_team": "Clemson Tigers",
+      "away_rank": "#9",
+      "home_rank": "#4",
+      "away_conference": "SEC",
+      "home_conference": "ACC",
+      "date": "2025-08-30",
+      "time": "11:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 59.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "SEC",
+        "away_ppg": 34,
+        "away_ppg_allowed": 25,
+        "home_ranking": 130,
+        "home_conference": "ACC",
+        "home_ppg": 32,
+        "home_ppg_allowed": 28
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "LSU Tigers: 5-7 ATS on road \u2022 Clemson Tigers: 8-5 ATS at home \u2022 3-5 vs ranked teams",
+        "negative": "LSU Tigers: 5-6 ATS in conference \u2022 Clemson Tigers: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "LSU Tigers 1-5 in last 6 meetings",
+        "total_trend": "OVER 4-2 in recent games",
+        "home_advantage": "Home team 74% win rate in series",
+        "rivalry_note": "Limited history - 6 meetings since 2010",
+        "avg_total": 66
+      },
+      "current_lines": {
+        "spread": "Clemson Tigers -4.0 (-110)",
+        "total": "O/U 57.5 (-110)",
+        "moneyline": "Home -185 / Away +154"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Steady at 61.5 (balanced action)",
+        "spread_direction": "down",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 73,
+          "total_pct": 50,
+          "handle_pct": 69
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET LSU Tigers -9.5 (-110)",
+          "reasoning": "CFB Analysis: Clemson Tigers (#NR) vs LSU Tigers (#NR). Home advantage in ACC vs SEC matchup. Projected scoring: Clemson Tigers 32.0 PPG, LSU Tigers 34.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "LSU Tigers +12.5 (value pick)",
+        "OVER 59.5 (projection edge)",
+        "Clemson Tigers 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 62,
+        "wind_speed": 4,
+        "precipitation": "Fog",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "New Mexico Lobos @ Michigan Wolverines",
+      "away_team": "New Mexico Lobos",
+      "home_team": "Michigan Wolverines",
+      "away_rank": "NR",
+      "home_rank": "#14",
+      "away_conference": "Independent",
+      "home_conference": "Big Ten",
+      "date": "2025-08-30",
+      "time": "11:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 35,
+        "away_ppg_allowed": 20,
+        "home_ranking": 130,
+        "home_conference": "Big Ten",
+        "home_ppg": 30,
+        "home_ppg_allowed": 23
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "New Mexico Lobos: 3-5 ATS on road \u2022 Michigan Wolverines: 8-5 ATS at home \u2022 1-7 vs ranked teams",
+        "negative": "New Mexico Lobos: 6-4 ATS in conference \u2022 Michigan Wolverines: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "New Mexico Lobos 1-3 in last 4 meetings",
+        "total_trend": "OVER 3-1 in recent games",
+        "home_advantage": "Home team 66% win rate in series",
+        "rivalry_note": "Limited history - 4 meetings since 2010",
+        "avg_total": 64
+      },
+      "current_lines": {
+        "spread": "Michigan Wolverines -34.5 (-112)",
+        "total": "O/U 48.5 (-115)",
+        "moneyline": "Home -20000 / Away +3500"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -14 to -17.5 (sharp money on favorite)",
+        "total_movement": "Up from 56 to 59.5 (both teams healthy)",
+        "spread_direction": "down",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 78,
+          "total_pct": 52,
+          "handle_pct": 68
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET New Mexico Lobos +8.5 (-110)",
+          "reasoning": "CFB Analysis: Michigan Wolverines (#NR) vs New Mexico Lobos (#NR). Home advantage in Big Ten vs Independent matchup. Projected scoring: Michigan Wolverines 30.0 PPG, New Mexico Lobos 35.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 32.5 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "New Mexico Lobos +14.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "New Mexico Lobos 1H +7.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 62,
+        "wind_speed": 12,
+        "precipitation": "Fog",
+        "impact_level": "high",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Arkansas-Pine Bluff Golden Lions @ Texas Tech Red Raiders",
+      "away_team": "Arkansas-Pine Bluff Golden Lions",
+      "home_team": "Texas Tech Red Raiders",
+      "away_rank": "NR",
+      "home_rank": "#23",
+      "away_conference": "SEC",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "11:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 63,
+      "projected_total": 55.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "SEC",
+        "away_ppg": 31,
+        "away_ppg_allowed": 24,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 29,
+        "home_ppg_allowed": 26
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "CONFERENCE GAME: SEC rivalry - expect close game"
+      ],
+      "trends": {
+        "positive": "Arkansas-Pine Bluff Golden Lions: 5-7 ATS on road \u2022 Texas Tech Red Raiders: 8-4 ATS at home \u2022 3-7 vs ranked teams",
+        "negative": "Arkansas-Pine Bluff Golden Lions: 5-3 ATS in conference \u2022 Texas Tech Red Raiders: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Arkansas-Pine Bluff Golden Lions 10-5 in last 15 meetings",
+        "total_trend": "OVER 4-2 in recent games",
+        "home_advantage": "Home team 69% win rate in series",
+        "rivalry_note": "Conference rivals - played 15 times in last decade",
+        "avg_total": 62
+      },
+      "current_lines": {
+        "spread": "Texas Tech Red Raiders -10.5 (-110)",
+        "total": "O/U 55.0 (-110)",
+        "moneyline": "Texas Tech Red Raiders -289 / Arkansas-Pine Bluff Golden Lions +248"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Steady at 61.5 (balanced action)",
+        "spread_direction": "down",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 56,
+          "total_pct": 46,
+          "handle_pct": 51
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Texas Tech Red Raiders -14.5 (-110)",
+          "reasoning": "CFB Analysis: Texas Tech Red Raiders (#NR) vs Arkansas-Pine Bluff Golden Lions (#NR). Home advantage in SEC vs SEC matchup. Projected scoring: Texas Tech Red Raiders 29.0 PPG, Arkansas-Pine Bluff Golden Lions 31.0 PPG.",
+          "confidence": 68,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 55.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 55.0 vs typical 58. Combined offense power: 30.0 PPG. Weather and pace factors considered.",
+          "confidence": 73,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "3.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Arkansas-Pine Bluff Golden Lions +12.5 (value pick)",
+        "UNDER 55.0 (projection edge)",
+        "Texas Tech Red Raiders 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 36,
+        "wind_speed": 17,
+        "precipitation": "Light Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Georgia State Panthers @ Ole Miss Rebels",
+      "away_team": "Georgia State Panthers",
+      "home_team": "Ole Miss Rebels",
+      "away_rank": "NR",
+      "home_rank": "#21",
+      "away_conference": "SEC",
+      "home_conference": "SEC",
+      "date": "2025-08-30",
+      "time": "11:45 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 68,
+      "projected_total": 51.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "SEC",
+        "away_ppg": 30,
+        "away_ppg_allowed": 22,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 28,
+        "home_ppg_allowed": 22
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "CONFERENCE GAME: SEC rivalry - expect close game",
+        "WEATHER FACTOR: Wind affects passing games more in CFB"
+      ],
+      "trends": {
+        "positive": "Georgia State Panthers: 6-5 ATS on road \u2022 Ole Miss Rebels: 7-5 ATS at home \u2022 3-7 vs ranked teams",
+        "negative": "Georgia State Panthers: 7-6 ATS in conference \u2022 Ole Miss Rebels: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Georgia State Panthers 3-6 in last 9 meetings",
+        "total_trend": "UNDER 3-1 in recent games",
+        "home_advantage": "Home team 61% win rate in series",
+        "rivalry_note": "Conference rivals - played 9 times in last decade",
+        "avg_total": 53
+      },
+      "current_lines": {
+        "spread": "Georgia State Panthers +33.5 (-105)",
+        "total": "O/U 60.5 (-110)",
+        "moneyline": "Loading..."
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -7 to -3.5 (starting QB questionable)",
+        "total_movement": "Big money on OVER moving line up 3 points",
+        "spread_direction": "up",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 60,
+          "total_pct": 47,
+          "handle_pct": 43
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Ole Miss Rebels -9.5 (-110)",
+          "reasoning": "CFB Analysis: Ole Miss Rebels (#NR) vs Georgia State Panthers (#NR). Home advantage in SEC vs SEC matchup. Projected scoring: Ole Miss Rebels 28.0 PPG, Georgia State Panthers 30.0 PPG.",
+          "confidence": 73,
+          "unit_size": "1.5u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 51.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 51.0 vs typical 58. Combined offense power: 29.0 PPG. Weather and pace factors considered.",
+          "confidence": 78,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "7.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Georgia State Panthers +10.5 (value pick)",
+        "UNDER 51.0 (projection edge)",
+        "Ole Miss Rebels 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 47,
+        "wind_speed": 6,
+        "precipitation": "Light Rain",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "East Texas A&M Lions @ SMU Mustangs",
+      "away_team": "East Texas A&M Lions",
+      "home_team": "SMU Mustangs",
+      "away_rank": "NR",
+      "home_rank": "#16",
+      "away_conference": "SEC",
+      "home_conference": "Group of 5",
+      "date": "2025-08-31",
+      "time": "01:00 AM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 65,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "SEC",
+        "away_ppg": 33,
+        "away_ppg_allowed": 20,
+        "home_ranking": 130,
+        "home_conference": "Group of 5",
+        "home_ppg": 33,
+        "home_ppg_allowed": 22
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [
+        "CONFERENCE MISMATCH: SEC vs Group of 5 - talent gap"
+      ],
+      "trends": {
+        "positive": "East Texas A&M Lions: 3-5 ATS on road \u2022 SMU Mustangs: 7-3 ATS at home \u2022 1-8 vs ranked teams",
+        "negative": "East Texas A&M Lions: 6-4 ATS in conference \u2022 SMU Mustangs: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "East Texas A&M Lions 1-1 in last 2 meetings",
+        "total_trend": "OVER 3-1 in recent games",
+        "home_advantage": "Home team 72% win rate in series",
+        "rivalry_note": "Limited history - 2 meetings since 2010",
+        "avg_total": 63
+      },
+      "current_lines": {
+        "spread": "East Texas A&M Lions +50.5 (-105)",
+        "total": "O/U 63.5 (-112)",
+        "moneyline": "Loading..."
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -14 to -17.5 (sharp money on favorite)",
+        "total_movement": "Down from 65.5 to 62.5 (weather concerns)",
+        "spread_direction": "down",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 76,
+          "total_pct": 71,
+          "handle_pct": 73
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET SMU Mustangs -10.5 (-110)",
+          "reasoning": "CFB Analysis: SMU Mustangs (#NR) vs East Texas A&M Lions (#NR). Home advantage in Group of 5 vs SEC matchup. Projected scoring: SMU Mustangs 33.0 PPG, East Texas A&M Lions 33.0 PPG.",
+          "confidence": 70,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 33.0 PPG. Weather and pace factors considered.",
+          "confidence": 75,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "East Texas A&M Lions +13.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "East Texas A&M Lions 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 59,
+        "wind_speed": 4,
+        "precipitation": "None",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Northern Arizona Lumberjacks @ Arizona State Sun Devils",
+      "away_team": "Northern Arizona Lumberjacks",
+      "home_team": "Arizona State Sun Devils",
+      "away_rank": "NR",
+      "home_rank": "#11",
+      "away_conference": "Pac-12",
+      "home_conference": "Pac-12",
+      "date": "2025-08-31",
+      "time": "02:00 AM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 54.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Pac-12",
+        "away_ppg": 29,
+        "away_ppg_allowed": 25,
+        "home_ranking": 130,
+        "home_conference": "Pac-12",
+        "home_ppg": 33,
+        "home_ppg_allowed": 21
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Northern Arizona Lumberjacks: 3-4 ATS on road \u2022 Arizona State Sun Devils: 8-5 ATS at home \u2022 2-6 vs ranked teams",
+        "negative": "Northern Arizona Lumberjacks: 6-5 ATS in conference \u2022 Arizona State Sun Devils: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Northern Arizona Lumberjacks 4-10 in last 14 meetings",
+        "total_trend": "OVER 4-2 in recent games",
+        "home_advantage": "Home team 62% win rate in series",
+        "rivalry_note": "Conference rivals - played 14 times in last decade",
+        "avg_total": 61
+      },
+      "current_lines": {
+        "spread": "Arizona State Sun Devils -28.5 (-115)",
+        "total": "O/U 52.5 (-110)",
+        "moneyline": "Home -10000 / Away +3000"
+      },
+      "line_movement": {
+        "spread_movement": "Sharp money hammering the UNDER",
+        "total_movement": "Up from 56 to 59.5 (both teams healthy)",
+        "spread_direction": "stable",
+        "total_direction": "up",
+        "public_betting": {
+          "spread_pct": 83,
+          "total_pct": 45,
+          "handle_pct": 58
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Arizona State Sun Devils +13.5 (-110)",
+          "reasoning": "CFB Analysis: Arizona State Sun Devils (#NR) vs Northern Arizona Lumberjacks (#NR). Home advantage in Pac-12 vs Pac-12 matchup. Projected scoring: Arizona State Sun Devils 33.0 PPG, Northern Arizona Lumberjacks 29.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 54.0 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 54.0 vs typical 58. Combined offense power: 31.0 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "4.0 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Northern Arizona Lumberjacks +8.5 (value pick)",
+        "UNDER 54.0 (projection edge)",
+        "Northern Arizona Lumberjacks 1H -3.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 53,
+        "wind_speed": 19,
+        "precipitation": "None",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Virginia Tech Hokies @ South Carolina Gamecocks",
+      "away_team": "Virginia Tech Hokies",
+      "home_team": "South Carolina Gamecocks",
+      "away_rank": "NR",
+      "home_rank": "#13",
+      "away_conference": "ACC",
+      "home_conference": "SEC",
+      "date": "2025-08-31",
+      "time": "07:00 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 56.0,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "ACC",
+        "away_ppg": 30,
+        "away_ppg_allowed": 27,
+        "home_ranking": 130,
+        "home_conference": "SEC",
+        "home_ppg": 29,
+        "home_ppg_allowed": 26
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Virginia Tech Hokies: 4-7 ATS on road \u2022 South Carolina Gamecocks: 8-6 ATS at home \u2022 2-8 vs ranked teams",
+        "negative": "Virginia Tech Hokies: 6-5 ATS in conference \u2022 South Carolina Gamecocks: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Virginia Tech Hokies 1-4 in last 5 meetings",
+        "total_trend": "UNDER 4-1 in recent games",
+        "home_advantage": "Home team 64% win rate in series",
+        "rivalry_note": "Limited history - 5 meetings since 2010",
+        "avg_total": 63
+      },
+      "current_lines": {
+        "spread": "South Carolina Gamecocks -7.0 (-115)",
+        "total": "O/U 51.5 (-108)",
+        "moneyline": "Home -298 / Away +240"
+      },
+      "line_movement": {
+        "spread_movement": "Up from 58.5 to 62 (weather cleared up)",
+        "total_movement": "Big money on OVER moving line up 3 points",
+        "spread_direction": "up",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 61,
+          "total_pct": 52,
+          "handle_pct": 48
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET South Carolina Gamecocks +12.5 (-110)",
+          "reasoning": "CFB Analysis: South Carolina Gamecocks (#NR) vs Virginia Tech Hokies (#NR). Home advantage in SEC vs ACC matchup. Projected scoring: South Carolina Gamecocks 29.0 PPG, Virginia Tech Hokies 30.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        }
+      ],
+      "parlay_legs": [
+        "Virginia Tech Hokies +9.5 (value pick)",
+        "UNDER 56.0 (projection edge)",
+        "South Carolina Gamecocks 1H OVER 31.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 56,
+        "wind_speed": 13,
+        "precipitation": "Light Rain",
+        "impact_level": "high",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    },
+    {
+      "matchup": "Notre Dame Fighting Irish @ Miami Hurricanes",
+      "away_team": "Notre Dame Fighting Irish",
+      "home_team": "Miami Hurricanes",
+      "away_rank": "#6",
+      "home_rank": "#10",
+      "away_conference": "Independent",
+      "home_conference": "ACC",
+      "date": "2025-08-31",
+      "time": "11:30 PM EST",
+      "week": 1,
+      "league": "CFB",
+      "ai_confidence": 55,
+      "projected_total": 52.5,
+      "team_rankings": {
+        "away_ranking": 130,
+        "away_conference": "Independent",
+        "away_ppg": 34,
+        "away_ppg_allowed": 22,
+        "home_ranking": 130,
+        "home_conference": "ACC",
+        "home_ppg": 29,
+        "home_ppg_allowed": 20
+      },
+      "team_records": {
+        "away_record": "N/A",
+        "away_ats": "N/A",
+        "away_conf_record": "N/A",
+        "home_record": "N/A",
+        "home_ats": "N/A",
+        "home_conf_record": "N/A"
+      },
+      "matchup_analysis": [],
+      "trends": {
+        "positive": "Notre Dame Fighting Irish: 6-6 ATS on road \u2022 Miami Hurricanes: 7-4 ATS at home \u2022 3-5 vs ranked teams",
+        "negative": "Notre Dame Fighting Irish: 5-4 ATS in conference \u2022 Miami Hurricanes: N/A \u2022 November scheduling factors"
+      },
+      "head_to_head": {
+        "last_5": "Notre Dame Fighting Irish 2-3 in last 5 meetings",
+        "total_trend": "UNDER 3-2 in recent games",
+        "home_advantage": "Home team 68% win rate in series",
+        "rivalry_note": "Limited history - 5 meetings since 2010",
+        "avg_total": 68
+      },
+      "current_lines": {
+        "spread": "Miami Hurricanes +2.5 (+100)",
+        "total": "O/U 50.5 (-110)",
+        "moneyline": "Home +120 / Away -144"
+      },
+      "line_movement": {
+        "spread_movement": "Moved from -14 to -17.5 (sharp money on favorite)",
+        "total_movement": "Steady at 61.5 (balanced action)",
+        "spread_direction": "down",
+        "total_direction": "down",
+        "public_betting": {
+          "spread_pct": 81,
+          "total_pct": 62,
+          "handle_pct": 62
+        }
+      },
+      "betting_recommendations": [
+        {
+          "bet": "BET Miami Hurricanes -5.5 (-110)",
+          "reasoning": "CFB Analysis: Miami Hurricanes (#NR) vs Notre Dame Fighting Irish (#NR). Home advantage in ACC vs Independent matchup. Projected scoring: Miami Hurricanes 29.0 PPG, Notre Dame Fighting Irish 34.0 PPG.",
+          "confidence": 60,
+          "unit_size": "1u",
+          "book": "DraftKings",
+          "intel_edge": "Conference matchup analysis"
+        },
+        {
+          "bet": "BET UNDER 52.5 (-110)",
+          "reasoning": "CFB Total Analysis: Projected 52.5 vs typical 58. Combined offense power: 31.5 PPG. Weather and pace factors considered.",
+          "confidence": 65,
+          "unit_size": "1u",
+          "book": "FanDuel",
+          "intel_edge": "5.5 point projection edge"
+        }
+      ],
+      "parlay_legs": [
+        "Notre Dame Fighting Irish +11.5 (value pick)",
+        "UNDER 52.5 (projection edge)",
+        "Miami Hurricanes 1H +7.5 (fast start)"
+      ],
+      "weather": {
+        "temperature": 78,
+        "wind_speed": 22,
+        "precipitation": "Snow",
+        "impact_level": "medium",
+        "betting_advice": [
+          "Wind affects passing games more in CFB",
+          "Weather favors ground-heavy offenses",
+          "Cold November games favor UNDER"
+        ]
+      }
+    }
+  ],
   "parlays": [],
-  "weather_alerts": [],
+  "weather_alerts": [
+    {
+      "game": "Western Illinois Leathernecks @ Illinois Fighting Illini",
+      "alert": "Wind affects passing games more in CFB",
+      "impact": "high"
+    },
+    {
+      "game": "Boise State Broncos @ South Florida Bulls",
+      "alert": "Wind affects passing games more in CFB",
+      "impact": "high"
+    },
+    {
+      "game": "Old Dominion Monarchs @ Indiana Hoosiers",
+      "alert": "Wind affects passing games more in CFB",
+      "impact": "high"
+    },
+    {
+      "game": "Montana State Bobcats @ Oregon Ducks",
+      "alert": "Wind affects passing games more in CFB",
+      "impact": "high"
+    },
+    {
+      "game": "New Mexico Lobos @ Michigan Wolverines",
+      "alert": "Wind affects passing games more in CFB",
+      "impact": "high"
+    },
+    {
+      "game": "Virginia Tech Hokies @ South Carolina Gamecocks",
+      "alert": "Wind affects passing games more in CFB",
+      "impact": "high"
+    }
+  ],
   "line_movements": [],
   "performance": {
     "season_record": {
