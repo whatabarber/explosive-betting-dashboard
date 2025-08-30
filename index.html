@@ -124,40 +124,62 @@
             letter-spacing: 1px;
         }
         
-        .section {
-            margin-bottom: 40px;
+        /* Tab Navigation */
+        .tab-container {
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            background: #0f1419;
+            z-index: 100;
+            padding: 10px 0;
         }
         
-        .section-header {
+        .tab-nav {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background: #2d3748;
+            border-radius: 15px;
+            padding: 5px;
             margin-bottom: 20px;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
-            border-radius: 10px;
-            border-left: 5px solid #ff6b35;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .toggle-btn {
-            background: #ff6b35;
-            color: white;
+        .tab-button {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 20px;
+            background: transparent;
             border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
+            color: #a0aec0;
+            font-size: 1rem;
             font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
         }
         
-        .toggle-btn:hover {
-            background: #e55a2b;
-            transform: scale(1.05);
+        .tab-button:hover {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            transform: translateY(-2px);
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
         }
         
         .games-grid {
@@ -235,15 +257,41 @@
             color: #cbd5e0;
         }
         
-        .hidden {
-            display: none;
+        /* NBA Specific */
+        .nba-card {
+            border-left: 4px solid #FFA500;
         }
         
+        .nba-card:hover {
+            border-color: #FFA500;
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
+        }
+        
+        /* CFB Specific */
+        .cfb-card {
+            border-left: 4px solid #0066CC;
+        }
+        
+        .cfb-card:hover {
+            border-color: #0066CC;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+        }
+        
+        /* NFL Specific */
+        .nfl-card {
+            border-left: 4px solid #32CD32;
+        }
+        
+        .nfl-card:hover {
+            border-color: #32CD32;
+            box-shadow: 0 10px 30px rgba(50, 205, 50, 0.3);
+        }
+        
+        /* PrizePicks Section */
         .prizepicks-section {
             background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
             border-radius: 15px;
             padding: 25px;
-            margin-top: 30px;
         }
         
         .prizepicks-header {
@@ -296,6 +344,7 @@
             text-align: center;
         }
         
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .games-grid {
                 grid-template-columns: 1fr;
@@ -305,10 +354,36 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .section-header {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+            .tab-nav {
+                overflow-x: scroll;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            
+            .tab-nav::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .tab-button {
+                min-width: 100px;
+                font-size: 0.9rem;
+                padding: 12px 16px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+            
+            .tab-button {
+                min-width: 80px;
+                font-size: 0.8rem;
+                padding: 10px 12px;
             }
         }
     </style>
@@ -342,53 +417,81 @@
             </div>
         </div>
 
-        <!-- NFL Section -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">NFL GAMES</h2>
-                <button class="toggle-btn" onclick="toggleSection('nfl')">Toggle NFL</button>
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="tab-button active" onclick="showTab('nfl')">NFL</button>
+                <button class="tab-button" onclick="showTab('cfb')">CFB</button>
+                <button class="tab-button" onclick="showTab('nba')">NBA</button>
+                <button class="tab-button" onclick="showTab('prizepicks')">PrizePicks</button>
             </div>
+        </div>
+
+        <!-- NFL Tab Content -->
+        <div id="nfl-content" class="tab-content active">
             <div class="games-grid" id="nflGames">
                 <div class="loading">Loading NFL games...</div>
             </div>
         </div>
 
-        <!-- CFB Section -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">COLLEGE FOOTBALL</h2>
-                <button class="toggle-btn" onclick="toggleSection('cfb')">Toggle CFB</button>
-            </div>
+        <!-- CFB Tab Content -->
+        <div id="cfb-content" class="tab-content">
             <div class="games-grid" id="cfbGames">
                 <div class="loading">Loading CFB games...</div>
             </div>
         </div>
 
-        <!-- PrizePicks Section -->
-        <div class="prizepicks-section">
-            <div class="prizepicks-header">
-                <h2>PRIZEPICKS PROPS</h2>
-                <p>AI-Analyzed Player Props</p>
+        <!-- NBA Tab Content -->
+        <div id="nba-content" class="tab-content">
+            <div class="games-grid" id="nbaGames">
+                <div class="loading">Loading NBA games...</div>
             </div>
-            <div class="props-grid" id="prizePicksProps">
-                <div class="loading">Loading PrizePicks props...</div>
+        </div>
+
+        <!-- PrizePicks Tab Content -->
+        <div id="prizepicks-content" class="tab-content">
+            <div class="prizepicks-section">
+                <div class="prizepicks-header">
+                    <h2>PRIZEPICKS PROPS</h2>
+                    <p>AI-Analyzed Player Props</p>
+                </div>
+                <div class="props-grid" id="prizePicksProps">
+                    <div class="loading">Loading PrizePicks props...</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         let dashboardData = null;
-        let sectionsVisible = {
-            nfl: true,
-            cfb: true
-        };
+        let nbaData = null;
+        let prizePicksData = null;
+
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
 
         // Load dashboard data
         async function loadDashboardData() {
             try {
-                console.log('Loading dashboard data...');
+                console.log('Loading main dashboard data...');
                 
-                // Try to load from GitHub first (live data)
+                // Load main dashboard data
                 const response = await fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/dashboard_data.json?' + new Date().getTime());
                 
                 if (!response.ok) {
@@ -396,21 +499,34 @@
                 }
                 
                 dashboardData = await response.json();
-                console.log('Dashboard data loaded:', dashboardData);
+                console.log('Main dashboard data loaded:', dashboardData);
+                
+                // Load NBA data
+                try {
+                    const nbaResponse = await fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/nba_dashboard_data.json?' + new Date().getTime());
+                    if (nbaResponse.ok) {
+                        nbaData = await nbaResponse.json();
+                        console.log('NBA data loaded:', nbaData);
+                    }
+                } catch (nbaError) {
+                    console.log('NBA data not available:', nbaError);
+                }
+                
+                // Load PrizePicks data
+                try {
+                    const prizePicksResponse = await fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/prizepicks_data.json?' + new Date().getTime());
+                    if (prizePicksResponse.ok) {
+                        prizePicksData = await prizePicksResponse.json();
+                        console.log('PrizePicks data loaded:', prizePicksData);
+                    }
+                } catch (prizePicksError) {
+                    console.log('PrizePicks data not available:', prizePicksError);
+                }
                 
                 updateDashboard();
             } catch (error) {
                 console.error('Error loading dashboard data:', error);
-                
-                // Try fallback local data
-                try {
-                    const fallbackResponse = await fetch('./dashboard_data.json?' + new Date().getTime());
-                    dashboardData = await fallbackResponse.json();
-                    updateDashboard();
-                } catch (fallbackError) {
-                    console.error('Fallback also failed:', fallbackError);
-                    showError('Unable to load dashboard data. Please check your connection.');
-                }
+                showError('Unable to load dashboard data. Please check your connection.');
             }
         }
 
@@ -434,8 +550,15 @@
             // Update CFB games
             updateGamesSection('cfb', dashboardData.cfb_games || []);
 
+            // Update NBA games
+            if (nbaData && nbaData.games) {
+                updateGamesSection('nba', nbaData.games);
+            } else {
+                updateGamesSection('nba', []);
+            }
+
             // Update PrizePicks
-            updatePrizePicksSection(dashboardData.prizepicks_props || {});
+            updatePrizePicksSection(prizePicksData || dashboardData.prizepicks_props || {});
         }
 
         function updateGamesSection(league, games) {
@@ -452,12 +575,13 @@
                 const recommendations = analysis.betting_recommendations || [];
 
                 return `
-                    <div class="game-card">
+                    <div class="game-card ${league}-card">
                         <div class="matchup">${game.matchup}</div>
                         <div class="game-details">
                             <span>${game.date} ${game.time}</span>
-                            <span>${game.league}</span>
+                            <span>${game.league || league.toUpperCase()}</span>
                         </div>
+                        ${game.venue ? `<div style="color: #a0aec0; margin-bottom: 10px; font-size: 0.9rem;">${game.venue}</div>` : ''}
                         <div class="confidence-bar">
                             <div class="confidence-fill" style="width: ${confidence}%"></div>
                         </div>
@@ -512,17 +636,6 @@
             container.innerHTML = propsHtml;
         }
 
-        function toggleSection(section) {
-            sectionsVisible[section] = !sectionsVisible[section];
-            const container = document.getElementById(section + 'Games');
-            
-            if (sectionsVisible[section]) {
-                container.classList.remove('hidden');
-            } else {
-                container.classList.add('hidden');
-            }
-        }
-
         function showError(message) {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'error';
@@ -548,7 +661,7 @@
             startAutoRefresh();
         });
 
-        // Manual refresh button
+        // Manual refresh with Ctrl+R
         document.addEventListener('keydown', function(e) {
             if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
                 e.preventDefault();
