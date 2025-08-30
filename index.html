@@ -3,1670 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 EXPLOSIVE Betting Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Explosive Betting Dashboard</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a202c 100%);
             color: #ffffff;
             min-height: 100vh;
-            overflow-x: hidden;
         }
-
+        
         .header {
-            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 50%, #ff4757 100%);
-            padding: 20px 0;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            animation: slide 20s linear infinite;
         }
-
-        .logo {
+        
+        @keyframes slide {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
+        }
+        
+        .header h1 {
             font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #fff, #ffee58);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
         }
-
-        .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.1);
+        
+        .last-update {
+            background: rgba(0, 0, 0, 0.3);
             padding: 10px 20px;
             border-radius: 25px;
-            backdrop-filter: blur(10px);
+            display: inline-block;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
         }
-
-        .pulse {
-            width: 12px;
-            height: 12px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* SPORT TABS STYLING */
-        .sport-tabs {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 8px;
-            margin: 20px auto;
-            max-width: 600px;
-            display: flex;
-            gap: 8px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .sport-tab {
-            flex: 1;
-            padding: 12px 20px;
-            border-radius: 10px;
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.7);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .sport-tab.active {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
-        }
-
-        .sport-tab:hover:not(.active) {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-
-        .sport-content {
-            display: none;
-        }
-
-        .sport-content.active {
-            display: block;
-        }
-
-        .container {
+        
+        .dashboard-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 20px;
         }
-
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-
+        
         .stat-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             padding: 25px;
-            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid #4a5568;
+            text-align: center;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
-            border-color: rgba(255, 107, 53, 0.3);
-        }
-
+        
         .stat-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6b35, #f7931e, #ff4757);
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s;
         }
-
+        
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b35;
+        }
+        
         .stat-number {
             font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            color: #ff6b35;
             margin-bottom: 10px;
         }
-
+        
         .stat-label {
-            color: #a0a0a0;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            color: #a0aec0;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
+        
         .section {
             margin-bottom: 40px;
         }
-
+        
         .section-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            border-radius: 10px;
+            border-left: 5px solid #ff6b35;
         }
-
+        
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #ffffff, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
-
-        .section-icon {
-            font-size: 2rem;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .toggle-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-
+        
+        .toggle-btn:hover {
+            background: #e55a2b;
+            transform: scale(1.05);
+        }
+        
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
-
+        
         .game-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            border: 1px solid #4a5568;
+            border-radius: 15px;
             padding: 25px;
-            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
-
+        
         .game-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.15);
-            border-color: rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
-
-        .confidence-high { border-left: 4px solid #4ade80; }
-        .confidence-medium { border-left: 4px solid #f59e0b; }
-        .confidence-low { border-left: 4px solid #ef4444; }
-
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
+        
         .matchup {
             font-size: 1.3rem;
             font-weight: 700;
+            margin-bottom: 10px;
             color: #ffffff;
         }
-
-        .confidence-badge {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .confidence-high .confidence-badge {
-            background: linear-gradient(45deg, #4ade80, #22c55e);
-            color: #000;
-        }
-
-        .confidence-medium .confidence-badge {
-            background: linear-gradient(45deg, #f59e0b, #eab308);
-            color: #000;
-        }
-
-        .confidence-low .confidence-badge {
-            background: linear-gradient(45deg, #ef4444, #dc2626);
-            color: #fff;
-        }
-
-        /* CFB-specific styles */
-        .cfb-ranking {
-            background: linear-gradient(45deg, #0066cc, #0052a3);
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-left: 8px;
-        }
-
-        .cfb-conference {
-            background: rgba(0, 102, 204, 0.2);
-            color: #66b3ff;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            margin-left: 8px;
-        }
-
-        .weather-alert {
-            background: linear-gradient(90deg, #ff6b35, #f7931e);
-            color: #000;
-            padding: 12px 16px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-weight: 600;
+        
+        .game-details {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #a0aec0;
         }
-
-        .bets-container {
+        
+        .confidence-bar {
+            width: 100%;
+            height: 8px;
+            background: #2d3748;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .bets-list {
+            margin-top: 15px;
+        }
+        
+        .bet-item {
+            background: rgba(255, 107, 53, 0.1);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            border-left: 3px solid #ff6b35;
+        }
+        
+        .bet-recommendation {
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 5px;
+        }
+        
+        .bet-reasoning {
+            font-size: 0.9rem;
+            color: #cbd5e0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .prizepicks-section {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .prizepicks-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .props-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 15px;
         }
-
-        .bet-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 18px;
-            transition: all 0.3s ease;
+        
+        .prop-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        .bet-item:hover {
-            background: rgba(255, 107, 53, 0.1);
-            border-color: rgba(255, 107, 53, 0.3);
+        
+        .prop-player {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
-
-        .bet-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .prop-details {
+            color: #e6fffa;
             margin-bottom: 10px;
         }
-
-        .bet-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #4ade80;
-        }
-
-        .bet-units {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .bet-reasoning {
-            color: #a0a0a0;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .team-intel-section {
-            background: rgba(255,255,255,0.03); 
-            border-radius: 12px; 
-            padding: 20px; 
-            margin: 20px 0;
-        }
-
-        .lines-section {
-            background: rgba(255,255,255,0.03); 
-            border-radius: 12px; 
-            padding: 20px; 
-            margin: 20px 0;
-        }
-
-        .parlay-section {
-            background: linear-gradient(135deg, rgba(75, 222, 128, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
-            border: 1px solid rgba(75, 222, 128, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .parlay-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-
-        .parlay-header {
+        
+        .prop-recommendation {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
         }
-
-        .parlay-odds {
-            font-size: 1.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #4ade80, #22c55e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .parlay-legs {
-            display: grid;
-            gap: 10px;
-        }
-
-        .parlay-leg {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            padding: 12px 15px;
-            font-size: 0.9rem;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 10px;
-            z-index: 1000;
-        }
-
-        .nav-item {
-            padding: 12px 20px;
-            margin: 0 5px;
-            border-radius: 20px;
-            background: transparent;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-item.active {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            color: #000;
-        }
-
-        .performance-chart {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 20px 15px; }
-            .games-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .mobile-nav { display: flex; }
-            .logo { font-size: 1.8rem; }
-            .header-content { flex-direction: column; gap: 15px; }
-            .sport-tabs { margin: 15px 10px; }
-        }
-
+        
         .loading {
             text-align: center;
             padding: 50px;
-            font-size: 1.2rem;
-            color: #a0a0a0;
+            color: #a0aec0;
         }
-
+        
         .error {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 15px;
-            padding: 20px;
+            background: #e53e3e;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
             text-align: center;
-            margin: 20px 0;
         }
-
-        .refresh-btn {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            border: none;
-            color: #000;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .refresh-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">🚀 WHATABARBER'S EXPLOSIVE BETS</div>
-            <div class="live-indicator">
-                <div class="pulse"></div>
-                <span>LIVE ANALYSIS</span>
-                <span id="lastUpdate">Loading...</span>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- SPORT SELECTION TABS -->
-        <div class="sport-tabs">
-            <button class="sport-tab active" onclick="switchSport('nfl')" id="nfl-tab">
-                🏈 NFL
-            </button>
-            <button class="sport-tab" onclick="switchSport('cfb')" id="cfb-tab">
-                🏈 CFB
-            </button><button class="sport-tab" onclick="switchSport('nba')" id="nba-tab">
-    🏀 NBA
-</button>    
-            <button class="sport-tab" onclick="switchSport('prizepicks')" id="prizepicks-tab">
-    💎 PRIZEPICKS
-</button>
-            <button class="sport-tab" onclick="switchSport('all')" id="all-tab">
-                🔥 ALL LOCKS
-            </button>
-        </div>
-
-        <!-- NFL CONTENT -->
-        <div id="nfl-content" class="sport-content active">
-            <!-- Performance Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="nfl-totalGames">-</div>
-                    <div class="stat-label">NFL Games Analyzed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nfl-highConfidenceBets">-</div>
-                    <div class="stat-label">NFL Lock Bets (75%+)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nfl-weatherGames">-</div>
-                    <div class="stat-label">Weather Impacts</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nfl-avgConfidence">-</div>
-                    <div class="stat-label">Avg Confidence</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nfl-lineMovements">-</div>
-                    <div class="stat-label">Line Movements</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nfl-winRate">-</div>
-                    <div class="stat-label">Win Rate</div>
-                </div>
-            </div>
-
-            <!-- Performance Chart -->
-            <div class="performance-chart">
-                <h3 style="margin-bottom: 20px; color: #fff;">📈 NFL Betting Performance</h3>
-                <canvas id="nfl-performanceChart" height="100"></canvas>
-            </div>
-
-            <!-- Weather Alerts -->
-            <div id="nfl-weatherAlerts" class="section"></div>
-
-            <!-- Line Movements -->
-            <div id="nfl-lineMovements" class="section"></div>
-
-            <!-- Parlay Opportunities -->
-            <div id="nfl-parlaySection" class="section"></div>
-
-            <!-- Games Analysis -->
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">🏈</div>
-                    <div class="section-title">NFL AI Game Analysis</div>
-                </div>
-                <div id="nfl-gamesContainer" class="games-grid">
-                    <div class="loading">🚀 Loading NFL explosive analysis...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CFB CONTENT -->
-        <div id="cfb-content" class="sport-content">
-            <!-- Performance Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="cfb-totalGames">-</div>
-                    <div class="stat-label">CFB Games Analyzed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="cfb-highConfidenceBets">-</div>
-                    <div class="stat-label">CFB Lock Bets (75%+)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="cfb-rankedGames">-</div>
-                    <div class="stat-label">Ranked Team Games</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="cfb-avgConfidence">-</div>
-                    <div class="stat-label">Avg Confidence</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="cfb-conferenceGames">-</div>
-                    <div class="stat-label">Conference Games</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="cfb-winRate">-</div>
-                    <div class="stat-label">Win Rate</div>
-                </div>
-            </div>
-
-            <!-- Performance Chart -->
-            <div class="performance-chart">
-                <h3 style="margin-bottom: 20px; color: #fff;">📈 CFB Betting Performance</h3>
-                <canvas id="cfb-performanceChart" height="100"></canvas>
-            </div>
-
-            <!-- Weather Alerts -->
-            <div id="cfb-weatherAlerts" class="section"></div>
-
-            <!-- Line Movements -->
-            <div id="cfb-lineMovements" class="section"></div>
-
-            <!-- Parlay Opportunities -->
-            <div id="cfb-parlaySection" class="section"></div>
-
-            <!-- Games Analysis -->
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">🏈</div>
-                    <div class="section-title">CFB AI Game Analysis</div>
-                </div>
-                <div id="cfb-gamesContainer" class="games-grid">
-                    <div class="loading">🏈 Loading CFB explosive analysis...</div>
-                </div>
-            </div>
-        </div>
-        <!-- NBA CONTENT -->
-        <div id="nba-content" class="sport-content">
-            <!-- Performance Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="nba-totalGames">-</div>
-                    <div class="stat-label">NBA Games Analyzed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nba-highConfidenceBets">-</div>
-                    <div class="stat-label">NBA Lock Bets (75%+)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nba-backToBackGames">-</div>
-                    <div class="stat-label">Back-to-Back Games</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nba-avgConfidence">-</div>
-                    <div class="stat-label">Avg Confidence</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nba-playerProps">-</div>
-                    <div class="stat-label">Player Props</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="nba-winRate">-</div>
-                    <div class="stat-label">Win Rate</div>
-                </div>
-            </div>
-
-            <!-- Performance Chart -->
-            <div class="performance-chart">
-                <h3 style="margin-bottom: 20px; color: #fff;">📈 NBA Betting Performance</h3>
-                <canvas id="nba-performanceChart" height="100"></canvas>
-            </div>
-
-            <!-- Games Analysis -->
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">🏀</div>
-                    <div class="section-title">NBA AI Game Analysis</div>
-                </div>
-                <div id="nba-gamesContainer" class="games-grid">
-                    <div class="loading">🏀 Loading NBA explosive analysis...</div>
-                </div>
-            </div>
-        </div>
-        <!-- PRIZEPICKS CONTENT -->
-        <div id="prizepicks-content" class="sport-content">
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">💎</div>
-                    <div class="section-title">PrizePicks & Bovada Live Analysis</div>
-                    <a href="https://betting-git-main-whatabarbers-projects.vercel.app/" target="_blank" style="margin-left: auto; background: linear-gradient(45deg, #ff6b35, #f7931e); color: #000; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;">
-                        🚀 Open Full Site
-                    </a>
-                </div>
-                
-                <!-- Embedded PrizePicks Dashboard -->
-                <div style="background: #fff; border-radius: 15px; padding: 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <iframe 
-                        src="https://betting-git-main-whatabarbers-projects.vercel.app/" 
-                        width="100%" 
-                        height="800px" 
-                        frameborder="0"
-                        style="border-radius: 15px;">
-                    </iframe>
-                </div>
-                
-                <!-- Quick Stats for PrizePicks -->
-                <div class="stats-grid" style="margin-top: 30px;">
-                    <div class="stat-card">
-                        <div class="stat-number" id="pp-totalProps">-</div>
-                        <div class="stat-label">Live Props</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="pp-highEdge">-</div>
-                        <div class="stat-label">High Edge Props</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="pp-bovadaGames">-</div>
-                        <div class="stat-label">Bovada Games</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="pp-sharpMoney">-</div>
-                        <div class="stat-label">Sharp Plays</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ALL LOCKS CONTENT -->
-        <div id="all-content" class="sport-content">
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">🔥</div>
-                    <div class="section-title">All High-Confidence Bets (75%+)</div>
-                </div>
-                <div id="all-gamesContainer" class="games-grid">
-                    <div class="loading">🔥 Loading all lock bets...</div>
-                </div>
-            </div>
+    <div class="header">
+        <h1>EXPLOSIVE BETTING DASHBOARD</h1>
+        <div class="last-update" id="lastUpdate">
+            Loading...
         </div>
     </div>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav">
-        <button class="nav-item active" onclick="scrollToSection('stats')">📊</button>
-        <button class="nav-item" onclick="scrollToSection('weather')">🌤️</button>
-        <button class="nav-item" onclick="scrollToSection('parlays')">🎲</button>
-        <button class="nav-item" onclick="scrollToSection('games')">🏈</button>
+    <div class="dashboard-container">
+        <!-- Stats Overview -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalGames">-</div>
+                <div class="stat-label">Total Games</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalBets">-</div>
+                <div class="stat-label">Betting Opportunities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="highConfidenceBets">-</div>
+                <div class="stat-label">High Confidence Bets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="avgConfidence">-%</div>
+                <div class="stat-label">Average Confidence</div>
+            </div>
+        </div>
+
+        <!-- NFL Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">NFL GAMES</h2>
+                <button class="toggle-btn" onclick="toggleSection('nfl')">Toggle NFL</button>
+            </div>
+            <div class="games-grid" id="nflGames">
+                <div class="loading">Loading NFL games...</div>
+            </div>
+        </div>
+
+        <!-- CFB Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">COLLEGE FOOTBALL</h2>
+                <button class="toggle-btn" onclick="toggleSection('cfb')">Toggle CFB</button>
+            </div>
+            <div class="games-grid" id="cfbGames">
+                <div class="loading">Loading CFB games...</div>
+            </div>
+        </div>
+
+        <!-- PrizePicks Section -->
+        <div class="prizepicks-section">
+            <div class="prizepicks-header">
+                <h2>PRIZEPICKS PROPS</h2>
+                <p>AI-Analyzed Player Props</p>
+            </div>
+            <div class="props-grid" id="prizePicksProps">
+                <div class="loading">Loading PrizePicks props...</div>
+            </div>
+        </div>
     </div>
 
     <script>
-        let nflData = null;
-        let cfbData = null;
-        let nbaData = null;
-        let prizePicksData = null;
-        let currentSport = 'nfl';
+        let dashboardData = null;
+        let sectionsVisible = {
+            nfl: true,
+            cfb: true
+        };
 
-        // Switch between sports
-        function switchSport(sport) {
-            // Update active tab
-            document.querySelectorAll('.sport-tab').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(sport + '-tab').classList.add('active');
-            
-            // Show/hide content
-            document.querySelectorAll('.sport-content').forEach(content => content.classList.remove('active'));
-            document.getElementById(sport + '-content').classList.add('active');
-            
-            currentSport = sport;
-            
-            // Load data if needed
-            if (sport === 'nfl' && !nflData) {
-                loadNFLData();
-            } else if (sport === 'cfb' && !cfbData) {
-                loadCFBData();
-            } else if (sport === 'nba' && !nbaData) {
-                loadNBAData();
-            } else if (sport === 'prizepicks' && !prizePicksData) {
-    loadPrizePicksData();    
-            } else if (sport === 'all') {
-                loadAllLocksData();
-            }
-        }
-
-        // Load NFL dashboard data
-        async function loadNFLData() {
+        // Load dashboard data
+        async function loadDashboardData() {
             try {
-                const response = await fetch('./dashboard_data.json').catch(() =>
-                    fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/dashboard_data.json')
-                );
+                console.log('Loading dashboard data...');
                 
-                if (response && response.ok) {
-                    nflData = await response.json();
-                    console.log('✅ Loaded NFL data!', nflData);
-                } else {
-                    console.log('⚠️ Using NFL demo data');
-                    nflData = createNFLDemoData();
+                // Try to load from GitHub first (live data)
+                const response = await fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/dashboard_data.json?' + new Date().getTime());
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
-                updateNFLDashboard();
-            } catch (error) {
-                console.error('Error loading NFL data:', error);
-                nflData = createNFLDemoData();
-                updateNFLDashboard();
-            }
-        }
-
-        // Load CFB dashboard data
-        async function loadCFBData() {
-            try {
-                const response = await fetch('./cfb_dashboard_data.json').catch(() =>
-                    fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/cfb_dashboard_data.json')
-                );
+                dashboardData = await response.json();
+                console.log('Dashboard data loaded:', dashboardData);
                 
-                if (response && response.ok) {
-                    cfbData = await response.json();
-                    console.log('✅ Loaded CFB data!', cfbData);
-                } else {
-                    console.log('⚠️ Using CFB demo data');
-                    cfbData = createCFBDemoData();
+                updateDashboard();
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                
+                // Try fallback local data
+                try {
+                    const fallbackResponse = await fetch('./dashboard_data.json?' + new Date().getTime());
+                    dashboardData = await fallbackResponse.json();
+                    updateDashboard();
+                } catch (fallbackError) {
+                    console.error('Fallback also failed:', fallbackError);
+                    showError('Unable to load dashboard data. Please check your connection.');
                 }
-                
-                updateCFBDashboard();
-            } catch (error) {
-                console.error('Error loading CFB data:', error);
-                cfbData = createCFBDemoData();
-                updateCFBDashboard();
             }
         }
 
-        function createNFLDemoData() {
-            return {
-                last_update: new Date().toISOString(),
-                summary: {
-                    total_games: 16,
-                    total_bets: 28,
-                    high_confidence_bets: 6,
-                    weather_impacted_games: 3,
-                    significant_line_moves: 4,
-                    average_confidence: 72.5
-                },
-                games: [
-                    {
-                        matchup: "Chiefs @ Bills",
-                        away_team: "Kansas City Chiefs",
-                        home_team: "Buffalo Bills",
-                        date: "2025-08-10",
-                        time: "8:20 PM EST",
-                        league: "NFL",
-                        ai_confidence: 85,
-                        projected_total: 52.5,
-                        team_rankings: {
-                            away_offense_rank: 3,
-                            away_defense_rank: 8,
-                            away_ppg: 28.4,
-                            away_ppg_allowed: 19.2,
-                            home_offense_rank: 5,
-                            home_defense_rank: 4,
-                            home_ppg: 26.8,
-                            home_ppg_allowed: 17.9
-                        },
-                        team_records: {
-                            away_record: "14-3",
-                            away_ats: "11-6",
-                            home_record: "13-4", 
-                            home_ats: "10-7"
-                        },
-                        matchup_analysis: [
-                            "🔥 MAJOR MISMATCH: Chiefs #3 offense vs Bills #4 defense - Elite vs Elite showdown",
-                            "🏠 HOME FIELD: Bills defense at home allows 2.1 fewer PPG"
-                        ],
-                        trends: {
-                            positive: "Chiefs are 8-2 ATS as road dogs • Bills UNDER is 12-5 at home",
-                            negative: "Chiefs 1-4 ATS in last 5 road games • Bills struggle vs mobile QBs"
-                        },
-                        head_to_head: {
-                            last_5: "Chiefs 3-2 SU, Bills 3-2 ATS",
-                            total_trend: "UNDER 4-1 in last 5 meetings",
-                            home_advantage: "Bills 7-3 SU at home vs Chiefs"
-                        },
-                        current_lines: {
-                            spread: "Bills -2.5 (-110)",
-                            total: "O/U 48.5 (-110)",
-                            moneyline: "Bills -140 / Chiefs +120"
-                        },
-                        line_movement: {
-                            spread_movement: "Moved from -1.5 to -2.5",
-                            total_movement: "Down from 50.5 to 48.5"
-                        },
-                        betting_recommendations: [
-                            {
-                                bet: "UNDER 48.5",
-                                reasoning: "Weather and strong defenses limit scoring potential",
-                                confidence: 85,
-                                unit_size: "2u",
-                                book: "FanDuel",
-                                intel_edge: "Weather gives 4.2 point edge to UNDER"
-                            }
-                        ],
-                        parlay_legs: ["Chiefs +2.5", "UNDER 48.5"]
-                    }
-                ],
-                parlays: [],
-                weather_alerts: [],
-                line_movements: [],
-                performance: { season_record: {wins: 15, losses: 8}, win_rate: 65.2 }
-            };
-        }
+        function updateDashboard() {
+            if (!dashboardData) return;
 
-        function createCFBDemoData() {
-            return {
-                last_update: new Date().toISOString(),
-                league: "CFB",
-                summary: {
-                    total_games: 0,
-                    total_bets: 0,
-                    high_confidence_bets: 0,
-                    weather_impacted_games: 0,
-                    significant_line_moves: 0,
-                    average_confidence: 0,
-                    ranked_games: 0
-                },
-                games: [],
-                parlays: [],
-                weather_alerts: [],
-                line_movements: [],
-                performance: { season_record: {wins: 0, losses: 0}, win_rate: 0 }
-            };
-        }
-
-        function updateNFLDashboard() {
-            if (!nflData) return;
-
-            // Update NFL stats
-            document.getElementById('nfl-totalGames').textContent = nflData.summary.total_games;
-            document.getElementById('nfl-highConfidenceBets').textContent = nflData.summary.high_confidence_bets;
-            document.getElementById('nfl-weatherGames').textContent = nflData.summary.weather_impacted_games;
-            document.getElementById('nfl-lineMovements').textContent = nflData.summary.significant_line_moves;
-            document.getElementById('nfl-avgConfidence').textContent = nflData.summary.average_confidence.toFixed(1) + '%';
-            document.getElementById('nfl-winRate').textContent = nflData.performance.win_rate.toFixed(1) + '%';
-            
             // Update last update time
-            const lastUpdate = new Date(nflData.last_update);
-            document.getElementById('lastUpdate').textContent = lastUpdate.toLocaleTimeString();
+            const lastUpdate = new Date(dashboardData.last_update).toLocaleString();
+            document.getElementById('lastUpdate').textContent = `Last Updated: ${lastUpdate}`;
+
+            // Update stats
+            const summary = dashboardData.summary || {};
+            document.getElementById('totalGames').textContent = summary.total_games || 0;
+            document.getElementById('totalBets').textContent = summary.total_bets || 0;
+            document.getElementById('highConfidenceBets').textContent = summary.high_confidence_bets || 0;
+            document.getElementById('avgConfidence').textContent = Math.round(summary.average_confidence || 0) + '%';
 
             // Update NFL games
-            updateNFLGames();
+            updateGamesSection('nfl', dashboardData.nfl_games || []);
             
-            // Update NFL performance chart
-            updateNFLPerformanceChart();
-        }
-
-        function updateCFBDashboard() {
-            if (!cfbData) return;
-
-            // Update CFB stats
-            document.getElementById('cfb-totalGames').textContent = cfbData.summary.total_games;
-            document.getElementById('cfb-highConfidenceBets').textContent = cfbData.summary.high_confidence_bets;
-            document.getElementById('cfb-rankedGames').textContent = cfbData.summary.ranked_games || 0;
-            document.getElementById('cfb-avgConfidence').textContent = cfbData.summary.average_confidence.toFixed(1) + '%';
-            document.getElementById('cfb-conferenceGames').textContent = cfbData.summary.conference_games || 0;
-            document.getElementById('cfb-winRate').textContent = cfbData.performance.win_rate.toFixed(1) + '%';
-
             // Update CFB games
-            updateCFBGames();
-            
-            // Update CFB performance chart
-            updateCFBPerformanceChart();
+            updateGamesSection('cfb', dashboardData.cfb_games || []);
+
+            // Update PrizePicks
+            updatePrizePicksSection(dashboardData.prizepicks_props || {});
         }
 
-        function updateNFLGames() {
-            const container = document.getElementById('nfl-gamesContainer');
+        function updateGamesSection(league, games) {
+            const container = document.getElementById(league + 'Games');
             
-            if (!nflData.games || nflData.games.length === 0) {
-                container.innerHTML = '<div class="error">No NFL games found<button class="refresh-btn" onclick="loadNFLData()">Refresh</button></div>';
+            if (!games || games.length === 0) {
+                container.innerHTML = `<div class="loading">No ${league.toUpperCase()} games available</div>`;
                 return;
             }
 
-            container.innerHTML = nflData.games.map(game => {
-                const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
-                                      game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
-                
-                const hasWeatherAlert = game.weather && game.weather.impact !== 'neutral';
-                
+            const gamesHtml = games.map(game => {
+                const analysis = game.ai_analysis || {};
+                const confidence = analysis.overall_confidence || 50;
+                const recommendations = analysis.betting_recommendations || [];
+
                 return `
-                    <div class="game-card ${confidenceClass}">
-                        <div class="game-header">
-                            <div class="matchup">${game.matchup}</div>
-                            <div class="confidence-badge">${game.ai_confidence}% AI</div>
+                    <div class="game-card">
+                        <div class="matchup">${game.matchup}</div>
+                        <div class="game-details">
+                            <span>${game.date} ${game.time}</span>
+                            <span>${game.league}</span>
                         </div>
-                        
-                        <div style="color: #a0a0a0; margin-bottom: 15px;">
-                            📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${confidence}%"></div>
                         </div>
-
-                        ${hasWeatherAlert ? `
-                            <div class="weather-alert">
-                                🌤️ ${game.weather.betting_advice ? game.weather.betting_advice[0] : 'Weather Impact'}
-                            </div>
-                        ` : ''}
-
-                        <!-- ENHANCED TEAM INTEL SECTION -->
-                        <div class="team-intel-section">
-                            <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                                🔥 TEAM INTEL & MATCHUP ANALYSIS
-                            </h4>
-                            
-                            <!-- Team Rankings Grid -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                                <div class="team-stats">
-                                    <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
-                                        ${game.away_team || game.matchup.split(' @ ')[0]}
-                                    </div>
-                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                        🏈 Offense: #${game.team_rankings?.away_offense_rank || 'N/A'} (${game.team_rankings?.away_ppg || 'N/A'} PPG)<br>
-                                        🛡️ Defense: #${game.team_rankings?.away_defense_rank || 'N/A'} (${game.team_rankings?.away_ppg_allowed || 'N/A'} allowed)<br>
-                                        🏠 Record: ${game.team_records?.away_record || 'N/A'}<br>
-                                        📊 ATS: ${game.team_records?.away_ats || 'N/A'}
-                                    </div>
-                                </div>
-                                <div class="team-stats">
-                                    <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">
-                                        ${game.home_team || game.matchup.split(' @ ')[1]}
-                                    </div>
-                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                        🏈 Offense: #${game.team_rankings?.home_offense_rank || 'N/A'} (${game.team_rankings?.home_ppg || 'N/A'} PPG)<br>
-                                        🛡️ Defense: #${game.team_rankings?.home_defense_rank || 'N/A'} (${game.team_rankings?.home_ppg_allowed || 'N/A'} allowed)<br>
-                                        🏠 Record: ${game.team_records?.home_record || 'N/A'}<br>
-                                        📊 ATS: ${game.team_records?.home_ats || 'N/A'}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Mismatch Analysis -->
-                            ${game.matchup_analysis ? `
-                                <div style="background: rgba(255,107,53,0.1); border-left: 3px solid #ff6b35; padding: 12px; margin: 15px 0; border-radius: 8px;">
-                                    <div style="font-weight: 600; color: #ff6b35; margin-bottom: 8px;">⚔️ KEY MISMATCHES</div>
-                                    ${game.matchup_analysis.map(analysis => `
-                                        <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-
-                            <!-- Trends & History -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
-                                <div style="background: rgba(75,222,128,0.1); padding: 12px; border-radius: 8px;">
-                                    <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">📈 HOT TRENDS</div>
-                                    <div style="font-size: 0.85rem; color: #a0a0a0;">
-                                        ${game.trends?.positive || 'Loading trends...'}
-                                    </div>
-                                </div>
-                                <div style="background: rgba(239,68,68,0.1); padding: 12px; border-radius: 8px;">
-                                    <div style="font-weight: 600; color: #ef4444; margin-bottom: 8px;">📉 COLD TRENDS</div>
-                                    <div style="font-size: 0.85rem; color: #a0a0a0;">
-                                        ${game.trends?.negative || 'Loading trends...'}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Head to Head -->
-                            ${game.head_to_head ? `
-                                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin: 15px 0;">
-                                    <div style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">⚔️ HEAD TO HEAD</div>
-                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                        Last 5 meetings: ${game.head_to_head.last_5 || 'N/A'}<br>
-                                        Total trend: ${game.head_to_head.total_trend || 'N/A'}<br>
-                                        Home team advantage: ${game.head_to_head.home_advantage || 'N/A'}
-                                    </div>
-                                </div>
-                            ` : ''}
+                        <div style="text-align: center; margin: 10px 0;">
+                            <strong>AI Confidence: ${confidence}%</strong>
                         </div>
-
-                        <!-- CURRENT LINES & MOVEMENT -->
-                        <div class="lines-section">
-                            <h4 style="color: #ff6b35; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-                                📊 CURRENT LINES & MOVEMENT
-                            </h4>
-                            
-                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                                <div class="line-item">
-                                    <div style="font-weight: 600; color: #4ade80;">SPREAD</div>
-                                    <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.spread || 'Loading...'}</div>
-                                    <div style="font-size: 0.8rem; color: ${game.line_movement?.spread_direction === 'up' ? '#4ade80' : '#ef4444'};">
-                                        ${game.line_movement?.spread_movement || 'No movement'}
-                                    </div>
-                                </div>
-                                <div class="line-item">
-                                    <div style="font-weight: 600; color: #4ade80;">TOTAL</div>
-                                    <div style="font-size: 1.2rem; margin: 5px 0;">${game.current_lines?.total || 'Loading...'}</div>
-                                    <div style="font-size: 0.8rem; color: ${game.line_movement?.total_direction === 'up' ? '#4ade80' : '#ef4444'};">
-                                        ${game.line_movement?.total_movement || 'No movement'}
-                                    </div>
-                                </div>
-                                <div class="line-item">
-                                    <div style="font-weight: 600; color: #4ade80;">MONEYLINE</div>
-                                    <div style="font-size: 1.1rem; margin: 5px 0;">${game.current_lines?.moneyline || 'Loading...'}</div>
-                                    <div style="font-size: 0.8rem; color: #a0a0a0;">
-                                        ${game.line_movement?.ml_movement || 'Stable'}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- AI BETTING ANALYSIS -->
-                        <div class="bets-container">
-    <h4 style="color: #4ade80; margin-bottom: 15px;">🔒 LOCK BETS</h4>
-    ${(game.betting_recommendations || []).filter(bet => bet.confidence >= 75).map(bet => `
-        <div class="bet-item">
-            <div class="bet-header">
-                <div class="bet-text" style="font-size: 1.2rem; font-weight: 700; color: #4ade80;">
-                    ${bet.bet}
-                </div>
-                <div class="bet-units" style="background: #4ade80; color: #000;">
-                    ${bet.unit_size} | ${bet.confidence}%
-                </div>
-            </div>
-            <div class="bet-reasoning" style="margin-top: 8px;">
-                ${bet.reasoning}
-            </div>
-            <div style="margin-top: 8px; font-size: 0.9rem; color: #66ff66;">
-                🎯 <strong>${bet.intel_edge || 'High Confidence Play'}</strong>
-            </div>
-        </div>
-    `).join('')}
-</div>
-
-                        <!-- PARLAY OPPORTUNITIES -->
-                        ${game.parlay_legs ? `
-                            <div class="parlay-opportunities" style="background: rgba(75,222,128,0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
-                                <div style="font-weight: 600; color: #4ade80; margin-bottom: 10px;">🎲 PARLAY LEGS AVAILABLE</div>
-                                ${game.parlay_legs.map(leg => `
-                                    <div style="font-size: 0.9rem; margin-bottom: 5px;">• ${leg}</div>
-                                `).join('')}
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function updateCFBGames() {
-            const container = document.getElementById('cfb-gamesContainer');
-            
-            if (!cfbData.games || cfbData.games.length === 0) {
-                container.innerHTML = `
-                    <div class="error">
-                        <h3>🏈 CFB Season Not Started</h3>
-                        <p>College Football season starts in late August. Check back soon!</p>
-                        <button class="refresh-btn" onclick="loadCFBData()">Refresh</button>
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = cfbData.games.map(game => {
-                const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
-                                      game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
-                
-                return `
-                    <div class="game-card ${confidenceClass}">
-                        <div class="game-header">
-                            <div class="matchup">
-                                ${game.matchup}
-                                ${game.away_rank !== 'NR' ? `<span class="cfb-ranking">${game.away_rank}</span>` : ''}
-                                ${game.home_rank !== 'NR' ? `<span class="cfb-ranking">${game.home_rank}</span>` : ''}
-                            </div>
-                            <div class="confidence-badge">${game.ai_confidence}% AI</div>
-                        </div>
-                        
-                        <div style="color: #a0a0a0; margin-bottom: 15px;">
-                            📅 ${game.date} ${game.time} | Week ${game.week} | 🎯 Projected: ${game.projected_total}
-                            <br>
-                            <span class="cfb-conference">${game.away_conference}</span> vs <span class="cfb-conference">${game.home_conference}</span>
-                        </div>
-
-                        <!-- CFB TEAM INTEL -->
-                        <div class="team-intel-section">
-                            <h4 style="color: #0066cc; margin-bottom: 15px;">🏈 CFB TEAM INTEL & RANKINGS</h4>
-                            
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                                <div class="team-stats">
-                                    <div style="font-weight: 600; color: #66b3ff; margin-bottom: 8px;">
-                                        ${game.away_team} ${game.away_rank !== 'NR' ? game.away_rank : ''}
-                                    </div>
-                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                        🏫 Conference: ${game.away_conference}<br>
-                                        🏈 Ranking: ${game.team_rankings?.away_ranking || 'NR'}<br>
-                                        📊 PPG: ${game.team_rankings?.away_ppg || 'N/A'}<br>
-                                        🛡️ Allowed: ${game.team_rankings?.away_ppg_allowed || 'N/A'}
-                                    </div>
-                                </div>
-                                <div class="team-stats">
-                                    <div style="font-weight: 600; color: #66b3ff; margin-bottom: 8px;">
-                                        ${game.home_team} ${game.home_rank !== 'NR' ? game.home_rank : ''}
-                                    </div>
-                                    <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                        🏫 Conference: ${game.home_conference}<br>
-                                        🏈 Ranking: ${game.team_rankings?.home_ranking || 'NR'}<br>
-                                        📊 PPG: ${game.team_rankings?.home_ppg || 'N/A'}<br>
-                                        🛡️ Allowed: ${game.team_rankings?.home_ppg_allowed || 'N/A'}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- CFB Specific Analysis -->
-                            ${game.matchup_analysis ? `
-                                <div style="background: rgba(0,102,204,0.1); border-left: 3px solid #0066cc; padding: 12px; margin: 15px 0; border-radius: 8px;">
-                                    <div style="font-weight: 600; color: #0066cc; margin-bottom: 8px;">🏆 CFB ANALYSIS</div>
-                                    ${game.matchup_analysis.map(analysis => `
-                                        <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-                        </div>
-
-                        <!-- CFB BETTING RECOMMENDATIONS -->
-                        <div class="bets-container">
-                            <h4 style="color: #0066cc; margin-bottom: 15px;">🤖 CFB AI BETTING RECOMMENDATIONS</h4>
-                            ${game.betting_recommendations.map(bet => `
+                        <div class="bets-list">
+                            ${recommendations.slice(0, 2).map(bet => `
                                 <div class="bet-item">
-                                    <div class="bet-header">
-                                        <div class="bet-text">${bet.bet}</div>
-                                        <div class="bet-units">${bet.unit_size}</div>
-                                    </div>
-                                    <div class="bet-reasoning">${bet.reasoning}</div>
-                                    ${bet.intel_edge ? `
-                                        <div style="background: rgba(0,102,204,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
-                                            🎯 <strong>CFB Edge:</strong> ${bet.intel_edge}
-                                        </div>
-                                    ` : ''}
-                                    <div style="margin-top: 8px; font-size: 0.8rem; color: #66b3ff;">
-                                        📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
-                                    </div>
+                                    <div class="bet-recommendation">${bet.bet} (${bet.confidence}%)</div>
+                                    <div class="bet-reasoning">${bet.reasoning.substring(0, 100)}...</div>
                                 </div>
                             `).join('')}
+                            ${recommendations.length === 0 ? '<div class="bet-item"><div class="bet-recommendation">Analysis in progress...</div></div>' : ''}
                         </div>
                     </div>
                 `;
             }).join('');
+
+            container.innerHTML = gamesHtml;
         }
 
-        function loadAllLocksData() {
-    const container = document.getElementById('all-gamesContainer');
-    
-    // Combine high confidence bets from both sports
-    let allLocks = [];
-    
-    if (nflData && nflData.games) {
-        nflData.games.forEach(game => {
-            if (game.ai_confidence >= 75 && game.betting_recommendations) {
-                const highConfBets = game.betting_recommendations.filter(bet => bet.confidence >= 75);
-                if (highConfBets.length > 0) {
-                    allLocks.push({...game, sport: 'NFL', highConfBets});
-                }
-            }
-        });
-    }
-    
-    if (cfbData && cfbData.games) {
-        cfbData.games.forEach(game => {
-            if (game.ai_confidence >= 75 && game.betting_recommendations) {
-                const highConfBets = game.betting_recommendations.filter(bet => bet.confidence >= 75);
-                if (highConfBets.length > 0) {
-                    allLocks.push({...game, sport: 'CFB', highConfBets});
-                }
-            }
-        });
-    }if (nbaData && nbaData.games) {
-    nbaData.games.forEach(game => {
-        if (game.ai_confidence >= 75 && game.betting_recommendations) {
-            const highConfBets = game.betting_recommendations.filter(bet => bet.confidence >= 75);
-            if (highConfBets.length > 0) {
-                allLocks.push({...game, sport: 'NBA', highConfBets});
-            }
-        }
-    });
-}
-    
-    // Sort by confidence
-    allLocks.sort((a, b) => b.ai_confidence - a.ai_confidence);
-    
-    if (allLocks.length === 0) {
-        container.innerHTML = `
-            <div class="error">
-                <h3>🔥 No Lock Bets Available</h3>
-                <p>No games currently meet the 75%+ confidence threshold.</p>
-                <button class="refresh-btn" onclick="loadNFLData(); loadCFBData();">Refresh All Data</button>
-            </div>
-        `;
-        return;
-    }
-    
-    container.innerHTML = allLocks.map(game => `
-        <div class="game-card confidence-high">
-            <div class="game-header">
-                <div class="matchup">
-                    <span style="background: ${game.sport === 'NFL' ? '#ff6b35' : '#0066cc'}; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; margin-right: 10px;">
-                        ${game.sport}
-                    </span>
-                    ${game.matchup}
-                </div>
-                <div class="confidence-badge">${game.ai_confidence}% AI</div>
-            </div>
-            
-            <div style="color: #a0a0a0; margin-bottom: 15px;">
-                📅 ${game.date} ${game.time} | 🎯 Projected: ${game.projected_total}
-            </div>
+        function updatePrizePicksSection(prizePicksData) {
+            const container = document.getElementById('prizePicksProps');
+            const props = prizePicksData.props || [];
 
-            <div class="bets-container">
-                <h4 style="color: #4ade80; margin-bottom: 15px;">🔒 LOCK BETS</h4>
-                ${game.highConfBets.map(bet => `
-                    <div class="bet-item">
-                        <div class="bet-header">
-                            <div class="bet-text" style="font-size: 1.2rem; font-weight: 700; color: #4ade80;">
-                                ${bet.bet}
-                            </div>
-                            <div class="bet-units" style="background: #4ade80; color: #000;">
-                                ${bet.unit_size} | ${bet.confidence}%
-                            </div>
-                        </div>
-                        <div class="bet-reasoning" style="margin-top: 8px;">
-                            ${bet.reasoning}
-                        </div>
-                        <div style="margin-top: 8px; font-size: 0.9rem; color: #66ff66;">
-                            🎯 <strong>${bet.intel_edge || 'High Confidence Play'}</strong>
-                        </div>
+            if (props.length === 0) {
+                container.innerHTML = '<div class="loading">No PrizePicks props available</div>';
+                return;
+            }
+
+            const propsHtml = props.map(prop => `
+                <div class="prop-card">
+                    <div class="prop-player">${prop.player}</div>
+                    <div class="prop-details">
+                        ${prop.stat_type}: ${prop.line}
+                        <br>
+                        ${prop.game}
                     </div>
-                `).join('')}
-            </div>
-        </div>
-    `).join('');
-}
+                    <div class="prop-recommendation">
+                        <span style="color: ${prop.recommendation === 'OVER' ? '#48bb78' : prop.recommendation === 'UNDER' ? '#f56565' : '#fbb034'}; font-weight: bold;">
+                            ${prop.recommendation}
+                        </span>
+                        <span>${prop.confidence}%</span>
+                    </div>
+                    <div style="font-size: 0.9rem; margin-top: 10px; opacity: 0.9;">
+                        ${prop.reasoning}
+                    </div>
+                </div>
+            `).join('');
 
-        function updateNFLPerformanceChart() {
-            const ctx = document.getElementById('nfl-performanceChart').getContext('2d');
-            
-            const chartData = {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
-                datasets: [{
-                    label: 'NFL Profit/Loss',
-                    data: [150, -50, 300, 200, -100, 450],
-                    borderColor: '#ff6b35',
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            };
-
-            new Chart(ctx, {
-                type: 'line',
-                data: chartData,
-                options: {
-                    responsive: true,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { color: '#a0a0a0' }
-                        },
-                        x: {
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { color: '#a0a0a0' }
-                        }
-                    }
-                }
-            });
+            container.innerHTML = propsHtml;
         }
 
-        function updateCFBPerformanceChart() {
-            const ctx = document.getElementById('cfb-performanceChart').getContext('2d');
+        function toggleSection(section) {
+            sectionsVisible[section] = !sectionsVisible[section];
+            const container = document.getElementById(section + 'Games');
             
-            const chartData = {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
-                datasets: [{
-                    label: 'CFB Profit/Loss',
-                    data: [200, 100, 350, 150, 250, 400],
-                    borderColor: '#0066cc',
-                    backgroundColor: 'rgba(0, 102, 204, 0.1)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            };
-
-            new Chart(ctx, {
-                type: 'line',
-                data: chartData,
-                options: {
-                    responsive: true,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { color: '#a0a0a0' }
-                        },
-                        x: {
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            ticks: { color: '#a0a0a0' }
-                        }
-                    }
-                }
-            });
-        }
-
-        function scrollToSection(section) {
-            const element = document.querySelector(`.${section}-grid, #${section}Section, #${section}Alerts`);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+            if (sectionsVisible[section]) {
+                container.classList.remove('hidden');
+            } else {
+                container.classList.add('hidden');
             }
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            document.body.insertBefore(errorDiv, document.body.firstChild);
+            
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
         }
 
         // Auto-refresh every 5 minutes
-        setInterval(() => {
-            if (currentSport === 'nfl') loadNFLData();
-            if (currentSport === 'cfb') loadCFBData();
-        }, 300000);
-
-        // Initial load
-        loadNFLData();
-        // Load NBA dashboard data
-async function loadNBAData() {
-    try {
-        const response = await fetch('./nba_dashboard_data.json').catch(() =>
-            fetch('https://raw.githubusercontent.com/whatabarber/explosive-betting-dashboard/main/nba_dashboard_data.json')
-        );
-        
-        if (response && response.ok) {
-            nbaData = await response.json();
-            console.log('✅ Loaded NBA data!', nbaData);
-        } else {
-            console.log('⚠️ Using NBA demo data');
-            nbaData = createNBADemoData();
+        function startAutoRefresh() {
+            setInterval(() => {
+                console.log('Auto-refreshing dashboard data...');
+                loadDashboardData();
+            }, 300000); // 5 minutes
         }
-        
-        updateNBADashboard();
-    } catch (error) {
-        console.error('Error loading NBA data:', error);
-        nbaData = createNBADemoData();
-        updateNBADashboard();
-    }
-}
 
-function createNBADemoData() {
-    return {
-        last_update: new Date().toISOString(),
-        league: "NBA",
-        summary: {
-            total_games: 0,
-            total_bets: 0,
-            high_confidence_bets: 0,
-            back_to_back_games: 0,
-            significant_line_moves: 0,
-            average_confidence: 0,
-            player_props: 0
-        },
-        games: [],
-        parlays: [],
-        weather_alerts: [],
-        line_movements: [],
-        performance: { season_record: {wins: 0, losses: 0}, win_rate: 0 }
-    };
-}
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+            startAutoRefresh();
+        });
 
-function updateNBADashboard() {
-    if (!nbaData) return;
-
-    // Update NBA stats
-    document.getElementById('nba-totalGames').textContent = nbaData.summary.total_games;
-    document.getElementById('nba-highConfidenceBets').textContent = nbaData.summary.high_confidence_bets;
-    document.getElementById('nba-backToBackGames').textContent = nbaData.summary.back_to_back_games || 0;
-    document.getElementById('nba-avgConfidence').textContent = nbaData.summary.average_confidence.toFixed(1) + '%';
-    document.getElementById('nba-playerProps').textContent = nbaData.summary.player_props || 0;
-    document.getElementById('nba-winRate').textContent = nbaData.performance.win_rate.toFixed(1) + '%';
-
-    // Update NBA games
-    updateNBAGames();
-    
-    // Update NBA performance chart
-    updateNBAPerformanceChart();
-}
-
-function updateNBAGames() {
-    const container = document.getElementById('nba-gamesContainer');
-    
-    if (!nbaData.games || nbaData.games.length === 0) {
-        container.innerHTML = `
-            <div class="error">
-                <h3>🏀 NBA Season Not Started</h3>
-                <p>NBA season starts in October. Check back soon!</p>
-                <button class="refresh-btn" onclick="loadNBAData()">Refresh</button>
-            </div>
-        `;
-        return;
-    }
-
-    container.innerHTML = nbaData.games.map(game => {
-        const confidenceClass = game.ai_confidence >= 75 ? 'confidence-high' : 
-                              game.ai_confidence >= 60 ? 'confidence-medium' : 'confidence-low';
-        
-        return `
-            <div class="game-card ${confidenceClass}">
-                <div class="game-header">
-                    <div class="matchup">
-                        ${game.matchup}
-                        ${game.is_back_to_back?.away ? '<span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 8px;">B2B</span>' : ''}
-                        ${game.is_back_to_back?.home ? '<span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 8px;">HOME B2B</span>' : ''}
-                    </div>
-                    <div class="confidence-badge">${game.ai_confidence}% AI</div>
-                </div>
-                
-                <div style="color: #a0a0a0; margin-bottom: 15px;">
-                    📅 ${game.date} ${game.time} | 📺 ${game.tv_coverage} | 🎯 Projected: ${game.projected_total}
-                    <br>
-                    <span style="background: rgba(255,165,0,0.2); color: #ffa500; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; margin-right: 8px;">${game.away_conference}</span> vs 
-                    <span style="background: rgba(255,165,0,0.2); color: #ffa500; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; margin-left: 8px;">${game.home_conference}</span>
-                </div>
-
-                <!-- NBA TEAM INTEL -->
-                <div class="team-intel-section">
-                    <h4 style="color: #ffa500; margin-bottom: 15px;">🏀 NBA TEAM INTEL & PACE</h4>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                        <div class="team-stats">
-                            <div style="font-weight: 600; color: #ffa500; margin-bottom: 8px;">
-                                ${game.away_team}
-                            </div>
-                            <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                🏀 Conference: ${game.away_conference}<br>
-                                📊 PPG: ${game.team_rankings?.away_ppg || 'N/A'}<br>
-                                🏃 Pace: ${game.team_rankings?.away_pace || 'N/A'}<br>
-                                🛡️ Allowed: ${game.team_rankings?.away_ppg_allowed || 'N/A'}
-                            </div>
-                        </div>
-                        <div class="team-stats">
-                            <div style="font-weight: 600; color: #ffa500; margin-bottom: 8px;">
-                                ${game.home_team}
-                            </div>
-                            <div style="font-size: 0.9rem; color: #a0a0a0;">
-                                🏀 Conference: ${game.home_conference}<br>
-                                📊 PPG: ${game.team_rankings?.home_ppg || 'N/A'}<br>
-                                🏃 Pace: ${game.team_rankings?.home_pace || 'N/A'}<br>
-                                🛡️ Allowed: ${game.team_rankings?.home_ppg_allowed || 'N/A'}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NBA Specific Analysis -->
-                    ${game.matchup_analysis ? `
-                        <div style="background: rgba(255,165,0,0.1); border-left: 3px solid #ffa500; padding: 12px; margin: 15px 0; border-radius: 8px;">
-                            <div style="font-weight: 600; color: #ffa500; margin-bottom: 8px;">🏀 NBA ANALYSIS</div>
-                            ${game.matchup_analysis.map(analysis => `
-                                <div style="font-size: 0.9rem; margin-bottom: 5px;">${analysis}</div>
-                            `).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-
-                <!-- NBA BETTING RECOMMENDATIONS -->
-                <div class="bets-container">
-                    <h4 style="color: #ffa500; margin-bottom: 15px;">🤖 NBA AI BETTING RECOMMENDATIONS</h4>
-                    ${game.betting_recommendations.map(bet => `
-                        <div class="bet-item">
-                            <div class="bet-header">
-                                <div class="bet-text">${bet.bet}</div>
-                                <div class="bet-units">${bet.unit_size}</div>
-                            </div>
-                            <div class="bet-reasoning">${bet.reasoning}</div>
-                            ${bet.intel_edge ? `
-                                <div style="background: rgba(255,165,0,0.1); padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem;">
-                                    🎯 <strong>NBA Edge:</strong> ${bet.intel_edge}
-                                </div>
-                            ` : ''}
-                            <div style="margin-top: 8px; font-size: 0.8rem; color: #ffa500;">
-                                📊 ${bet.confidence}% confidence | 🏪 ${bet.book}
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-
-                <!-- PLAYER PROPS -->
-                ${game.player_props && game.player_props.length > 0 ? `
-                    <div style="background: rgba(255,165,0,0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
-                        <div style="font-weight: 600; color: #ffa500; margin-bottom: 10px;">⭐ PLAYER PROPS</div>
-                        ${game.player_props.map(prop => `
-                            <div style="font-size: 0.9rem; margin-bottom: 5px;">• ${prop.bet}</div>
-                        `).join('')}
-                    </div>
-                ` : ''}
-            </div>
-        `;
-    }).join('');
-}
-
-function updateNBAPerformanceChart() {
-    const ctx = document.getElementById('nba-performanceChart').getContext('2d');
-    
-    const chartData = {
-        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
-        datasets: [{
-            label: 'NBA Profit/Loss',
-            data: [180, 120, 280, 200, 150, 320],
-            borderColor: '#ffa500',
-            backgroundColor: 'rgba(255, 165, 0, 0.1)',
-            tension: 0.4,
-            fill: true
-        }]
-    };
-
-    new Chart(ctx, {
-        type: 'line',
-        data: chartData,
-        options: {
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                    ticks: { color: '#a0a0a0' }
-                },
-                x: {
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                    ticks: { color: '#a0a0a0' }
-                }
+        // Manual refresh button
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                loadDashboardData();
             }
-        }
-    });
-}
- async function loadPrizePicksData() {
-    try {
-        // Try to fetch from your PrizePicks site
-        const propsResponse = await fetch('https://betting-git-main-whatabarbers-projects.vercel.app/data/props.json');
-        const gamesResponse = await fetch('https://betting-git-main-whatabarbers-projects.vercel.app/data/games.json');
-        
-        if (propsResponse.ok && gamesResponse.ok) {
-            const props = await propsResponse.json();
-            const games = await gamesResponse.json();
-            
-            prizePicksData = {
-                props: props,
-                games: games,
-                last_update: new Date().toISOString()
-            };
-            
-            console.log('✅ Loaded PrizePicks data!', prizePicksData);
-        } else {
-            prizePicksData = createPrizePicksDemoData();
-        }
-        
-        updatePrizePicksStats();
-    } catch (error) {
-        console.error('Error loading PrizePicks data:', error);
-        prizePicksData = createPrizePicksDemoData();
-        updatePrizePicksStats();
-    }
-}
-
-function createPrizePicksDemoData() {
-    return {
-        props: [],
-        games: [],
-        last_update: new Date().toISOString()
-    };
-}
-
-function updatePrizePicksStats() {
-    if (!prizePicksData) return;
-    
-    const totalProps = prizePicksData.props.length;
-    const highEdgeProps = prizePicksData.props.filter(p => parseFloat(p.edge) > 5).length;
-    const bovadaGames = prizePicksData.games.length;
-    const sharpPlays = prizePicksData.games.filter(g => parseFloat(g.sharp_pct) > 65).length;
-    
-    document.getElementById('pp-totalProps').textContent = totalProps;
-    document.getElementById('pp-highEdge').textContent = highEdgeProps;
-    document.getElementById('pp-bovadaGames').textContent = bovadaGames;
-    document.getElementById('pp-sharpMoney').textContent = sharpPlays;
-}       
+        });
     </script>
 </body>
 </html>
