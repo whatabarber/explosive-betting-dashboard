@@ -1,13 +1,13 @@
 {
-  "last_update": "2025-09-02T08:21:05.864882",
-  "timestamp": "2025-09-02 08:21:05 EST",
+  "last_update": "2025-09-02T08:38:34.943927",
+  "timestamp": "2025-09-02 08:38:34 EST",
   "summary": {
     "total_games": 185,
     "nfl_games": 32,
     "cfb_games": 153,
-    "total_bets": 121,
-    "high_confidence_bets": 51,
-    "average_confidence": 60.11891891891892,
+    "total_bets": 127,
+    "high_confidence_bets": 57,
+    "average_confidence": 60.556756756756755,
     "top_games": [
       {
         "league": "CFB",
@@ -3587,8 +3587,8 @@
             "type": "spread"
           },
           {
-            "bet": "BET OVER 46.5 (-110)",
-            "reasoning": "OVER 46.5 - Line off by 13.5 points",
+            "bet": "BET OVER 45.5 (-112)",
+            "reasoning": "OVER 45.5 - Line off by 14.5 points",
             "confidence": 75,
             "unit_size": "1u",
             "book": "DraftKings",
@@ -4263,8 +4263,25 @@
           "Date: 2025-09-06 at 11:00 PM EST",
           "Venue: Jerry Richardson Stadium"
         ],
-        "betting_recommendations": [],
-        "overall_confidence": 50,
+        "betting_recommendations": [
+          {
+            "bet": "BET Charlotte 49ers +17.5 (-115)",
+            "reasoning": "Value play in CFB: Charlotte 49ers +17.5 (Large spread - fade the public)",
+            "confidence": 80,
+            "unit_size": "1u",
+            "book": "FanDuel",
+            "type": "spread"
+          },
+          {
+            "bet": "BET OVER 47.5 (-110)",
+            "reasoning": "OVER 47.5 - Line off by 12.5 points",
+            "confidence": 75,
+            "unit_size": "1u",
+            "book": "FanDuel",
+            "type": "total"
+          }
+        ],
+        "overall_confidence": 77,
         "projected_total": 58.5,
         "current_lines": {},
         "team_stats": {
@@ -6504,8 +6521,25 @@
           "Date: 2025-09-13 at 07:30 PM EST",
           "Venue: Neyland Stadium"
         ],
-        "betting_recommendations": [],
-        "overall_confidence": 50,
+        "betting_recommendations": [
+          {
+            "bet": "BET Georgia Bulldogs -6.5 (-115)",
+            "reasoning": "Value play in CFB: Georgia Bulldogs -6.5",
+            "confidence": 80,
+            "unit_size": "1u",
+            "book": "FanDuel",
+            "type": "spread"
+          },
+          {
+            "bet": "BET OVER 52.5 (-105)",
+            "reasoning": "OVER 52.5 - Line off by 7.5 points",
+            "confidence": 75,
+            "unit_size": "1u",
+            "book": "FanDuel",
+            "type": "total"
+          }
+        ],
+        "overall_confidence": 77,
         "projected_total": 58.5,
         "current_lines": {},
         "team_stats": {
@@ -7644,8 +7678,25 @@
           "Date: 2025-09-13 at 11:30 PM EST",
           "Venue: Notre Dame Stadium"
         ],
-        "betting_recommendations": [],
-        "overall_confidence": 50,
+        "betting_recommendations": [
+          {
+            "bet": "BET Notre Dame Fighting Irish -6.5 (-110)",
+            "reasoning": "Value play in CFB: Notre Dame Fighting Irish -6.5",
+            "confidence": 80,
+            "unit_size": "1u",
+            "book": "FanDuel",
+            "type": "spread"
+          },
+          {
+            "bet": "BET OVER 49.5 (-110)",
+            "reasoning": "OVER 49.5 - Line off by 10.5 points",
+            "confidence": 75,
+            "unit_size": "1u",
+            "book": "FanDuel",
+            "type": "total"
+          }
+        ],
+        "overall_confidence": 77,
         "projected_total": 58.5,
         "current_lines": {},
         "team_stats": {
