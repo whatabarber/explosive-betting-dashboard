@@ -1,61 +1,14 @@
 {
-  "last_update": "2025-09-02T08:38:34.943927",
-  "timestamp": "2025-09-02 08:38:34 EST",
+  "last_update": "2025-09-02T10:05:36.182878",
+  "timestamp": "2025-09-02 10:05:36 EST",
   "summary": {
     "total_games": 185,
     "nfl_games": 32,
     "cfb_games": 153,
-    "total_bets": 127,
-    "high_confidence_bets": 57,
-    "average_confidence": 60.556756756756755,
+    "total_bets": 128,
+    "high_confidence_bets": 58,
+    "average_confidence": 60.45945945945946,
     "top_games": [
-      {
-        "league": "CFB",
-        "home_team": "Mississippi State Bulldogs",
-        "away_team": "Arizona State Sun Devils",
-        "matchup": "Arizona State Sun Devils @ Mississippi State Bulldogs",
-        "date": "2025-09-06",
-        "time": "11:30 PM EST",
-        "home_rank": "NR",
-        "away_rank": "#11",
-        "home_record": "1-0",
-        "away_record": "1-0",
-        "status": "Scheduled",
-        "venue": "Davis Wade Stadium",
-        "ai_analysis": {
-          "matchup_analysis": [
-            "CFB Game: #11 Arizona State Sun Devils @ NR Mississippi State Bulldogs",
-            "Records: Arizona State Sun Devils (1-0) @ Mississippi State Bulldogs (1-0)",
-            "Date: 2025-09-06 at 11:30 PM EST",
-            "Venue: Davis Wade Stadium"
-          ],
-          "betting_recommendations": [
-            {
-              "bet": "BET Arizona State Sun Devils -7.0 (-110)",
-              "reasoning": "Value play in CFB: Arizona State Sun Devils -7.0 (Ranked #11 team getting 7.0 points)",
-              "confidence": 95,
-              "unit_size": "1.5u",
-              "book": "DraftKings",
-              "type": "spread"
-            }
-          ],
-          "overall_confidence": 95,
-          "projected_total": 58.5,
-          "current_lines": {},
-          "team_stats": {
-            "home": {
-              "name": "Mississippi State Bulldogs",
-              "rank": "NR",
-              "record": "1-0"
-            },
-            "away": {
-              "name": "Arizona State Sun Devils",
-              "rank": "#11",
-              "record": "1-0"
-            }
-          }
-        }
-      },
       {
         "league": "CFB",
         "home_team": "Texas Tech Red Raiders",
@@ -145,6 +98,61 @@
             "away": {
               "name": "Oklahoma State Cowboys",
               "rank": "NR",
+              "record": "1-0"
+            }
+          }
+        }
+      },
+      {
+        "league": "CFB",
+        "home_team": "Kentucky Wildcats",
+        "away_team": "Ole Miss Rebels",
+        "matchup": "Ole Miss Rebels @ Kentucky Wildcats",
+        "date": "2025-09-06",
+        "time": "07:30 PM EST",
+        "home_rank": "NR",
+        "away_rank": "#21",
+        "home_record": "1-0",
+        "away_record": "1-0",
+        "status": "Scheduled",
+        "venue": "Kroger Field",
+        "ai_analysis": {
+          "matchup_analysis": [
+            "CFB Game: #21 Ole Miss Rebels @ NR Kentucky Wildcats",
+            "Records: Ole Miss Rebels (1-0) @ Kentucky Wildcats (1-0)",
+            "Date: 2025-09-06 at 07:30 PM EST",
+            "Venue: Kroger Field"
+          ],
+          "betting_recommendations": [
+            {
+              "bet": "BET Kentucky Wildcats +10.0 (-108)",
+              "reasoning": "Value play in CFB: Kentucky Wildcats +10.0 (Ranked #21 team getting 10.0 points)",
+              "confidence": 95,
+              "unit_size": "1.5u",
+              "book": "DraftKings",
+              "type": "spread"
+            },
+            {
+              "bet": "BET OVER 52.5 (-105)",
+              "reasoning": "OVER 52.5 - Line off by 7.5 points",
+              "confidence": 85,
+              "unit_size": "1u",
+              "book": "DraftKings",
+              "type": "total"
+            }
+          ],
+          "overall_confidence": 90,
+          "projected_total": 58.5,
+          "current_lines": {},
+          "team_stats": {
+            "home": {
+              "name": "Kentucky Wildcats",
+              "rank": "NR",
+              "record": "1-0"
+            },
+            "away": {
+              "name": "Ole Miss Rebels",
+              "rank": "#21",
               "record": "1-0"
             }
           }
@@ -1830,7 +1838,7 @@
             "type": "spread"
           },
           {
-            "bet": "BET OVER 47.5 (-105)",
+            "bet": "BET OVER 47.5 (-110)",
             "reasoning": "OVER 47.5 - Line off by 12.5 points",
             "confidence": 75,
             "unit_size": "1u",
@@ -3003,8 +3011,8 @@
         ],
         "betting_recommendations": [
           {
-            "bet": "BET Kansas Jayhawks +6.0 (-110)",
-            "reasoning": "Value play in CFB: Kansas Jayhawks +6.0",
+            "bet": "BET Kansas Jayhawks +6.5 (-112)",
+            "reasoning": "Value play in CFB: Kansas Jayhawks +6.5",
             "confidence": 70,
             "unit_size": "1u",
             "book": "DraftKings",
@@ -3121,7 +3129,7 @@
             "type": "spread"
           },
           {
-            "bet": "BET OVER 47.5 (-115)",
+            "bet": "BET OVER 47.5 (-108)",
             "reasoning": "OVER 47.5 - Line off by 12.5 points",
             "confidence": 65,
             "unit_size": "1u",
@@ -3206,8 +3214,8 @@
         ],
         "betting_recommendations": [
           {
-            "bet": "BET Bowling Green Falcons +21.0 (-108)",
-            "reasoning": "Value play in CFB: Bowling Green Falcons +21.0 (Large spread - fade the public)",
+            "bet": "BET Bowling Green Falcons +21.5 (-115)",
+            "reasoning": "Value play in CFB: Bowling Green Falcons +21.5 (Large spread - fade the public)",
             "confidence": 80,
             "unit_size": "1u",
             "book": "DraftKings",
@@ -3780,9 +3788,17 @@
             "unit_size": "1u",
             "book": "DraftKings",
             "type": "spread"
+          },
+          {
+            "bet": "BET UNDER 63.5 (-105)",
+            "reasoning": "UNDER 63.5 - Line off by 3.5 points",
+            "confidence": 75,
+            "unit_size": "1u",
+            "book": "DraftKings",
+            "type": "total"
           }
         ],
-        "overall_confidence": 80,
+        "overall_confidence": 77,
         "projected_total": 58.5,
         "current_lines": {},
         "team_stats": {
@@ -4265,8 +4281,8 @@
         ],
         "betting_recommendations": [
           {
-            "bet": "BET Charlotte 49ers +17.5 (-115)",
-            "reasoning": "Value play in CFB: Charlotte 49ers +17.5 (Large spread - fade the public)",
+            "bet": "BET Charlotte 49ers +14.5 (-115)",
+            "reasoning": "Value play in CFB: Charlotte 49ers +14.5 (Large spread - fade the public)",
             "confidence": 80,
             "unit_size": "1u",
             "book": "FanDuel",
@@ -4506,7 +4522,7 @@
             "type": "spread"
           },
           {
-            "bet": "BET OVER 54.5 (-105)",
+            "bet": "BET OVER 54.5 (-112)",
             "reasoning": "OVER 54.5 - Line off by 5.5 points",
             "confidence": 65,
             "unit_size": "1u",
@@ -4701,15 +4717,15 @@
         ],
         "betting_recommendations": [
           {
-            "bet": "BET Arizona State Sun Devils -7.0 (-110)",
-            "reasoning": "Value play in CFB: Arizona State Sun Devils -7.0 (Ranked #11 team getting 7.0 points)",
-            "confidence": 95,
-            "unit_size": "1.5u",
+            "bet": "BET Arizona State Sun Devils -6.5 (-115)",
+            "reasoning": "Value play in CFB: Arizona State Sun Devils -6.5",
+            "confidence": 80,
+            "unit_size": "1u",
             "book": "DraftKings",
             "type": "spread"
           }
         ],
-        "overall_confidence": 95,
+        "overall_confidence": 80,
         "projected_total": 58.5,
         "current_lines": {},
         "team_stats": {
